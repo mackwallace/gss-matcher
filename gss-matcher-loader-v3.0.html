@@ -262,7 +262,7 @@
           Finding programs where you'll thrive...
         </h2>
         <p style="font-family:Roboto,sans-serif;font-size:15px;color:#6B7280;line-height:1.65;margin:0;">
-          We're going through every physics graduate program in our database and matching it to your research interests, career goals, and preferences. This usually takes 2–3 minutes.
+          We're going through every physics graduate program in our database and matching it to your research interests, career goals, and preferences. This usually takes 3–5 minutes.
         </p>
 
         <!-- Email notice -->
@@ -377,6 +377,28 @@
         </button>
       </div><!-- /ready-content -->
 
+      <!-- ── Error / timeout content ──────────────────── -->
+      <div id="error-content" style="display:none;opacity:0;transition:opacity .6s ease;">
+        <div style="width:64px;height:64px;border-radius:50%;background:#FEF2F2;border:2px solid #FECACA;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 9v6M14 18h.01" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="12" stroke="#EF4444" stroke-width="2"/>
+          </svg>
+        </div>
+        <h2 style="font-family:Rubik,sans-serif;font-weight:700;font-size:22px;color:#3E455E;margin:0 0 10px;">
+          This is taking longer than expected
+        </h2>
+        <p style="font-family:Roboto,sans-serif;font-size:14px;color:#6B7280;line-height:1.65;margin:0 0 22px;">
+          Your results are still being generated — we'll send them to your email when they're ready. You can also try again now.
+        </p>
+        <button class="cta-btn" onclick="window.location.href='gss-matcher-intake-v4.0.html'" style="background:#6B7280;">
+          Try Again
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 9h12M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div><!-- /error-content -->
+
     </div>
   </div>
 </div>
@@ -466,8 +488,9 @@
   ];
 
   /* ── Config ────────────────────────────────────────────────────── */
-  var DEMO_DURATION = 10000;   // 10s for live demos
-  var PROD_DURATION = 180000;  // 3 min — matches stated 2–3 min window; bar eases to 90% then completes on API response
+  var DEMO_DURATION  = 10000;   // 10s for live demos
+  var PROD_DURATION  = 600000;  // 10 min — bar eases to 90% then completes on API response
+  var POLL_TIMEOUT   = 720000;  // 12 min — show error state if no response by then
 
   /* ── State ─────────────────────────────────────────────────────── */
   var progressValue    = 0;
@@ -656,6 +679,20 @@
   /* ── Production: poll Worker until results ready ────────────────── */
   var WORKER_URL = 'https://gss-matcher-proxy.s-mackenzie-wallace.workers.dev';
 
+  function showErrorState() {
+    var loadingEl = document.getElementById('loading-content');
+    var readyEl   = document.getElementById('ready-content');
+    var errorEl   = document.getElementById('error-content');
+    if (loadingEl) loadingEl.style.opacity = '0';
+    if (readyEl)   readyEl.style.display = 'none';
+    setTimeout(function () {
+      if (errorEl) {
+        errorEl.style.display = 'block';
+        requestAnimationFrame(function () { errorEl.style.opacity = '1'; });
+      }
+    }, 500);
+  }
+
   function startLoaderLive(sid) {
     sessionId = sid;
     startLoader(PROD_DURATION);
@@ -668,12 +705,19 @@
         .then(function (data) {
           if (data.status === 'ready') {
             clearInterval(pollInterval);
+            clearTimeout(pollTimeoutTimer);
             responseReceived = true;
             completeProgress();
           }
         })
         .catch(function () {});
     }, 4000);
+
+    // Show error state if no response after POLL_TIMEOUT (12 min)
+    var pollTimeoutTimer = setTimeout(function () {
+      clearInterval(pollInterval);
+      showErrorState();
+    }, POLL_TIMEOUT);
   }
 
   /* ── Auto-start: real session or demo mode ─────────────────────── */

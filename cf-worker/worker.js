@@ -54,7 +54,7 @@ async function checkRateLimit(ip, kv) {
 // ── Main handler ──────────────────────────────────────────────────────────────
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url    = new URL(request.url);
     const origin = request.headers.get('Origin') || 'null';
     const method = request.method;
@@ -108,9 +108,7 @@ export default {
         body:    JSON.stringify(payload),
       }).catch(err => console.error('Cassidy webhook error:', err));
 
-      // ctx.waitUntil keeps the Worker alive while Cassidy processes
-      // (not available as a param here; using the standard pattern below)
-      const ctx = { waitUntil: (p) => p }; // placeholder — see note below
+      // ctx.waitUntil keeps the Worker alive until Cassidy webhook completes
       ctx.waitUntil(cassidyPromise);
 
       return respond({ sessionId }, 202, origin);
