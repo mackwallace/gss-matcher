@@ -654,6 +654,8 @@
   }
 
   /* ── Production: poll Worker until results ready ────────────────── */
+  var WORKER_URL = 'https://gss-matcher-proxy.s-mackenzie-wallace.workers.dev';
+
   function startLoaderLive(sid) {
     sessionId = sid;
     startLoader(PROD_DURATION);
@@ -661,7 +663,7 @@
     responseReceived = false;
 
     var pollInterval = setInterval(function () {
-      fetch('/results/' + sid)
+      fetch(WORKER_URL + '/results/' + sid)
         .then(function (r) { return r.json(); })
         .then(function (data) {
           if (data.status === 'ready') {

@@ -138,8 +138,8 @@ export default {
         try { data = JSON.parse(data); } catch { /* leave as-is */ }
       }
 
-      // Extract sessionId — Cassidy echoes back 'session-id'
-      const sessionId = data['session-id'] || data.sessionId;
+      // Extract sessionId — Cassidy sends as 'session_id' (underscore)
+      const sessionId = data.session_id || data['session-id'] || data.sessionId;
       if (!sessionId) {
         return respond({ error: 'Missing session-id in Cassidy response.' }, 400, origin);
       }
