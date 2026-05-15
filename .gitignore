@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+.firecrawl/
+
+# Node
+node_modules/
+.wrangler/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive / large source files not needed in repo
+gss_programs.json
+gss_programs_v2.json
+gss_programs_v3.json
+gss_programs.txt
+gss_scoring.json
+requirements.txt
+
+# Old versions (keep only current working copies)
+gss-matcher-intake-v1.0.html
+gss-matcher-intake-v2.0.html
+gss-matcher-intake-v3.0.html
+gss-matcher-loader-v1.0.html
+gss-matcher-loader-v2.0.html
+gss-matcher-results-v1.0.html
+
+# Research / internal docs not needed in repo
+deep-research-report-March24-GradSchoolShopper.pdf
+session-notes-2026-05-06.md
+top-product-features.pdf
+v1-prd-ai-engine.pdf
+website-scrape-homepage-2026-05-06.md
+demo-strategy-2026-05-06.md
+"GSS Advanced Program Details.xlsx"

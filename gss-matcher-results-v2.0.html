@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Matches — GradSchoolShopper Personalized Match</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mint:  { DEFAULT: '#77C999', dark: '#4DAB7A', light: '#E8F7EF', deep: '#1A6641' },
+            slate: { brand: '#3E455E', muted: '#6B7280', steel: '#A1B3C9', navy: '#2C3347' },
+            ec:    { teal: '#2A9D8E', navy: '#1B3A5F' },
+            surface: '#F7F9FC',
+            border:  '#E2E6EC',
+          },
+          fontFamily: {
+            heading: ['Rubik', 'sans-serif'],
+            body:    ['Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; color: #3E455E; background: #fff; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    ::-webkit-scrollbar       { width: 5px; }
+    ::-webkit-scrollbar-track { background: #F7F9FC; }
+    ::-webkit-scrollbar-thumb { background: #CFD1D7; border-radius: 9999px; }
+
+    /* ── Entrances ─────────────────── */
+    @keyframes cardIn  { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes heroIn  { from { opacity:0; transform:translateY(8px);  } to { opacity:1; transform:translateY(0); } }
+    @keyframes summIn  { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    .card-enter { opacity:0; animation:cardIn 420ms cubic-bezier(.22,1,.36,1) forwards; }
+    .hero-in    { animation:heroIn 520ms cubic-bezier(.22,1,.36,1) both; }
+    .summ-in    { opacity:0; animation:summIn 500ms cubic-bezier(.22,1,.36,1) 600ms forwards; }
+
+    /* ── Match card ────────────────── */
+    .match-card {
+      background: #fff; border: 1.5px solid #E2E6EC; border-radius: 14px;
+      overflow: hidden; position: relative;
+      transition: box-shadow 220ms ease, border-color 220ms ease, transform 220ms ease;
+    }
+    .match-card::before {
+      content:''; position:absolute; left:0; top:0; bottom:0; width:4px;
+      border-radius:14px 0 0 14px; background:#77C999;
+    }
+    .match-card.rank-4::before,.match-card.rank-5::before { opacity:.55; }
+    .match-card.rank-6::before,.match-card.rank-7::before { opacity:.28; }
+    .match-card:hover { transform:translateY(-2px); border-color:#B8C4D0; box-shadow:0 8px 28px rgba(62,69,94,.09); }
+    .match-card.top-card { box-shadow:0 4px 20px rgba(119,201,153,.16); border-color:rgba(119,201,153,.32); }
+    .match-card.top-card:hover { box-shadow:0 10px 36px rgba(119,201,153,.20); }
+
+    /* ── Selectivity badge ─────────── */
+    .sel-badge { display:inline-flex; align-items:center; padding:3px 9px; border-radius:9999px; font-size:11px; font-weight:500; white-space:nowrap; }
+    .sel-badge.high   { background:#FEF3C7; color:#92400E; }
+    .sel-badge.sel    { background:#EEF2F7; color:#374151; }
+    .sel-badge.mod    { background:#F3F4F6; color:#6B7280; }
+    .sel-badge.access { background:#E8F7EF; color:#1A6641; }
+
+    /* ── Stat pills ────────────────── */
+    .stat-pill { display:inline-flex; align-items:baseline; gap:5px; padding:5px 12px; border-radius:8px; background:#F7F9FC; border:1px solid #E2E6EC; white-space:nowrap; }
+    .stat-pill .pval { font-family:'Rubik',sans-serif; font-size:13px; font-weight:700; color:#1B3A5F; }
+    .stat-pill .plbl { font-size:11px; color:#6B7280; }
+
+    /* ── Specialty chips ───────────── */
+    .spec-chip      { display:inline-flex; align-items:center; padding:3px 10px; border-radius:9999px; background:#E8F7EF; color:#1A6641; font-size:11.5px; font-weight:500; white-space:nowrap; }
+    .spec-chip-more { display:inline-flex; align-items:center; padding:3px 10px; border-radius:9999px; background:#F7F9FC; color:#6B7280; border:1px solid #E2E6EC; font-size:11.5px; white-space:nowrap; }
+
+    /* ── Why teaser ────────────────── */
+    .why-teaser { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:13.5px; color:#3E455E; line-height:1.65; }
+
+    /* ── Expand / collapse ─────────── */
+    .card-details { max-height:0; overflow:hidden; transition:max-height 520ms cubic-bezier(.4,0,.2,1); }
+    .card-details.open { max-height:1200px; }
+
+    /* ── Score bars ────────────────── */
+    .bar-track { height:7px; background:#E8F7EF; border-radius:4px; overflow:hidden; flex:1; }
+    .bar-fill  { height:100%; background:linear-gradient(90deg,#77C999,#4DAB7A); border-radius:4px; width:0%; transition:width 550ms ease; }
+
+    /* ── View Details btn ──────────── */
+    .vd-btn { background:none; border:none; cursor:pointer; font-family:'Roboto',sans-serif; font-size:12.5px; font-weight:500; color:#4DAB7A; display:inline-flex; align-items:center; gap:4px; padding:0; transition:color 150ms; line-height:1; }
+    .vd-btn:hover { color:#1A6641; }
+    .vd-btn .chevron { transition:transform 260ms ease; display:flex; }
+    .vd-btn.open .chevron { transform:rotate(180deg); }
+
+    /* ── CTA buttons in expanded card ─ */
+    .cta-primary {
+      display:inline-flex; align-items:center; gap:7px;
+      padding:11px 20px; border-radius:4px; background:#1B3A5F; color:#fff;
+      font-family:'Rubik',sans-serif; font-size:13px; font-weight:600;
+      text-decoration:none; transition:background 150ms ease, transform 150ms ease;
+    }
+    .cta-primary:hover { background:#2C3347; transform:translateY(-1px); }
+    .cta-secondary {
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:13px; font-weight:500; color:#2A9D8E; text-decoration:none;
+      transition:color 150ms; padding:11px 0;
+    }
+    .cta-secondary:hover { color:#1B3A5F; }
+
+    /* ── Section label (inside card) ─ */
+    .sec-lbl { font-family:'Rubik',sans-serif; font-size:10.5px; font-weight:700; color:#1B3A5F; letter-spacing:.07em; text-transform:uppercase; margin-bottom:9px; }
+
+    /* ── Info link (faculty/funding) ── */
+    .info-link { color:#2A9D8E; text-decoration:none; font-weight:500; }
+    .info-link:hover { text-decoration:underline; }
+
+    /* ── Summary card ──────────────── */
+    .summary-card {
+      background:#fff; border:1.5px solid #D1EDE2; border-radius:14px; overflow:hidden; position:relative;
+    }
+    .summary-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; border-radius:14px 0 0 14px; background:#77C999; }
+
+    /* ── Footer ────────────────────── */
+    .site-footer { padding: 0; }
+
+    /* ── Hero dots ─────────────────── */
+    .hero-dot { width:6px; height:6px; border-radius:9999px; background:#77C999; display:inline-block; }
+  </style>
+</head>
+<body>
+
+<!-- ── Top mint rule ──────────────────────────────────────────── -->
+<div style="height:3px;background:#77C999;position:fixed;top:0;left:0;right:0;z-index:50;"></div>
+
+<!-- ── Header ────────────────────────────────────────────────── -->
+<header style="position:fixed;top:3px;left:0;right:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid #E2E6EC;">
+  <div style="max-width:660px;margin:0 auto;padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <svg height="22" viewBox="0 0 180 22" fill="none">
+        <text x="0" y="17" font-family="Rubik,sans-serif" font-weight="700" font-size="16" fill="#3E455E">GradSchool</text>
+        <text x="99" y="17" font-family="Rubik,sans-serif" font-weight="700" font-size="16" fill="#77C999">Shopper</text>
+      </svg>
+      <div style="width:1px;height:20px;background:#E2E6EC;"></div>
+      <div style="line-height:1.2;">
+        <div style="font-size:9.5px;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;">Presented by</div>
+        <div style="font-family:Rubik,sans-serif;font-weight:600;font-size:11.5px;color:#3E455E;">American Institute of Physics</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="text-align:right;line-height:1.2;">
+        <div style="font-size:9.5px;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;">Powered by</div>
+        <div style="font-family:Rubik,sans-serif;font-weight:600;font-size:11.5px;color:#2A9D8E;">Enterprise Commons</div>
+      </div>
+      <img src="ec-logo.png" alt="Enterprise Commons" style="height:32px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.08));"
+           onerror="this.replaceWith(Object.assign(document.createElement('div'),{style:'width:32px;height:32px;border-radius:6px;background:#1B3A5F;display:flex;align-items:center;justify-content:center;',innerHTML:'<span style=\'font-family:Rubik,sans-serif;font-weight:700;color:white;font-size:10px;\'>EC</span>'}))" />
+    </div>
+  </div>
+</header>
+
+<!-- ── Page ───────────────────────────────────────────────────── -->
+<div style="padding-top:61px;min-height:calc(100vh - 64px);">
+
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <div style="background:linear-gradient(160deg,#E8F7EF 0%,#f2faf6 55%,#fff 100%);padding:44px 20px 32px;border-bottom:1px solid #EAEEF2;">
+    <div style="max-width:660px;margin:0 auto;">
+      <div class="hero-in" style="animation-delay:0ms;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <span class="hero-dot"></span><span class="hero-dot" style="opacity:.55;"></span><span class="hero-dot" style="opacity:.22;"></span>
+          <span style="font-size:11px;font-weight:500;color:#4DAB7A;letter-spacing:.07em;text-transform:uppercase;">Your results are in</span>
+        </div>
+        <h1 id="page-heading" style="font-family:'Rubik',sans-serif;font-weight:800;font-size:34px;color:#1B3A5F;margin:0 0 12px;line-height:1.18;letter-spacing:-.01em;max-width:540px;"></h1>
+        <p id="page-subhead" style="font-size:15px;color:#6B7280;margin:0 0 24px;line-height:1.7;max-width:500px;"></p>
+      </div>
+      <div class="hero-in" id="profile-snapshot" style="animation-delay:90ms;display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#fff;border:1.5px solid #D1EDE2;border-radius:10px;flex-wrap:wrap;"></div>
+    </div>
+  </div>
+
+  <!-- ── Cards ──────────────────────────────────────────────── -->
+  <div style="max-width:660px;margin:0 auto;padding:28px 20px 80px;">
+
+    <!-- Section header -->
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <span style="font-family:'Rubik',sans-serif;font-weight:700;font-size:12px;color:#1B3A5F;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;">Your Top Matches</span>
+      <div style="flex:1;height:1px;background:#E2E6EC;"></div>
+    </div>
+
+    <div id="cards-list" style="display:flex;flex-direction:column;gap:14px;"></div>
+
+    <!-- Summary & Next Steps -->
+    <div id="summary-section" class="summary-card summ-in" style="margin-top:24px;"></div>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <!-- Logos strip -->
+  <div style="background:#fff;border-top:1px solid #E2E6EC;padding:18px 20px;">
+    <div style="max-width:660px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <a href="https://www.aip.org" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:.85;transition:opacity 200ms;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.85'">
+        <img src="https://aip.brightspotcdn.com/fe/cb/baa748ae4d868d49228857e2b2af/logo-aip-dark-blue.svg" alt="American Institute of Physics" style="height:24px;width:auto;" />
+      </a>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="height:50px;overflow:hidden;flex-shrink:0;">
+          <img src="ec-logo-full.png" alt="Enterprise Commons" style="display:block;height:112px;width:auto;transform:translateY(-14px);"
+               onerror="this.closest('div').outerHTML='<div style=\'width:40px;height:40px;border-radius:6px;background:#1B3A5F;display:flex;align-items:center;justify-content:center;\'><span style=\'font-family:Rubik,sans-serif;font-weight:700;color:white;font-size:10px;\'>EC</span></div>'" />
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-family:Rubik,sans-serif;font-weight:700;font-size:12px;color:#1B3A5F;line-height:1.25;">Enterprise Commons</div>
+          <div style="font-size:9.5px;color:#2A9D8E;line-height:1.25;">Knowledge Stewardship in Service of Science</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Legal strip -->
+  <div style="background:#1B3A5F;padding:11px 20px;">
+    <div style="max-width:660px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;">
+      <span style="font-family:Roboto,sans-serif;font-size:11px;color:#7B9BBF;">GradSchoolShopper Personalized Match</span>
+      <div style="display:flex;align-items:center;gap:14px;font-family:Roboto,sans-serif;font-size:11px;color:#5A7A9A;">
+        <a href="https://enterprisecommons.ai/privacy" target="_blank" style="color:#5A7A9A;text-decoration:none;" onmouseover="this.style.color='#A1B3C9'" onmouseout="this.style.color='#5A7A9A'">Privacy Notice</a>
+        <span>·</span>
+        <span>© 2026 Enterprise Commons</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Display lookup (from gss_display_v2.json) ─────────── */
+  /* Keyed by school_name exactly as in KB YAML frontmatter.  */
+  /* In production this is fetched or imported at build time.  */
+  var GSS_DISPLAY = {"Arizona State University":{"school_name":"Arizona State University","abbr":"ASU","department":"Physics & Astronomy","location":"Tempe, AZ","region":"Southwest","campus_setting":"Urban","acceptance_rate":"33%","application_deadline":"Dec 31","phd_granted_2024":11,"ms_granted_2024":null,"total_enrollment_fall2024":111,"faculty_count":55,"gss_url":"https://www.gradschoolshopper.com/browse/arizona-state-university.html","grad_url":"https://physics.asu.edu/degrees/graduate","dept_url":null,"faculty_url":null,"funding_url":null},"Auburn University":{"school_name":"Auburn University","abbr":null,"department":"Physics","location":"Auburn, AL","region":"Southeast","campus_setting":"Rural","acceptance_rate":"40%","application_deadline":"Jan 15","phd_granted_2024":9,"ms_granted_2024":null,"total_enrollment_fall2024":56,"faculty_count":30,"gss_url":"https://gradschoolshopper.com/browse/auburn-university.html","grad_url":"http://www.auburn.edu/cosam/departments/physics/grad/index.htm","dept_url":"http://www.auburn.edu/academic/cosam/departments/physics/","faculty_url":"https://www.auburn.edu/cosam/departments/physics/physics-faculty/index.htm","funding_url":"https://www.auburn.edu/cosam/departments/physics/grad/financial-assistance.htm"},"Boston University":{"school_name":"Boston University","abbr":null,"department":"Physics","location":"Boston, MA","region":"Northeast","campus_setting":"Urban","acceptance_rate":"17%","application_deadline":"Dec 15","phd_granted_2024":7,"ms_granted_2024":null,"total_enrollment_fall2024":86,"faculty_count":41,"gss_url":"https://gradschoolshopper.com/browse/boston-university.html","grad_url":"https://www.bu.edu/physics/admissions/graduate-program-admissions/","dept_url":"https://www.bu.edu/physics/","faculty_url":"https://www.bu.edu/physics/people/faculty-lecturers/","funding_url":null},"Bowling Green State University":{"school_name":"Bowling Green State University","abbr":null,"department":"Physics and Astronomy","location":"Bowling Green, OH","region":"Midwest","campus_setting":"Rural","acceptance_rate":"50%","application_deadline":"Feb 28","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":14,"faculty_count":7,"gss_url":"https://gradschoolshopper.com/browse/bowling-green-state-university.html","grad_url":null,"dept_url":"https://www.bgsu.edu/arts-and-sciences/physics-and-astronomy.html","faculty_url":"https://www.bgsu.edu/arts-and-sciences/physics-and-astronomy/people.html","funding_url":null},"Brown University":{"school_name":"Brown University","abbr":null,"department":"Physics","location":"Providence, RI","region":"Northeast","campus_setting":"Urban","acceptance_rate":"15%","application_deadline":"Jan 9 (PhD); Apr 1 (ScM rolling)","phd_granted_2024":18,"ms_granted_2024":null,"total_enrollment_fall2024":165,"faculty_count":27,"gss_url":"https://gradschoolshopper.com/browse/brown-university.html","grad_url":null,"dept_url":"https://physics.brown.edu/","faculty_url":"https://physics.brown.edu/about/people/faculty","funding_url":null},"Bryn Mawr College":{"school_name":"Bryn Mawr College","abbr":null,"department":"Physics","location":"Bryn Mawr, PA","region":"Northeast","campus_setting":"Suburban","acceptance_rate":null,"application_deadline":"Jan 5","phd_granted_2024":1,"ms_granted_2024":null,"total_enrollment_fall2024":6,"faculty_count":6,"gss_url":"https://gradschoolshopper.com/browse/bryn-mawr-college.html","grad_url":null,"dept_url":null,"faculty_url":null,"funding_url":"https://www.brynmawr.edu/gsas/student-support/renewing-financial-support/financial-support-chemistry-mathematics-physics"},"Case Western Reserve University":{"school_name":"Case Western Reserve University","abbr":"CWRU","department":"Physics","location":"Cleveland, OH","region":"Midwest","campus_setting":"Urban","acceptance_rate":"12%","application_deadline":"Jan 5","phd_granted_2024":8,"ms_granted_2024":null,"total_enrollment_fall2024":61,"faculty_count":19,"gss_url":"https://gradschoolshopper.com/browse/case-western-reserve-university.html","grad_url":"https://physics.case.edu/graduate-studies/","dept_url":"https://physics.case.edu/","faculty_url":"https://physics.case.edu/directory/faculty/","funding_url":null},"Central Michigan University":{"school_name":"Central Michigan University","abbr":null,"department":"Physics","location":"Mount Pleasant, MI","region":"Midwest","campus_setting":"Rural","acceptance_rate":"27%","application_deadline":"Feb 1 (PhD); rolling (MS)","phd_granted_2024":2,"ms_granted_2024":null,"total_enrollment_fall2024":8,"faculty_count":10,"gss_url":"https://gradschoolshopper.com/browse/central-michigan-university.html","grad_url":"https://www.cmich.edu/academics/colleges/college-science-engineering/departments-schools/physics/graduate-programs","dept_url":null,"faculty_url":"https://www.cmich.edu/academics/colleges/college-science-engineering/departments-schools/physics/faculty-and-staff","funding_url":null},"Clark University":{"school_name":"Clark University","abbr":null,"department":"Physics","location":"Worcester, MA","region":"Northeast","campus_setting":"Urban","acceptance_rate":"15%","application_deadline":"Jan 15","phd_granted_2024":1,"ms_granted_2024":null,"total_enrollment_fall2024":11,"faculty_count":6,"gss_url":"https://gradschoolshopper.com/browse/clark-university.html","grad_url":"https://www.clarku.edu/graduate-education/admissions/how-to-apply-graduate-admissions-requirements/","dept_url":null,"faculty_url":"https://www.clarku.edu/departments/physics/people/faculty/","funding_url":null},"Clemson University":{"school_name":"Clemson University","abbr":null,"department":"Physics & Astronomy","location":"Clemson, SC","region":"Southeast","campus_setting":"Suburban","acceptance_rate":"30%","application_deadline":"Jan 1","phd_granted_2024":11,"ms_granted_2024":null,"total_enrollment_fall2024":75,"faculty_count":23,"gss_url":"https://gradschoolshopper.com/browse/clemson-university-department-of-physics-astronomy.html","grad_url":"https://www.clemson.edu/science/academics/departments/physics/academics/graduate.html","dept_url":"https://www.clemson.edu/science/academics/departments/physics/","faculty_url":"https://www.clemson.edu/science/academics/departments/physics/about/people.html","funding_url":null},"Colorado State University":{"school_name":"Colorado State University","abbr":null,"department":"Physics","location":"Fort Collins, CO","region":"Mountain West","campus_setting":"College Town","acceptance_rate":"30%","application_deadline":"Jan 15","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":19,"faculty_count":18,"gss_url":"https://gradschoolshopper.com/browse/colorado-state-university.html","grad_url":null,"dept_url":null,"faculty_url":"https://www.physics.colostate.edu/about/people/","funding_url":null},"East Carolina University":{"school_name":"East Carolina University","abbr":null,"department":"Physics","location":"Greenville, NC","region":"Southeast","campus_setting":"Urban","acceptance_rate":"68%","application_deadline":"Mar 1","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":26,"faculty_count":10,"gss_url":"https://gradschoolshopper.com/browse/east-carolina-university.html","grad_url":"https://physics.ecu.edu/graduate-admissions/","dept_url":null,"faculty_url":"https://physics.ecu.edu/faculty/","funding_url":null},"Eastern Michigan University":{"school_name":"Eastern Michigan University","abbr":null,"department":"Physics & Astronomy","location":"Ypsilanti, MI","region":"Midwest","campus_setting":"Suburban","acceptance_rate":"75%","application_deadline":"May 3 (GSS-listed)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":8,"faculty_count":4,"gss_url":"https://gradschoolshopper.com/browse/eastern-michigan-university.html","grad_url":null,"dept_url":null,"faculty_url":"https://www.emich.edu/physics-astronomy/faculty/index.php","funding_url":null},"Emory University":{"school_name":"Emory University","abbr":null,"department":"Physics","location":"Atlanta, GA","region":"Southeast","campus_setting":"Urban","acceptance_rate":"44%","application_deadline":"Dec 19 (Fall 2026); Jan 8 in prior cycles","phd_granted_2024":6,"ms_granted_2024":null,"total_enrollment_fall2024":54,"faculty_count":18,"gss_url":"https://gradschoolshopper.com/browse/emory-university.html","grad_url":"https://physics.emory.edu/home/grad/index.html","dept_url":"https://www.physics.emory.edu/","faculty_url":"https://www.physics.emory.edu/home/people/index.html","funding_url":"https://gs.emory.edu/funding/index.html"},"Florida Atlantic University":{"school_name":"Florida Atlantic University","abbr":null,"department":"Physics","location":"Boca Raton, FL","region":"Southeast","campus_setting":"Urban","acceptance_rate":"20%","application_deadline":"Jan 15 (preliminary review); Jun 1 international / Jul 1 domestic official","phd_granted_2024":8,"ms_granted_2024":null,"total_enrollment_fall2024":41,"faculty_count":13,"gss_url":"https://gradschoolshopper.com/browse/florida-atlantic-university.html","grad_url":"https://physics.fau.edu/programs/graduate.php","dept_url":null,"faculty_url":"https://physics.fau.edu/people/index.php","funding_url":null},"Florida International University":{"school_name":"Florida International University","abbr":"FIU","department":"Physics","location":"Miami, FL","region":"Southeast","campus_setting":"Urban","acceptance_rate":"18%","application_deadline":"Jan 15 (PhD); Feb 15 (MS)","phd_granted_2024":8,"ms_granted_2024":null,"total_enrollment_fall2024":46,"faculty_count":25,"gss_url":"https://gradschoolshopper.com/browse/florida-international-university.html","grad_url":null,"dept_url":"https://case.fiu.edu/physics/","faculty_url":"https://case.fiu.edu/physics/contact-us/index.html","funding_url":null},"George Mason University":{"school_name":"George Mason University","abbr":null,"department":"Physics and Astronomy","location":"Fairfax, VA","region":"Mid-Atlantic","campus_setting":"Suburban","acceptance_rate":"56%","application_deadline":"Dec 15","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":77,"faculty_count":31,"gss_url":"https://gradschoolshopper.com/browse/george-mason-university.html","grad_url":"https://science.gmu.edu/academics/departments-units/physics-and-astronomy-department/graduate-programs","dept_url":"https://science.gmu.edu/academics/departments-units/physics-and-astronomy-department","faculty_url":"https://science.gmu.edu/academics/departments-units/physics-and-astronomy-department/faculty-and-staff","funding_url":null},"Georgetown University":{"school_name":"Georgetown University","abbr":null,"department":"Physics","location":"Washington, Washington D.C.","region":"Mid-Atlantic","campus_setting":"Urban","acceptance_rate":null,"application_deadline":"Jan 15 (PhD); May 1 (MS)","phd_granted_2024":3,"ms_granted_2024":null,"total_enrollment_fall2024":36,"faculty_count":14,"gss_url":"https://gradschoolshopper.com/browse/georgetown-university-washington-d-c.html","grad_url":"https://physics.georgetown.edu/graduate/","dept_url":null,"faculty_url":"https://physics.georgetown.edu/people/","funding_url":null},"Georgia Institute of Technology":{"school_name":"Georgia Institute of Technology","abbr":"Georgia Tech","department":"School of Physics","location":"Atlanta, GA","region":"Southeast","campus_setting":"Urban","acceptance_rate":"35%","application_deadline":"Dec 15","phd_granted_2024":22,"ms_granted_2024":null,"total_enrollment_fall2024":116,"faculty_count":44,"gss_url":"https://gradschoolshopper.com/browse/georgia-institute-of-technology.html","grad_url":"https://physics.gatech.edu/graduate-program","dept_url":"https://physics.gatech.edu/","faculty_url":"https://physics.gatech.edu/people/faculty","funding_url":"https://physics.gatech.edu/academics/graduate/finaid"},"Georgia State University":{"school_name":"Georgia State University","abbr":"GSU","department":"Physics & Astronomy","location":"Atlanta, GA","region":"Southeast","campus_setting":"Urban","acceptance_rate":"16%","application_deadline":"Jan 15","phd_granted_2024":11,"ms_granted_2024":null,"total_enrollment_fall2024":70,"faculty_count":22,"gss_url":"https://gradschoolshopper.com/browse/georgia-state-university.html","grad_url":"https://physics-astro.gsu.edu/graduate/","dept_url":null,"faculty_url":"https://physics-astro.gsu.edu/contact-us/faculty-2/","funding_url":"https://physics-astro.gsu.edu/graduate/graduate-student-support/"},"Indiana University, Bloomington":{"school_name":"Indiana University, Bloomington","abbr":null,"department":"Physics","location":"Bloomington, IN","region":"Midwest","campus_setting":"Suburban","acceptance_rate":"24%","application_deadline":"Jan 1","phd_granted_2024":13,"ms_granted_2024":null,"total_enrollment_fall2024":87,"faculty_count":36,"gss_url":"https://gradschoolshopper.com/browse/indiana-university-bloomington--department-of-physics.html","grad_url":"https://physics.indiana.edu/graduate/index.html","dept_url":"https://physics.indiana.edu/index.html","faculty_url":"https://physics.indiana.edu/about/directory/all-faculty-scientists/faculty/index.html","funding_url":null},"Indiana University - Purdue University Indianapolis":{"school_name":"Indiana University - Purdue University Indianapolis","abbr":null,"department":"Physics \u2014 School of Science","location":"Indianapolis, IN","region":"Midwest","campus_setting":"Urban","acceptance_rate":"21%","application_deadline":"Jan 15","phd_granted_2024":2,"ms_granted_2024":null,"total_enrollment_fall2024":23,"faculty_count":8,"gss_url":"https://gradschoolshopper.com/browse/indiana-university-purdue-university-indianapolis.html","grad_url":"https://bulletins.iu.edu/iuin/2025-2026/schools/science/departments/physics/graduate.shtml","dept_url":null,"faculty_url":"https://science.indianapolis.iu.edu/physics/people/index.html","funding_url":null},"Iowa State University":{"school_name":"Iowa State University","abbr":"ISU","department":"Physics and Astronomy","location":"Ames, IA","region":"Midwest","campus_setting":"College Town","acceptance_rate":"61%","application_deadline":"Jan 15","phd_granted_2024":12,"ms_granted_2024":null,"total_enrollment_fall2024":83,"faculty_count":27,"gss_url":"https://gradschoolshopper.com/browse/iowa-state-university.html","grad_url":null,"dept_url":null,"faculty_url":"https://www.physastro.iastate.edu/people/faculty","funding_url":null},"Kent State University":{"school_name":"Kent State University","abbr":null,"department":"Physics","location":"Kent, OH","region":"Midwest","campus_setting":"Suburban","acceptance_rate":"17%","application_deadline":"Jan 31","phd_granted_2024":10,"ms_granted_2024":null,"total_enrollment_fall2024":56,"faculty_count":24,"gss_url":"https://gradschoolshopper.com/browse/kent-state-university--department-of-physics-graduate-program.html","grad_url":"https://www.kent.edu/physics/graduate-study-phd-physics-program","dept_url":null,"faculty_url":"https://www.kent.edu/physics/faculty-and-staff","funding_url":null},"Lehigh University":{"school_name":"Lehigh University","abbr":null,"department":"Physics","location":"Bethlehem, PA","region":"Mid-Atlantic","campus_setting":"Suburban","acceptance_rate":"28%","application_deadline":"Jan 15","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":45,"faculty_count":18,"gss_url":"https://gradschoolshopper.com/browse/lehigh-university.html","grad_url":"https://physicsgraduate.lehigh.edu/","dept_url":null,"faculty_url":"https://physics.cas.lehigh.edu/faculty-staff","funding_url":"https://wordpress.lehigh.edu/physics/graduate/additional-information/"},"Louisiana State University":{"school_name":"Louisiana State University","abbr":"LSU","department":"Physics & Astronomy","location":"Baton Rouge, LA","region":"Southeast","campus_setting":"Urban","acceptance_rate":"27%","application_deadline":"Jan 1 (first round fall); May 15 (final fall)","phd_granted_2024":16,"ms_granted_2024":null,"total_enrollment_fall2024":98,"faculty_count":46,"gss_url":"https://gradschoolshopper.com/browse/louisiana-state-university.html","grad_url":"https://www.lsu.edu/physics/graduate-programs/physics-astronomy/guide.php","dept_url":"https://www.lsu.edu/physics/","faculty_url":"https://www.lsu.edu/physics/people/faculty/index.php","funding_url":null},"Marshall University":{"school_name":"Marshall University","abbr":null,"department":"Physics","location":"Huntington, WV","region":"Southeast","campus_setting":"Urban","acceptance_rate":null,"application_deadline":"Aug 1","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":null,"faculty_count":5,"gss_url":"https://gradschoolshopper.com/browse/marshall-university.html","grad_url":null,"dept_url":null,"faculty_url":"https://www.marshall.edu/physics/faculty-staff-directory/","funding_url":null},"Miami University":{"school_name":"Miami University","abbr":null,"department":"Physics","location":"Oxford, OH","region":"Midwest","campus_setting":"Small City","acceptance_rate":"30%","application_deadline":"Feb 1","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":17,"faculty_count":8,"gss_url":"https://gradschoolshopper.com/browse/miami-university.html","grad_url":null,"dept_url":null,"faculty_url":"https://miamioh.edu/profiles/cas/physics/index.html","funding_url":null},"Michigan Technological University":{"school_name":"Michigan Technological University","abbr":null,"department":"Physics","location":"Houghton, MI","region":"Midwest","campus_setting":"Rural","acceptance_rate":"15%","application_deadline":"March 1 (domestic); January 15 (international)","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":50,"faculty_count":17,"gss_url":"https://gradschoolshopper.com/browse/michigan-technological-university.html","grad_url":"https://www.mtu.edu/physics/graduate/","dept_url":"https://www.mtu.edu/physics/","faculty_url":"https://www.mtu.edu/physics/department/faculty/","funding_url":null},"New Mexico State University":{"school_name":"New Mexico State University","abbr":"NMSU","department":"Physics","location":"Las Cruces, NM","region":"Southwest","campus_setting":"Urban","acceptance_rate":"50%","application_deadline":"Feb 15 (Fall); Nov 1 domestic / Sep 1 international (Spring)","phd_granted_2024":6,"ms_granted_2024":null,"total_enrollment_fall2024":36,"faculty_count":10,"gss_url":"https://gradschoolshopper.com/browse/new-mexico-state-university--department-of-physics.html","grad_url":"https://phys.nmsu.edu/grad_phys.html","dept_url":null,"faculty_url":"https://phys.nmsu.edu/facultydirectory/index.html","funding_url":null},"North Carolina State University, Raleigh":{"school_name":"North Carolina State University, Raleigh","abbr":null,"department":"Physics","location":"Raleigh, NC","region":"Southeast","campus_setting":"Urban","acceptance_rate":"30%","application_deadline":"Jan 5","phd_granted_2024":23,"ms_granted_2024":null,"total_enrollment_fall2024":115,"faculty_count":43,"gss_url":"https://gradschoolshopper.com/browse/north-carolina-state-university.html","grad_url":"https://catalog.ncsu.edu/graduate/sciences/physics/","dept_url":"https://physics.ncsu.edu/","faculty_url":null,"funding_url":null},"North Dakota State University":{"school_name":"North Dakota State University","abbr":null,"department":"Physics","location":"Fargo, ND","region":"Midwest","campus_setting":"Urban","acceptance_rate":"15%","application_deadline":"Mar 1 (international fall); 1 month before registration (domestic)","phd_granted_2024":3,"ms_granted_2024":null,"total_enrollment_fall2024":15,"faculty_count":9,"gss_url":"https://gradschoolshopper.com/browse/north-dakota-state-university.html","grad_url":"https://www.ndsu.edu/physics/graduate_program","dept_url":"https://www.ndsu.edu/physics/","faculty_url":"https://www.ndsu.edu/physics/people","funding_url":null},"Northeastern University":{"school_name":"Northeastern University","abbr":null,"department":"Physics","location":"Boston, MA","region":"Northeast","campus_setting":"Urban","acceptance_rate":"25%","application_deadline":"Dec 1 (priority); rolling to Mar 15","phd_granted_2024":9,"ms_granted_2024":null,"total_enrollment_fall2024":117,"faculty_count":31,"gss_url":"https://www.gradschoolshopper.com/browse/northeastern-university.html","grad_url":null,"dept_url":null,"faculty_url":"https://cos.northeastern.edu/people/?role=faculty&department=physics","funding_url":null},"Oakland University":{"school_name":"Oakland University","abbr":null,"department":"Physics","location":"Rochester, MI","region":"Midwest","campus_setting":"Suburban","acceptance_rate":"31%","application_deadline":"Dec 15","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":null,"faculty_count":15,"gss_url":"https://gradschoolshopper.com/browse/oakland-university.html","grad_url":"https://www.oakland.edu/grad/how-to-apply/","dept_url":"https://www.oakland.edu/physics/","faculty_url":null,"funding_url":null},"Ohio University":{"school_name":"Ohio University","abbr":null,"department":"Physics & Astronomy","location":"Athens, OH","region":"Midwest","campus_setting":"Rural","acceptance_rate":"40%","application_deadline":"Jan 15","phd_granted_2024":8,"ms_granted_2024":null,"total_enrollment_fall2024":32,"faculty_count":20,"gss_url":"https://gradschoolshopper.com/browse/ohio-university.html","grad_url":"https://www.ohio.edu/cas/physics-astronomy/graduate/admissions","dept_url":"https://www.ohio.edu/cas/physics-astronomy","faculty_url":"https://www.ohio.edu/cas/physics-astronomy/about/contact/faculty-directory","funding_url":null},"Oklahoma State University":{"school_name":"Oklahoma State University","abbr":"OSU-Stillwater","department":"Physics","location":"Stillwater, OK","region":"Midwest","campus_setting":"Rural","acceptance_rate":"35%","application_deadline":"Feb 1","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":47,"faculty_count":18,"gss_url":"https://www.gradschoolshopper.com/browse/oklahoma-state-university.html","grad_url":null,"dept_url":null,"faculty_url":"https://cas.okstate.edu/physics/about_us/faculty_and_staff","funding_url":"https://cas.okstate.edu/physics/graduate_studies/financial_support"},"Old Dominion University":{"school_name":"Old Dominion University","abbr":null,"department":"Physics","location":"Norfolk, VA","region":"Mid-Atlantic","campus_setting":"Urban","acceptance_rate":"96%","application_deadline":"Jan 15","phd_granted_2024":6,"ms_granted_2024":null,"total_enrollment_fall2024":47,"faculty_count":22,"gss_url":"https://gradschoolshopper.com/browse/old-dominion-university.html","grad_url":"https://www.odu.edu/physics/academics/graduate","dept_url":null,"faculty_url":"https://www.odu.edu/physics/research/faculty","funding_url":null},"Purdue University":{"school_name":"Purdue University","abbr":"Purdue","department":"Physics & Astronomy","location":"West Lafayette, IN","region":"Midwest","campus_setting":"Suburban","acceptance_rate":"30%","application_deadline":"Dec 15","phd_granted_2024":25,"ms_granted_2024":null,"total_enrollment_fall2024":192,"faculty_count":50,"gss_url":"https://gradschoolshopper.com/browse/purdue-university.html","grad_url":"https://www.physics.purdue.edu/academic-programs/graduate/index.html","dept_url":"https://www.physics.purdue.edu/","faculty_url":"https://www.physics.purdue.edu/people/faculty/index.php","funding_url":"https://www.physics.purdue.edu/academic-programs/graduate/financial.html"},"Rutgers University \u2014 New Brunswick":{"school_name":"Rutgers University \u2014 New Brunswick","abbr":null,"department":"Physics and Astronomy \u2014 Center for Materials Theory","location":"New Brunswick, NJ","region":"Mid-Atlantic","campus_setting":"Urban","acceptance_rate":null,"application_deadline":"Fall: Jul 15 (domestic) / May 15 (international); Spring: Jan 15 (domestic) / Nov 1 (international)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":null,"faculty_count":6,"gss_url":null,"grad_url":null,"dept_url":null,"faculty_url":null,"funding_url":null},"Rensselaer Polytechnic Institute":{"school_name":"Rensselaer Polytechnic Institute","abbr":null,"department":"Physics, Applied Physics, Astronomy","location":"Troy, NY","region":"Northeast","campus_setting":"Suburban","acceptance_rate":"22%","application_deadline":"Jan 1 (Physics PhD); Dec 15 extended to Jan 15 (university-wide doctoral)","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":38,"faculty_count":17,"gss_url":"https://gradschoolshopper.com/browse/rensselaer-polytechnic-institute.html","grad_url":"https://physics.rpi.edu/programs","dept_url":"https://physics.rpi.edu","faculty_url":null,"funding_url":null},"Rice University":{"school_name":"Rice University","abbr":null,"department":"Physics & Astronomy","location":"Houston, TX","region":"South","campus_setting":"Urban","acceptance_rate":"11%","application_deadline":"Dec 15","phd_granted_2024":15,"ms_granted_2024":null,"total_enrollment_fall2024":106,"faculty_count":38,"gss_url":"https://gradschoolshopper.com/browse/rice-university.html","grad_url":"https://physics.rice.edu/graduate-program-overview","dept_url":null,"faculty_url":null,"funding_url":null},"San Francisco State University":{"school_name":"San Francisco State University","abbr":null,"department":"Physics & Astronomy","location":"San Francisco, CA","region":"West Coast","campus_setting":"Urban","acceptance_rate":"76%","application_deadline":"May 1 (priority: April 1)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":67,"faculty_count":10,"gss_url":"https://gradschoolshopper.com/browse/san-francisco-state-university.html","grad_url":"https://physics.sfsu.edu/graduate-program","dept_url":"https://physics.sfsu.edu/","faculty_url":"https://physics.sfsu.edu/faculty","funding_url":null},"Seton Hall University":{"school_name":"Seton Hall University","abbr":null,"department":"Physics","location":"South Orange, NJ","region":"Mid-Atlantic","campus_setting":"Suburban","acceptance_rate":null,"application_deadline":"Rolling (Fall and Spring)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":3,"faculty_count":6,"gss_url":"https://gradschoolshopper.com/browse/setonhalluniversitymaster-of-science-in-applied-physics-and-engineering.html","grad_url":null,"dept_url":null,"faculty_url":"https://www.shu.edu/physics/faculty.html","funding_url":null},"South Dakota School of Mines & Technology":{"school_name":"South Dakota School of Mines & Technology","abbr":null,"department":"Physics","location":"Rapid City, SD","region":"Midwest","campus_setting":"Urban","acceptance_rate":"25%","application_deadline":"Feb 1 (Fall, thesis/PhD); Aug 1 (Spring, thesis/PhD)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":22,"faculty_count":9,"gss_url":"https://gradschoolshopper.com/browse/south-dakota-school-of-mines-technology--physics.html","grad_url":null,"dept_url":null,"faculty_url":"https://www.sdsmt.edu/academics/academic-departments/physics/faculty-and-staff.html","funding_url":null},"Southern Connecticut State University":{"school_name":"Southern Connecticut State University","abbr":null,"department":"Physics","location":"New Haven, CT","region":"Northeast","campus_setting":"Urban","acceptance_rate":"50%","application_deadline":"Rolling Admissions","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":12,"faculty_count":5,"gss_url":null,"grad_url":null,"dept_url":null,"faculty_url":"https://www.southernct.edu/academics/physics/faculty","funding_url":null},"Stanford University":{"school_name":"Stanford University","abbr":null,"department":"Physics","location":"Stanford, CA","region":"West Coast","campus_setting":"Urban","acceptance_rate":"8%","application_deadline":"Dec 15","phd_granted_2024":33,"ms_granted_2024":null,"total_enrollment_fall2024":206,"faculty_count":45,"gss_url":"https://gradschoolshopper.com/browse/stanford-university.html","grad_url":"https://physics.stanford.edu/graduate/graduate-admissions","dept_url":"https://physics.stanford.edu/","faculty_url":"https://physics.stanford.edu/people/faculty","funding_url":"https://physics.stanford.edu/prospective-students/graduate-admissions/financial-support"},"Stevens Institute of Technology":{"school_name":"Stevens Institute of Technology","abbr":null,"department":"Physics","location":"Hoboken, NJ","region":"Mid-Atlantic","campus_setting":"Urban","acceptance_rate":"53%","application_deadline":"Rolling; Provost Doctoral Fellowship deadline: March 1 (fall), October 1 (spring)","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":10,"faculty_count":13,"gss_url":"https://gradschoolshopper.com/browse/stevens-institute-of-technology.html","grad_url":null,"dept_url":null,"faculty_url":null,"funding_url":null},"Texas A&M University":{"school_name":"Texas A&M University","abbr":"Texas A&M","department":"Physics and Astronomy","location":"College Station, TX","region":"South","campus_setting":"Suburban","acceptance_rate":"15%","application_deadline":"Jan 10","phd_granted_2024":20,"ms_granted_2024":null,"total_enrollment_fall2024":182,"faculty_count":55,"gss_url":null,"grad_url":null,"dept_url":null,"faculty_url":null,"funding_url":null},"Temple University":{"school_name":"Temple University","abbr":null,"department":"Physics","location":"Philadelphia, PA","region":"Mid-Atlantic","campus_setting":"Urban","acceptance_rate":null,"application_deadline":"Jan 15 (domestic); Dec 15 (international)","phd_granted_2024":9,"ms_granted_2024":null,"total_enrollment_fall2024":42,"faculty_count":16,"gss_url":"https://gradschoolshopper.com/browse/temple-university-physics.html","grad_url":"https://cst.temple.edu/department-physics/graduate-program","dept_url":null,"faculty_url":null,"funding_url":null},"Texas Christian University":{"school_name":"Texas Christian University","abbr":null,"department":"Physics & Astronomy","location":"Fort Worth, TX","region":"South","campus_setting":"Urban","acceptance_rate":"25%","application_deadline":"Feb 1","phd_granted_2024":2,"ms_granted_2024":null,"total_enrollment_fall2024":18,"faculty_count":10,"gss_url":"https://gradschoolshopper.com/browse/texas-christian-university.html","grad_url":"https://cse.tcu.edu/physics-astronomy/graduate/index.php","dept_url":null,"faculty_url":"https://cse.tcu.edu/physics-astronomy/faculty-staff/","funding_url":null},"Texas Tech University":{"school_name":"Texas Tech University","abbr":null,"department":"Physics & Astronomy","location":"Lubbock, TX","region":"South","campus_setting":"Urban","acceptance_rate":"15%","application_deadline":"Feb 1 (Fall); Oct 1 (Spring)","phd_granted_2024":9,"ms_granted_2024":null,"total_enrollment_fall2024":58,"faculty_count":21,"gss_url":"https://gradschoolshopper.com/browse/texas-tech-university.html","grad_url":"https://www.depts.ttu.edu/phas/Academics/Graduate_Program/Prospective_Students/index.php","dept_url":"https://www.depts.ttu.edu/phas","faculty_url":"https://www.depts.ttu.edu/phas/People/Faculty/index.php","funding_url":null},"The Ohio State University":{"school_name":"The Ohio State University","abbr":null,"department":"Physics","location":"Columbus, OH","region":"Midwest","campus_setting":"Urban","acceptance_rate":"31%","application_deadline":"Dec 15 (domestic); Nov 30 (international)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":null,"faculty_count":60,"gss_url":"https://gradschoolshopper.com/browse/the-ohio-state-university.html","grad_url":"https://physics.osu.edu/graduate","dept_url":"https://physics.osu.edu/","faculty_url":"https://physics.osu.edu/people/faculty","funding_url":"https://gradsch.osu.edu/faculty-and-staff/graduate-associate-appointments"},"University of Chicago":{"school_name":"University of Chicago","abbr":null,"department":"Physics","location":"Chicago, IL","region":"Midwest","campus_setting":"Urban","acceptance_rate":"14%","application_deadline":"Dec 5","phd_granted_2024":27,"ms_granted_2024":null,"total_enrollment_fall2024":222,"faculty_count":45,"gss_url":"https://gradschoolshopper.com/browse/the-university-of-chicago-department-of-physics.html","grad_url":null,"dept_url":null,"faculty_url":"https://physics.uchicago.edu/people/","funding_url":null},"University of Toledo":{"school_name":"University of Toledo","abbr":null,"department":"Physics and Astronomy","location":"Toledo, OH","region":"Midwest","campus_setting":"Urban","acceptance_rate":"20%","application_deadline":"Jan 7","phd_granted_2024":10,"ms_granted_2024":null,"total_enrollment_fall2024":68,"faculty_count":17,"gss_url":"https://gradschoolshopper.com/browse/the-university-of-toledo-department-of-physics-and-astronomy-graduate-programs.html","grad_url":"https://www.utoledo.edu/nsm/physast/programs/grad/","dept_url":null,"faculty_url":"https://www.utoledo.edu/nsm/physast/people/","funding_url":"https://www.utoledo.edu/nsm/physast/programs/grad/financial.html"},"Tufts University":{"school_name":"Tufts University","abbr":null,"department":"Physics & Astronomy","location":"Medford, MA","region":"Northeast","campus_setting":"Suburban","acceptance_rate":null,"application_deadline":"Jan 15","phd_granted_2024":8,"ms_granted_2024":null,"total_enrollment_fall2024":49,"faculty_count":18,"gss_url":"https://gradschoolshopper.com/browse/tufts-university.html","grad_url":"https://as.tufts.edu/physics/graduate","dept_url":null,"faculty_url":"https://as.tufts.edu/physics/people/faculty","funding_url":null},"University of Alabama, Tuscaloosa":{"school_name":"University of Alabama, Tuscaloosa","abbr":null,"department":"Physics & Astronomy","location":"Tuscaloosa, AL","region":"Southeast","campus_setting":"Suburban","acceptance_rate":"32%","application_deadline":"January 15 (Fall); November 1 domestic / June 1 international (Spring)","phd_granted_2024":12,"ms_granted_2024":null,"total_enrollment_fall2024":65,"faculty_count":29,"gss_url":null,"grad_url":null,"dept_url":null,"faculty_url":null,"funding_url":null},"University of Alabama at Birmingham":{"school_name":"University of Alabama at Birmingham","abbr":null,"department":"Physics","location":"Birmingham, AL","region":"Southeast","campus_setting":"Urban","acceptance_rate":"48%","application_deadline":"Jul 1","phd_granted_2024":7,"ms_granted_2024":null,"total_enrollment_fall2024":31,"faculty_count":16,"gss_url":"https://gradschoolshopper.com/browse/university-of-alabama-birmingham.html","grad_url":"https://www.uab.edu/cas/physics/graduate","dept_url":null,"faculty_url":"https://www.uab.edu/cas/physics/people/faculty","funding_url":null},"University of Alabama, Huntsville":{"school_name":"University of Alabama, Huntsville","abbr":null,"department":"Physics & Astronomy","location":"Huntsville, AL","region":"Southeast","campus_setting":"Urban","acceptance_rate":"100%","application_deadline":"Jan 24 (assistantship consideration); Jul 31 general Fall deadline","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":44,"faculty_count":9,"gss_url":"https://gradschoolshopper.com/browse/university-of-alabama-huntsville-603415572823f.html","grad_url":"https://www.uah.edu/science/departments/physics/ph-graduate-programs","dept_url":null,"faculty_url":"https://www.uah.edu/science/departments/physics/faculty-staff","funding_url":null},"University of Alaska Fairbanks":{"school_name":"University of Alaska Fairbanks","abbr":null,"department":"Physics","location":"Fairbanks, AK","region":"Pacific Northwest","campus_setting":"Urban","acceptance_rate":"29%","application_deadline":"Mar 1","phd_granted_2024":2,"ms_granted_2024":null,"total_enrollment_fall2024":23,"faculty_count":9,"gss_url":"https://gradschoolshopper.com/browse/university-of-alaska-fairbanks.html","grad_url":"https://www.uaf.edu/physics/graduate-programs/index.php","dept_url":null,"faculty_url":null,"funding_url":null},"University of Arizona":{"school_name":"University of Arizona","abbr":"UA","department":"Physics","location":"Tucson, AZ","region":"Southwest","campus_setting":"Urban","acceptance_rate":"35%","application_deadline":"Jan 1","phd_granted_2024":30,"ms_granted_2024":null,"total_enrollment_fall2024":362,"faculty_count":29,"gss_url":"https://gradschoolshopper.com/browse/university-of-arizona.html","grad_url":"https://physics.arizona.edu/graduate-studies/graduate-studies-overview","dept_url":null,"faculty_url":"https://physics.arizona.edu/people/faculty","funding_url":null},"University of California, Riverside":{"school_name":"University of California, Riverside","abbr":"UC Riverside","department":"Physics & Astronomy","location":"Riverside, CA","region":"West Coast","campus_setting":"Suburban","acceptance_rate":"28%","application_deadline":"Jan 6","phd_granted_2024":16,"ms_granted_2024":null,"total_enrollment_fall2024":140,"faculty_count":40,"gss_url":"https://gradschoolshopper.com/browse/university-of-california,-riverside.html","grad_url":"https://www.physics.ucr.edu/academics/graduate-program","dept_url":null,"faculty_url":"https://www.physics.ucr.edu/people/faculty","funding_url":null},"University of California, San Diego":{"school_name":"University of California, San Diego","abbr":"UCSD","department":"Physics","location":"San Diego, CA","region":"West Coast","campus_setting":"Suburban","acceptance_rate":"21%","application_deadline":"Dec 23","phd_granted_2024":21,"ms_granted_2024":null,"total_enrollment_fall2024":195,"faculty_count":47,"gss_url":null,"grad_url":null,"dept_url":null,"faculty_url":null,"funding_url":null},"University of California, Irvine":{"school_name":"University of California, Irvine","abbr":"UC Irvine","department":"Physics and Astronomy","location":"Irvine, CA","region":"West Coast","campus_setting":"Suburban","acceptance_rate":"15%","application_deadline":"Dec 15","phd_granted_2024":24,"ms_granted_2024":null,"total_enrollment_fall2024":170,"faculty_count":57,"gss_url":"https://gradschoolshopper.com/browse/university-of-california-irvine.html","grad_url":"https://www.physics.uci.edu/graduate","dept_url":"https://www.physics.uci.edu/","faculty_url":"https://www.physics.uci.edu/people/all-faculty","funding_url":null},"University of California, Los Angeles":{"school_name":"University of California, Los Angeles","abbr":"UCLA","department":"Physics & Astronomy","location":"Los Angeles, CA","region":"West Coast","campus_setting":"Urban","acceptance_rate":"13%","application_deadline":"Dec 15","phd_granted_2024":27,"ms_granted_2024":null,"total_enrollment_fall2024":222,"faculty_count":59,"gss_url":"https://gradschoolshopper.com/browse/university-of-california-los-angeles.html","grad_url":"https://www.pa.ucla.edu/graduate-students.html","dept_url":"https://www.pa.ucla.edu","faculty_url":"https://www.pa.ucla.edu/faculty.html","funding_url":null},"University of California, Merced":{"school_name":"University of California, Merced","abbr":null,"department":"Physics","location":"Merced, CA","region":"West Coast","campus_setting":"Rural","acceptance_rate":"30%","application_deadline":"January 9 (priority: December 1)","phd_granted_2024":12,"ms_granted_2024":null,"total_enrollment_fall2024":59,"faculty_count":20,"gss_url":"https://gradschoolshopper.com/browse/university-of-california-merced-department-of-physics.html","grad_url":"https://physics.ucmerced.edu/graduate-studies","dept_url":"https://physics.ucmerced.edu/","faculty_url":"https://physics.ucmerced.edu/people/faculty","funding_url":"https://physics.ucmerced.edu/graduate-studies/financial-support"},"University of California, Santa Cruz":{"school_name":"University of California, Santa Cruz","abbr":"UC Santa Cruz","department":"Physics","location":"Santa Cruz, CA","region":"West Coast","campus_setting":"Rural","acceptance_rate":"5%","application_deadline":"Jan 5","phd_granted_2024":11,"ms_granted_2024":null,"total_enrollment_fall2024":70,"faculty_count":24,"gss_url":"https://gradschoolshopper.com/browse/university-of-california-santa-cruz.html","grad_url":"https://physics.ucsc.edu/academic-programs/grads/","dept_url":null,"faculty_url":"https://physics.ucsc.edu/people/faculty/","funding_url":null},"University of Central Florida":{"school_name":"University of Central Florida","abbr":"UCF","department":"Physics","location":"Orlando, FL","region":"Southeast","campus_setting":"Suburban","acceptance_rate":"33%","application_deadline":"Dec 1 (international PhD); Jan 15 (domestic PhD and MS)","phd_granted_2024":14,"ms_granted_2024":null,"total_enrollment_fall2024":107,"faculty_count":43,"gss_url":"https://gradschoolshopper.com/browse/university-of-central-florida.html","grad_url":"https://sciences.ucf.edu/physics/graduate/","dept_url":null,"faculty_url":"https://sciences.ucf.edu/physics/people/","funding_url":"https://sciences.ucf.edu/physics/graduate/physics-program/financial-support/"},"University of Colorado, Boulder":{"school_name":"University of Colorado, Boulder","abbr":"CU Boulder","department":"Physics","location":"Boulder, CO","region":"Mountain West","campus_setting":"Urban","acceptance_rate":"20%","application_deadline":"Dec 15","phd_granted_2024":39,"ms_granted_2024":null,"total_enrollment_fall2024":318,"faculty_count":79,"gss_url":"https://www.gradschoolshopper.com/browse/university-of-colorado-boulder.html","grad_url":null,"dept_url":null,"faculty_url":"https://www.colorado.edu/physics/people/faculty","funding_url":null},"University of Colorado, Colorado Springs":{"school_name":"University of Colorado, Colorado Springs","abbr":null,"department":"Physics & Energy Science","location":"Colorado Springs, CO","region":"Mountain West","campus_setting":"Urban","acceptance_rate":"79%","application_deadline":"Apr 30","phd_granted_2024":3,"ms_granted_2024":null,"total_enrollment_fall2024":41,"faculty_count":8,"gss_url":"https://gradschoolshopper.com/browse/university-of-colorado-colorado-springs.html","grad_url":null,"dept_url":null,"faculty_url":"https://physics.uccs.edu/directory/faculty","funding_url":null},"University of Connecticut":{"school_name":"University of Connecticut","abbr":null,"department":"Physics","location":"Storrs, CT","region":"Northeast","campus_setting":"Rural","acceptance_rate":"37%","application_deadline":"Jan 15","phd_granted_2024":11,"ms_granted_2024":null,"total_enrollment_fall2024":95,"faculty_count":29,"gss_url":"https://gradschoolshopper.com/browse/university-of-connecticut.html","grad_url":"https://physics.uconn.edu/graduate-program/","dept_url":null,"faculty_url":"https://physics.uconn.edu/people/faculty/","funding_url":null},"University of Delaware":{"school_name":"University of Delaware","abbr":null,"department":"Physics and Astronomy","location":"Newark, DE","region":"Mid-Atlantic","campus_setting":"Suburban","acceptance_rate":null,"application_deadline":"Mar 1","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":90,"faculty_count":37,"gss_url":"https://gradschoolshopper.com/browse/university-of-delaware.html","grad_url":"https://www.udel.edu/academics/colleges/cas/units/departments/physics-astronomy/graduate-programs/","dept_url":null,"faculty_url":"https://www.udel.edu/academics/colleges/cas/units/departments/physics-astronomy/our-people/","funding_url":null},"University of Denver":{"school_name":"University of Denver","abbr":null,"department":"Physics & Astronomy","location":"Denver, CO","region":"Mountain West","campus_setting":"Urban","acceptance_rate":"13%","application_deadline":"Feb 1 (priority)","phd_granted_2024":3,"ms_granted_2024":null,"total_enrollment_fall2024":20,"faculty_count":11,"gss_url":"https://gradschoolshopper.com/browse/university-of-denver.html","grad_url":"https://science.du.edu/physics/academics-advising/graduate-programs","dept_url":null,"faculty_url":"https://science.du.edu/physics/content/physics-faculty-staff","funding_url":null},"University of Florida":{"school_name":"University of Florida","abbr":"UF","department":"Physics","location":"Gainesville, FL","region":"Southeast","campus_setting":"Urban","acceptance_rate":"39%","application_deadline":"Dec 15","phd_granted_2024":23,"ms_granted_2024":null,"total_enrollment_fall2024":140,"faculty_count":41,"gss_url":"https://gradschoolshopper.com/browse/university-of-florida.html","grad_url":"https://phys.ufl.edu/graduate/","dept_url":null,"faculty_url":"https://phys.ufl.edu/people/faculty/","funding_url":null},"University of Houston":{"school_name":"University of Houston","abbr":null,"department":"Physics","location":"Houston, TX","region":"South","campus_setting":"Urban","acceptance_rate":"26%","application_deadline":"Jan 15","phd_granted_2024":14,"ms_granted_2024":null,"total_enrollment_fall2024":101,"faculty_count":31,"gss_url":"https://gradschoolshopper.com/browse/university-of-houston.html","grad_url":"https://www.uh.edu/nsm/physics/graduate/","dept_url":"https://www.uh.edu/nsm/physics/","faculty_url":"https://www.uh.edu/nsm/physics/people/tenure-track/","funding_url":null},"University of Idaho":{"school_name":"University of Idaho","abbr":null,"department":"Physics","location":"Moscow, ID","region":"Pacific Northwest","campus_setting":"Rural","acceptance_rate":"20%","application_deadline":"Feb 1","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":22,"faculty_count":9,"gss_url":"https://gradschoolshopper.com/browse/university-of-idaho.html","grad_url":"https://www.uidaho.edu/graduate-studies/admissions","dept_url":null,"faculty_url":"https://www.uidaho.edu/science/our-people","funding_url":null},"University of Illinois, Urbana-Champaign":{"school_name":"University of Illinois, Urbana-Champaign","abbr":"UIUC","department":"Physics","location":"Urbana, IL","region":"Midwest","campus_setting":"Urban","acceptance_rate":"6%","application_deadline":"Jan 15","phd_granted_2024":34,"ms_granted_2024":null,"total_enrollment_fall2024":317,"faculty_count":73,"gss_url":"https://gradschoolshopper.com/browse/university-of-illinois-urbana-champaign.html","grad_url":"https://physics.illinois.edu/admissions/graduates","dept_url":null,"faculty_url":"https://physics.illinois.edu/people/directory/faculty","funding_url":null},"University of Iowa":{"school_name":"University of Iowa","abbr":null,"department":"Physics & Astronomy","location":"Iowa City, IA","region":"Midwest","campus_setting":"Urban","acceptance_rate":"28%","application_deadline":"Jan 1 (financial support consideration: Jan 15)","phd_granted_2024":12,"ms_granted_2024":null,"total_enrollment_fall2024":68,"faculty_count":27,"gss_url":"https://gradschoolshopper.com/browse/university-of-iowa.html","grad_url":"https://physics.uiowa.edu/graduate","dept_url":null,"faculty_url":"https://physics.uiowa.edu/people/faculty","funding_url":null},"University of Kansas":{"school_name":"University of Kansas","abbr":"KU","department":"Physics & Astronomy","location":"Lawrence, KS","region":"Midwest","campus_setting":"Suburban","acceptance_rate":"22%","application_deadline":"Dec 15","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":66,"faculty_count":24,"gss_url":"https://gradschoolshopper.com/browse/university-of-kansas.html","grad_url":"https://physics.ku.edu/graduate-program","dept_url":null,"faculty_url":"https://physics.ku.edu/faculty","funding_url":null},"University of Massachusetts, Amherst":{"school_name":"University of Massachusetts, Amherst","abbr":null,"department":"Physics","location":"Amherst, MA","region":"Northeast","campus_setting":"Rural","acceptance_rate":null,"application_deadline":"Dec 15","phd_granted_2024":7,"ms_granted_2024":null,"total_enrollment_fall2024":103,"faculty_count":39,"gss_url":"https://gradschoolshopper.com/browse/university-of-massachusetts-amherst.html","grad_url":"https://www.umass.edu/physics/graduate","dept_url":"https://www.physics.umass.edu/","faculty_url":"https://www.umass.edu/physics/about/directory","funding_url":null},"University of Massachusetts, Boston":{"school_name":"University of Massachusetts, Boston","abbr":null,"department":"Physics (College of Science and Mathematics)","location":"Boston, MA","region":"Northeast","campus_setting":"Urban (Boston waterfront campus)","acceptance_rate":null,"application_deadline":"February 15 (fall entry)","phd_granted_2024":1,"ms_granted_2024":null,"total_enrollment_fall2024":29,"faculty_count":13,"gss_url":"https://gradschoolshopper.com/browse/university-of-massachusetts-boston.html","grad_url":"https://www.umb.edu/admissions/graduate-students/apply/","dept_url":null,"faculty_url":"https://www.umb.edu/science-mathematics/academic-departments/physics/faculty-staff/","funding_url":null},"University of Massachusetts, Lowell":{"school_name":"University of Massachusetts, Lowell","abbr":null,"department":"Physics & Applied Physics","location":"Lowell, MA","region":"Northeast","campus_setting":"Urban","acceptance_rate":"34%","application_deadline":"Jan 15","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":23,"faculty_count":26,"gss_url":"https://gradschoolshopper.com/browse/university-of-massachusetts-lowell.html","grad_url":"https://www.uml.edu/sciences/physics/graduate/","dept_url":null,"faculty_url":"https://www.uml.edu/sciences/physics/people/","funding_url":null},"University of Michigan, Ann Arbor":{"school_name":"University of Michigan, Ann Arbor","abbr":null,"department":"Department of Physics","location":"Ann Arbor, MI","region":"Midwest","campus_setting":"College Town","acceptance_rate":"28%","application_deadline":"Dec 15","phd_granted_2024":23,"ms_granted_2024":null,"total_enrollment_fall2024":139,"faculty_count":51,"gss_url":"https://gradschoolshopper.com/browse/university-of-michigan.html","grad_url":"https://lsa.umich.edu/physics/graduate-students.html","dept_url":"https://lsa.umich.edu/physics","faculty_url":"https://lsa.umich.edu/physics/people/faculty.html","funding_url":null},"University of Minnesota, Duluth":{"school_name":"University of Minnesota, Duluth","abbr":null,"department":"Physics & Astronomy","location":"Duluth, MN","region":"Midwest","campus_setting":"College Town","acceptance_rate":"75%","application_deadline":"April 1 (end of January preferred for fellowship consideration)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":13,"faculty_count":8,"gss_url":"https://gradschoolshopper.com/browse/university-of-minnesota-duluth.html","grad_url":"https://scse.d.umn.edu/departments-and-programs/physics-astronomy-department/graduate-program","dept_url":"https://scse.d.umn.edu/departments-and-programs/physics-astronomy-department","faculty_url":"https://scse.d.umn.edu/departments-and-programs/physics-astronomy-department/faculty","funding_url":null},"University of Minnesota":{"school_name":"University of Minnesota","abbr":null,"department":"School of Physics and Astronomy","location":"Minneapolis, MN","region":"Midwest","campus_setting":"Urban","acceptance_rate":"33%","application_deadline":"Dec 15","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":160,"faculty_count":47,"gss_url":null,"grad_url":"https://cse.umn.edu/physics/graduate-admissions","dept_url":"https://cse.umn.edu/physics","faculty_url":"https://cse.umn.edu/physics/physics-astronomy-faculty","funding_url":null},"University of Missouri, Columbia":{"school_name":"University of Missouri, Columbia","abbr":null,"department":"Physics & Astronomy","location":"Columbia, MO","region":"Midwest","campus_setting":"College Town","acceptance_rate":"20%","application_deadline":"Feb 1 (fall); Oct 1 (spring)","phd_granted_2024":7,"ms_granted_2024":null,"total_enrollment_fall2024":55,"faculty_count":22,"gss_url":null,"grad_url":"https://physics.missouri.edu/graduate-program","dept_url":"https://physics.missouri.edu/","faculty_url":"https://physics.missouri.edu/people","funding_url":null},"University of Nevada Las Vegas":{"school_name":"University of Nevada Las Vegas","abbr":null,"department":"Physics & Astronomy","location":"Las Vegas, NV","region":"Mountain West","campus_setting":"Urban","acceptance_rate":"40%","application_deadline":"Jan 15","phd_granted_2024":9,"ms_granted_2024":null,"total_enrollment_fall2024":35,"faculty_count":21,"gss_url":null,"grad_url":null,"dept_url":"https://www.physics.unlv.edu/","faculty_url":"https://www.physics.unlv.edu/faculty.html","funding_url":null},"University of Nevada, Reno":{"school_name":"University of Nevada, Reno","abbr":"UNR","department":"Physics","location":"Reno, NV","region":"Mountain West","campus_setting":"College Town","acceptance_rate":"50%","application_deadline":"February 5 (Fall); November 1 (Spring)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":null,"faculty_count":16,"gss_url":null,"grad_url":"https://www.unr.edu/physics/graduate/graduate-program","dept_url":"https://www.unr.edu/physics","faculty_url":"https://www.unr.edu/physics/people","funding_url":null},"University of North Carolina, Chapel Hill":{"school_name":"University of North Carolina, Chapel Hill","abbr":null,"department":"Physics and Astronomy","location":"Chapel Hill, NC","region":"Southeast","campus_setting":"College Town","acceptance_rate":"20%","application_deadline":"December 16, 2025","phd_granted_2024":8,"ms_granted_2024":null,"total_enrollment_fall2024":99,"faculty_count":28,"gss_url":null,"grad_url":"https://physics.unc.edu/grad/","dept_url":"https://physics.unc.edu/","faculty_url":"https://physics.unc.edu/people-pages/faculty/","funding_url":"https://physics.unc.edu/graduate-program/funding-opportunities-financial-support/"},"University of Notre Dame":{"school_name":"University of Notre Dame","abbr":null,"department":"Physics and Astronomy","location":"Notre Dame, IN","region":"Midwest","campus_setting":"Suburban","acceptance_rate":"25%","application_deadline":"Dec 15","phd_granted_2024":12,"ms_granted_2024":null,"total_enrollment_fall2024":115,"faculty_count":68,"gss_url":"https://gradschoolshopper.com/browse/university-of-notre-dame.html","grad_url":"https://physics.nd.edu/graduate/","dept_url":"https://physics.nd.edu/","faculty_url":"https://physics.nd.edu/people/faculty/","funding_url":null},"University of Oklahoma":{"school_name":"University of Oklahoma","abbr":"OU","department":"Homer L. Dodge Department of Physics and Astronomy","location":"Norman, OK","region":"Midwest","campus_setting":"College Town","acceptance_rate":"10%","application_deadline":"Jan 15","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":93,"faculty_count":17,"gss_url":"https://gradschoolshopper.com/browse/university-of-oklahoma.html","grad_url":"https://www.ou.edu/cas/physics-astronomy/students/graduate","dept_url":"https://www.ou.edu/cas/physics-astronomy","faculty_url":"https://www.ou.edu/cas/physics-astronomy/people/directory","funding_url":null},"University of Oregon - Knight Campus":{"school_name":"University of Oregon - Knight Campus","abbr":null,"department":"Physics (College of Arts and Sciences) \u00b7 Applied Physics via Knight Campus Graduate Internship Program","location":"Eugene, OR","region":"Pacific Northwest","campus_setting":"College Town","acceptance_rate":null,"application_deadline":"Jan 7 priority / Feb 2 final (PhD & Academic MS); Feb 16 priority (Applied MS Quantum & Nanotech)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":null,"faculty_count":30,"gss_url":null,"grad_url":"https://naturalsciences.uoregon.edu/physics/graduate-programs","dept_url":"https://naturalsciences.uoregon.edu/physics","faculty_url":"https://cas.uoregon.edu/directory/physics","funding_url":"https://naturalsciences.uoregon.edu/physics/graduate-programs/funding"},"University of Rochester":{"school_name":"University of Rochester","abbr":null,"department":"Physics and Astronomy","location":"Rochester, NY","region":"Northeast","campus_setting":"Suburban","acceptance_rate":"24%","application_deadline":"Dec 15","phd_granted_2024":9,"ms_granted_2024":null,"total_enrollment_fall2024":124,"faculty_count":60,"gss_url":null,"grad_url":"https://www.sas.rochester.edu/pas/graduate/index.html","dept_url":"https://www.sas.rochester.edu/pas/","faculty_url":"https://www.sas.rochester.edu/pas/people/faculty/index.html","funding_url":"https://www.sas.rochester.edu/pas/graduate/support.html"},"University of South Carolina":{"school_name":"University of South Carolina","abbr":null,"department":"Physics and Astronomy","location":"Columbia, SC","region":"Southeast","campus_setting":"Urban","acceptance_rate":"15%","application_deadline":"January 15 (Fall); September 15 (Spring)","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":null,"faculty_count":28,"gss_url":null,"grad_url":"https://www.sc.edu/study/colleges_schools/artsandsciences/physics_and_astronomy/study/graduate/index.php","dept_url":"https://www.sc.edu/study/colleges_schools/artsandsciences/physics_and_astronomy/","faculty_url":"https://www.sc.edu/study/colleges_schools/artsandsciences/physics_and_astronomy/our_people/faculty/index.php","funding_url":"https://www.sc.edu/study/colleges_schools/artsandsciences/physics_and_astronomy/apply/graduate-assistantship/index.php"},"University of South Dakota":{"school_name":"University of South Dakota","abbr":null,"department":"Department of Physics","location":"Vermillion, SD","region":"Midwest","campus_setting":"College Town","acceptance_rate":"26%","application_deadline":"Feb 1 (priority); Jul 15 (final, fall); Dec 5 (final, spring)","phd_granted_2024":1,"ms_granted_2024":null,"total_enrollment_fall2024":21,"faculty_count":6,"gss_url":"https://gradschoolshopper.com/browse/university-of-south-dakota.html","grad_url":"https://www.usd.edu/Academics/Graduate-Programs/Physics","dept_url":"https://www.usd.edu/Academics/Colleges-and-Schools/college-of-arts-sciences/physics","faculty_url":"https://www.usd.edu/Research-and-Faculty/Faculty-and-Staff#sort=%40facultyz32xmemberz32xlastz32xname%20ascending&f:facultydepartments=[Physics]","funding_url":null},"University of South Florida":{"school_name":"University of South Florida","abbr":"USF","department":"Physics","location":"Tampa, FL","region":"Southeast","campus_setting":"Urban","acceptance_rate":"30%","application_deadline":"Feb 1 (priority/funding); Dec 1 (fellowships); Sep 1 (Spring)","phd_granted_2024":10,"ms_granted_2024":null,"total_enrollment_fall2024":63,"faculty_count":25,"gss_url":null,"grad_url":"https://www.usf.edu/arts-sciences/departments/physics/graduate/index.aspx","dept_url":"https://www.usf.edu/arts-sciences/departments/physics/","faculty_url":"https://www.usf.edu/arts-sciences/departments/physics/people/faculty/index.aspx","funding_url":null},"University of Tennessee, Knoxville":{"school_name":"University of Tennessee, Knoxville","abbr":null,"department":"Physics & Astronomy","location":"Knoxville, TN","region":"Southeast","campus_setting":"College Town","acceptance_rate":"25%","application_deadline":"Dec 15","phd_granted_2024":20,"ms_granted_2024":null,"total_enrollment_fall2024":38,"faculty_count":44,"gss_url":null,"grad_url":"https://physics.utk.edu/graduate/","dept_url":"https://physics.utk.edu/","faculty_url":"https://physics.utk.edu/faculty/","funding_url":null},"University of Texas, Arlington":{"school_name":"University of Texas, Arlington","abbr":null,"department":"Physics","location":"Arlington, TX","region":"South","campus_setting":"Urban","acceptance_rate":"29%","application_deadline":"Feb 1 (PhD, fall); Feb 28 recommended for full consideration","phd_granted_2024":6,"ms_granted_2024":null,"total_enrollment_fall2024":63,"faculty_count":26,"gss_url":null,"grad_url":"https://www.uta.edu/academics/schools-colleges/science/departments/physics/degree-programs/graduate","dept_url":"https://www.uta.edu/academics/schools-colleges/science/departments/physics","faculty_url":"https://www.uta.edu/academics/schools-colleges/science/departments/physics/faculty","funding_url":null},"University of Texas at Austin":{"school_name":"University of Texas at Austin","abbr":"UT Austin","department":"Department of Physics","location":"Austin, TX","region":"South","campus_setting":"Urban","acceptance_rate":"26%","application_deadline":"Dec 1 (Fall); Oct 1 (Spring)","phd_granted_2024":36,"ms_granted_2024":null,"total_enrollment_fall2024":196,"faculty_count":55,"gss_url":null,"grad_url":"https://physics.utexas.edu/academics/admissions","dept_url":"https://physics.utexas.edu/","faculty_url":"https://physics.utexas.edu/directory","funding_url":null},"University of Utah":{"school_name":"University of Utah","abbr":"UU","department":"Physics & Astronomy","location":"Salt Lake City, UT","region":"Mountain West","campus_setting":"Urban","acceptance_rate":"15%","application_deadline":"Dec 14","phd_granted_2024":14,"ms_granted_2024":null,"total_enrollment_fall2024":59,"faculty_count":38,"gss_url":null,"grad_url":"https://www.physics.utah.edu/graduate-programs/gradadmission/","dept_url":"https://www.physics.utah.edu/","faculty_url":"https://www.physics.utah.edu/department-directory/","funding_url":null},"University of Virginia":{"school_name":"University of Virginia","abbr":"UVA","department":"Physics","location":"Charlottesville, VA","region":"Mid-Atlantic","campus_setting":"College Town","acceptance_rate":"40%","application_deadline":"Dec 15","phd_granted_2024":19,"ms_granted_2024":null,"total_enrollment_fall2024":126,"faculty_count":40,"gss_url":null,"grad_url":"https://www.phys.virginia.edu/GraduateBrochure/","dept_url":"https://www.phys.virginia.edu/","faculty_url":"https://www.phys.virginia.edu/People/","funding_url":null},"University of Wisconsin, Milwaukee":{"school_name":"University of Wisconsin, Milwaukee","abbr":null,"department":"Physics & Astronomy","location":"Milwaukee, WI","region":"Midwest","campus_setting":"Urban","acceptance_rate":"19%","application_deadline":"Dec 15","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":52,"faculty_count":19,"gss_url":null,"grad_url":"https://uwm.edu/physics/students/graduate/","dept_url":"https://uwm.edu/physics/","faculty_url":"https://uwm.edu/physics/about/directory/","funding_url":"https://uwm.edu/physics/students/graduate/financial-support-graduate-students/"},"University of Wisconsin, Madison":{"school_name":"University of Wisconsin, Madison","abbr":null,"department":"Physics","location":"Madison, WI","region":"Midwest","campus_setting":"College Town","acceptance_rate":"20%","application_deadline":"Dec 15","phd_granted_2024":23,"ms_granted_2024":null,"total_enrollment_fall2024":216,"faculty_count":55,"gss_url":null,"grad_url":null,"dept_url":"https://physics.wisc.edu/","faculty_url":"https://www.physics.wisc.edu/people/faculty/","funding_url":null},"University of Wisconsin\u2013Madison":{"school_name":"University of Wisconsin\u2013Madison","abbr":null,"department":"Department of Medical Physics","location":"Madison, WI","region":"Midwest","campus_setting":"College Town","acceptance_rate":"29%","application_deadline":"Dec 1","phd_granted_2024":null,"ms_granted_2024":null,"total_enrollment_fall2024":90,"faculty_count":30,"gss_url":null,"grad_url":"https://medphysics.wisc.edu/graduate-program/","dept_url":"https://medphysics.wisc.edu/","faculty_url":"https://medphysics.wisc.edu/medical-physics-faculty/","funding_url":null},"University of Wyoming":{"school_name":"University of Wyoming","abbr":null,"department":"Physics and Astronomy","location":"Laramie, WY","region":"Mountain West","campus_setting":"College Town","acceptance_rate":"10%","application_deadline":"Jan 16","phd_granted_2024":5,"ms_granted_2024":null,"total_enrollment_fall2024":42,"faculty_count":14,"gss_url":null,"grad_url":"https://www.uwyo.edu/physics/graduate-program/index.html","dept_url":"https://www.uwyo.edu/physics","faculty_url":"https://www.uwyo.edu/physics/faculty-directory/index.html","funding_url":null},"Utah State University":{"school_name":"Utah State University","abbr":"USU","department":"Department of Physics","location":"Logan, UT","region":"Mountain West","campus_setting":"College Town","acceptance_rate":"23%","application_deadline":"Jan 15","phd_granted_2024":14,"ms_granted_2024":null,"total_enrollment_fall2024":59,"faculty_count":12,"gss_url":"https://gradschoolshopper.com/browse/utah-state-university.html","grad_url":null,"dept_url":"https://artsci.usu.edu/physics/","faculty_url":"https://artsci.usu.edu/physics/directory/faculty/index.php","funding_url":null},"Vanderbilt University":{"school_name":"Vanderbilt University","abbr":null,"department":"Physics & Astronomy","location":"Nashville, TN","region":"Southeast","campus_setting":"Urban","acceptance_rate":"33%","application_deadline":"Dec 1","phd_granted_2024":13,"ms_granted_2024":null,"total_enrollment_fall2024":57,"faculty_count":21,"gss_url":"https://gradschoolshopper.com/browse/vanderbilt-university.html","grad_url":null,"dept_url":"https://as.vanderbilt.edu/physics-astronomy/","faculty_url":"https://as.vanderbilt.edu/physics-astronomy/people/","funding_url":"https://as.vanderbilt.edu/physics-astronomy/phd-financial-aid/"},"Virginia Tech":{"school_name":"Virginia Tech","abbr":"VT","department":"Physics","location":"Blacksburg, VA","region":"Mid-Atlantic","campus_setting":"College Town","acceptance_rate":"51%","application_deadline":"Jan 5","phd_granted_2024":6,"ms_granted_2024":null,"total_enrollment_fall2024":87,"faculty_count":30,"gss_url":null,"grad_url":"https://www.phys.vt.edu/Graduate/GraduateProgram.html","dept_url":"https://www.phys.vt.edu/","faculty_url":null,"funding_url":null},"Wake Forest University":{"school_name":"Wake Forest University","abbr":null,"department":"Department of Physics","location":"Winston-Salem, NC","region":"Southeast","campus_setting":"Suburban","acceptance_rate":"16%","application_deadline":"Jan 8","phd_granted_2024":4,"ms_granted_2024":null,"total_enrollment_fall2024":37,"faculty_count":16,"gss_url":null,"grad_url":"https://physics.wfu.edu/graduate-programs/ph-d-in-physics/","dept_url":"https://physics.wfu.edu/","faculty_url":"https://physics.wfu.edu/people/","funding_url":null},"Washington University in St. Louis":{"school_name":"Washington University in St. Louis","abbr":"WashU","department":"Department of Physics","location":"St. Louis, MO","region":"Midwest","campus_setting":"Suburban","acceptance_rate":null,"application_deadline":"December 1 (doctoral)","phd_granted_2024":7,"ms_granted_2024":null,"total_enrollment_fall2024":59,"faculty_count":24,"gss_url":null,"grad_url":"https://physics.washu.edu/graduate-program","dept_url":"https://physics.washu.edu/","faculty_url":"https://physics.washu.edu/people","funding_url":"https://physics.washu.edu/graduate-program#financial-support"},"Wayne State University":{"school_name":"Wayne State University","abbr":null,"department":"Physics and Astronomy","location":"Detroit, MI","region":"Midwest","campus_setting":"Urban","acceptance_rate":"13%","application_deadline":"Jun 1","phd_granted_2024":10,"ms_granted_2024":null,"total_enrollment_fall2024":38,"faculty_count":24,"gss_url":null,"grad_url":null,"dept_url":"https://clas.wayne.edu/physics","faculty_url":"https://clasprofiles.wayne.edu/department/physics-and-astronomy","funding_url":null},"Wesleyan University":{"school_name":"Wesleyan University","abbr":null,"department":"Physics","location":"Middletown, CT","region":"Northeast","campus_setting":"Suburban","acceptance_rate":"9%","application_deadline":"Jan 31 (fall priority); Sep 30 (spring)","phd_granted_2024":3,"ms_granted_2024":null,"total_enrollment_fall2024":13,"faculty_count":7,"gss_url":null,"grad_url":"https://www.wesleyan.edu/physics/graduate/","dept_url":"https://www.wesleyan.edu/physics/","faculty_url":"https://www.wesleyan.edu/physics/people/index.html","funding_url":null},"Western Michigan University":{"school_name":"Western Michigan University","abbr":null,"department":"Department of Physics","location":"Kalamazoo, MI","region":"Midwest","campus_setting":"College Town","acceptance_rate":"23%","application_deadline":"Feb 15 (priority); Mar 15 (final)","phd_granted_2024":3,"ms_granted_2024":null,"total_enrollment_fall2024":23,"faculty_count":7,"gss_url":null,"grad_url":"https://wmich.edu/physics/academics/graduate-programs","dept_url":"https://wmich.edu/physics","faculty_url":"https://wmich.edu/physics/directory","funding_url":null},"Yale University":{"school_name":"Yale University","abbr":null,"department":"Physics","location":"New Haven, CT","region":"Northeast","campus_setting":"Urban","acceptance_rate":"17%","application_deadline":"Dec 15","phd_granted_2024":21,"ms_granted_2024":null,"total_enrollment_fall2024":146,"faculty_count":36,"gss_url":null,"grad_url":"https://physics.yale.edu/academics/graduate-studies","dept_url":"https://physics.yale.edu/","faculty_url":"https://physics.yale.edu/people/faculty","funding_url":null}};
+
+  /* ── Mock form data ──────────────────────────────────────── */
+  var FORM_DATA = {
+    first_name: 'Alex',
+    research_interests: ['Condensed Matter Physics', 'Biophysics', 'Quantum Information'],
+    degree: 'PhD',
+    career_goal: 'Academic research faculty'
+  };
+
+  /* ── Mock results (7 programs) ───────────────────────────── */
+  /* URLs: gss_url verified from KB files where available. grad_url links to  */
+  /* each program's graduate admissions page for the primary "Apply" CTA.     */
+  var RESULTS = [
+    {
+      school_name: 'Massachusetts Institute of Technology',
+      abbr: 'MIT',
+      location: 'Cambridge, MA', region: 'Northeast', campus_setting: 'Urban',
+      overall_score: 94,
+      matching_specialties: ['Condensed Matter Physics', 'Quantum Information', 'Biophysics'],
+      score_breakdown: { research_fit:97, admissions_feasibility:38, program_activity:98, location_match:90, degree_structure_fit:96 },
+      why: "MIT's condensed matter group is one of the most productive in the world, with active research spanning topological materials, quantum phase transitions, and biological physics — areas that map directly onto Alex's interests. The department's emphasis on theory-experiment collaboration and its proximity to Lincoln Laboratory create strong pathways toward an academic research faculty career. Admissions are among the most competitive in the country; the strength of research alignment makes this a justified reach.",
+      acceptance_rate: '4%', phd_granted_2024: 31, application_deadline: 'Dec 15',
+      faculty_count: 52,
+      gss_url: 'https://gradschoolshopper.com/browse/massachusetts-institute-of-technology.html',
+      grad_url: 'https://physics.mit.edu/academic-programs/graduate-students/',
+      dept_url: 'https://physics.mit.edu',
+      faculty_url: 'https://physics.mit.edu/research/faculty/',
+      funding_url: 'https://physics.mit.edu/academic-programs/graduate-students/financial-support/'
+    },
+    {
+      school_name: 'University of Illinois Urbana-Champaign',
+      abbr: 'UIUC',
+      location: 'Urbana, IL', region: 'Midwest', campus_setting: 'College Town',
+      overall_score: 88,
+      matching_specialties: ['Condensed Matter Physics', 'Biophysics', 'Quantum Information'],
+      score_breakdown: { research_fit:92, admissions_feasibility:66, program_activity:88, location_match:58, degree_structure_fit:88 },
+      why: "UIUC has one of the largest and most productive condensed matter groups in the country, with exceptional breadth across quantum materials, biophysics, and quantum information science. The department's strong academic placement record and robust funding infrastructure make it a compelling match for a PhD student targeting a research faculty career.",
+      acceptance_rate: '10%', phd_granted_2024: 24, application_deadline: 'Dec 15',
+      faculty_count: 55,
+      gss_url: 'https://gradschoolshopper.com/browse/university-of-illinois-urbana-champaign.html',
+      grad_url: 'https://physics.illinois.edu/graduate/prospective-students',
+      dept_url: 'https://physics.illinois.edu',
+      faculty_url: 'https://physics.illinois.edu/people/faculty',
+      funding_url: 'https://physics.illinois.edu/graduate/financial-support'
+    },
+    {
+      school_name: 'University of Michigan',
+      abbr: null,
+      location: 'Ann Arbor, MI', region: 'Midwest', campus_setting: 'College Town',
+      overall_score: 85,
+      matching_specialties: ['Condensed Matter Physics', 'Biophysics', 'Quantum Information'],
+      score_breakdown: { research_fit:89, admissions_feasibility:72, program_activity:85, location_match:75, degree_structure_fit:88 },
+      why: "Michigan's physics program features deep strength in condensed matter and biophysics, spanning soft matter, single-molecule biophysics, and quantum materials — a direct fit for Alex's core interests. The department has a consistent record of placing PhD graduates in faculty positions at research universities.",
+      acceptance_rate: '11%', phd_granted_2024: 22, application_deadline: 'Dec 15',
+      faculty_count: 46,
+      gss_url: 'https://gradschoolshopper.com/browse/university-of-michigan.html',
+      grad_url: 'https://lsa.umich.edu/physics/graduates.html',
+      dept_url: 'https://lsa.umich.edu/physics',
+      faculty_url: 'https://lsa.umich.edu/physics/people/faculty.html',
+      funding_url: 'https://lsa.umich.edu/physics/graduates/finances.html'
+    },
+    {
+      school_name: 'University of California Santa Barbara',
+      abbr: 'UCSB',
+      location: 'Santa Barbara, CA', region: 'West Coast', campus_setting: 'Suburban',
+      overall_score: 82,
+      matching_specialties: ['Condensed Matter Physics', 'Quantum Information'],
+      score_breakdown: { research_fit:88, admissions_feasibility:68, program_activity:84, location_match:72, degree_structure_fit:82 },
+      why: "UCSB is home to the Kavli Institute for Theoretical Physics and a world-class condensed matter group, with particular strength in quantum information and topological phases that align closely with Alex's profile. The department's collaborative environment and the program's focused size create a high-impact research experience.",
+      acceptance_rate: '9%', phd_granted_2024: 18, application_deadline: 'Dec 1',
+      faculty_count: 37,
+      gss_url: 'https://gradschoolshopper.com/browse/university-of-california-santa-barbara.html',
+      grad_url: 'https://www.physics.ucsb.edu/graduate/prospective-students',
+      dept_url: 'https://www.physics.ucsb.edu',
+      faculty_url: 'https://www.physics.ucsb.edu/people/faculty',
+      funding_url: 'https://www.physics.ucsb.edu/graduate/funding'
+    },
+    {
+      school_name: 'University of Maryland',
+      abbr: null,
+      location: 'College Park, MD', region: 'Mid-Atlantic', campus_setting: 'Suburban',
+      overall_score: 76,
+      matching_specialties: ['Condensed Matter Physics', 'Quantum Information'],
+      score_breakdown: { research_fit:82, admissions_feasibility:74, program_activity:78, location_match:80, degree_structure_fit:74 },
+      why: "Maryland's Joint Quantum Institute and condensed matter group provide strong infrastructure for research in quantum information and topological materials. Close ties to NIST and the federal research community in the Washington, D.C. area offer collaborative opportunities and clear pathways into academic careers.",
+      acceptance_rate: '13%', phd_granted_2024: 19, application_deadline: 'Dec 15',
+      faculty_count: 48,
+      gss_url: 'https://gradschoolshopper.com/browse/university-of-maryland.html',
+      grad_url: 'https://umdphysics.umd.edu/academics/graduate.html',
+      dept_url: 'https://umdphysics.umd.edu',
+      faculty_url: 'https://umdphysics.umd.edu/people/faculty.html',
+      funding_url: 'https://umdphysics.umd.edu/academics/graduate/financial.html'
+    },
+    {
+      school_name: 'Boston University',
+      abbr: null,
+      location: 'Boston, MA', region: 'Northeast', campus_setting: 'Urban',
+      overall_score: 70,
+      matching_specialties: ['Biophysics', 'Condensed Matter Physics'],
+      score_breakdown: { research_fit:75, admissions_feasibility:80, program_activity:68, location_match:88, degree_structure_fit:72 },
+      why: "Boston University's biophysics and soft condensed matter groups offer research opportunities in membrane biophysics, single-molecule imaging, and complex systems — well-suited to Alex's interest in biological physics. Boston's urban setting provides access to research hospitals, biotech partners, and institutions for interdisciplinary collaboration.",
+      acceptance_rate: '17%', phd_granted_2024: 7, application_deadline: 'Dec 15',
+      faculty_count: 41,
+      gss_url: 'https://gradschoolshopper.com/browse/boston-university.html',
+      grad_url: 'https://www.bu.edu/physics/graduate/',
+      dept_url: 'https://www.bu.edu/physics/',
+      faculty_url: 'https://www.bu.edu/physics/people/faculty-lecturers/',
+      funding_url: 'https://www.bu.edu/physics/graduate/financial-support/'
+    },
+    {
+      school_name: 'University of Colorado Boulder',
+      abbr: null,
+      location: 'Boulder, CO', region: 'Mountain West', campus_setting: 'College Town',
+      overall_score: 63,
+      matching_specialties: ['Condensed Matter Physics', 'Quantum Information'],
+      score_breakdown: { research_fit:68, admissions_feasibility:85, program_activity:62, location_match:56, degree_structure_fit:66 },
+      why: "CU Boulder offers condensed matter and quantum research through its JILA institute — a joint venture with NIST focused on atomic, molecular, and optical physics and quantum information. The program's connection to national labs and an accessible admissions profile make it a solid option in this field.",
+      acceptance_rate: '22%', phd_granted_2024: 16, application_deadline: 'Jan 1',
+      faculty_count: 43,
+      gss_url: 'https://www.gradschoolshopper.com/browse/university-of-colorado-boulder.html',
+      grad_url: 'https://www.colorado.edu/physics/graduate-students',
+      dept_url: 'https://www.colorado.edu/physics',
+      faculty_url: 'https://www.colorado.edu/physics/research/faculty',
+      funding_url: 'https://www.colorado.edu/physics/graduate-students/funding'
+    }
+  ];
+
+  /* ── State ───────────────────────────────────────────────── */
+  var expandedCards = {};
+  var SLUG_MAP = {}; /* rebuilt in init after merge */
+
+  /* ── Items 2–3: merge Cassidy output with display lookup ───── */
+  /* In production call: results.matches.map(mergeWithDisplay)    */
+  /* Also normalises match_explanation → why (field rename).      */
+  function mergeWithDisplay(match) {
+    var d = GSS_DISPLAY[match.school_name] || {};
+    return {
+      /* Identity */
+      school_name:          d.school_name          || match.school_name,
+      abbr:                 d.abbr                 != null ? d.abbr  : (match.abbr  || null),
+      department:           d.department            || match.department   || 'Physics',
+      location:             d.location              || match.location     || null,
+      region:               d.region                || match.region       || null,
+      campus_setting:       d.campus_setting        || match.campus_setting || null,
+      /* AI-scored fields (always from Cassidy output) */
+      overall_score:        match.overall_score,
+      matching_specialties: match.matching_specialties || [],
+      score_breakdown:      match.score_breakdown      || {},
+      /* Item 3: normalise field name — accept either spelling */
+      why: match.why || match.match_explanation || '',
+      /* Program facts (display lookup takes priority over AI output) */
+      acceptance_rate:     d.acceptance_rate      != null ? d.acceptance_rate      : (match.acceptance_rate || null),
+      phd_granted_2024:    d.phd_granted_2024     != null ? d.phd_granted_2024     : (match.phd_granted_2024 || null),
+      ms_granted_2024:     d.ms_granted_2024      != null ? d.ms_granted_2024      : (match.ms_granted_2024  || null),
+      application_deadline:d.application_deadline  || match.application_deadline   || null,
+      faculty_count:       d.faculty_count         != null ? d.faculty_count        : (match.faculty_count    || null),
+      /* Links (display lookup; fall back to any link the AI may supply) */
+      gss_url:     d.gss_url     || match.gss_url     || match.school_profile_url || null,
+      grad_url:    d.grad_url    || match.grad_url     || null,
+      dept_url:    d.dept_url    || match.dept_url     || null,
+      faculty_url: d.faculty_url || match.faculty_url  || null,
+      funding_url: d.funding_url || match.funding_url  || null,
+    };
+  }
+
+
+
+  var SCORE_LABELS = {
+    research_fit:           'Research Fit',
+    admissions_feasibility: 'Admissions',
+    program_activity:       'Program Activity',
+    location_match:         'Location Match',
+    degree_structure_fit:   'Degree Fit'
+  };
+
+  /* ── Helpers ─────────────────────────────────────────────── */
+  function toSlug(name) { return name.replace(/[^a-z0-9]/gi,'-').toLowerCase(); }
+
+  function selectivity(pct) {
+    var n = parseFloat(pct);
+    if (isNaN(n))  return { label:'Not Listed',          cls:'mod'    };
+    if (n < 8)     return { label:'Highly Selective',    cls:'high'   };
+    if (n < 15)    return { label:'Selective',           cls:'sel'    };
+    if (n < 22)    return { label:'Moderately Selective',cls:'mod'    };
+    return                { label:'Accessible',          cls:'access' };
+  }
+
+  function qualLabel(key, val) {
+    if (key === 'admissions_feasibility') {
+      if (val >= 80) return { text:'Accessible',         color:'#4DAB7A' };
+      if (val >= 65) return { text:'Competitive',        color:'#6B7280' };
+      if (val >= 45) return { text:'Highly Competitive', color:'#D97706' };
+      return               { text:'Most Selective',      color:'#6B7280' }; /* neutral gray, not red */
+    }
+    if (val >= 90) return { text:'Exceptional', color:'#4DAB7A' };
+    if (val >= 80) return { text:'Very Strong',  color:'#77C999' };
+    if (val >= 70) return { text:'Strong',       color:'#3E455E' };
+    if (val >= 60) return { text:'Good',         color:'#6B7280' };
+    return               { text:'Developing',   color:'#A1B3C9' };
+  }
+
+  function specChipsHTML(specs) {
+    var show = specs.slice(0,3), extra = specs.length-3;
+    var h = show.map(function(s){ return '<span class="spec-chip">'+s+'</span>'; }).join('');
+    if (extra>0) h += '<span class="spec-chip-more">+'+extra+' more</span>';
+    return h;
+  }
+
+  function animateBars(container) {
+    container.querySelectorAll('.bar-fill').forEach(function(f){
+      requestAnimationFrame(function(){ f.style.width = f.getAttribute('data-target')+'%'; });
+    });
+  }
+
+  function displayName(m) { return m.abbr ? m.school_name+' ('+m.abbr+')' : m.school_name; }
+
+  function deadlineDisplay(d) {
+    if (!d || /multiple|varies/i.test(d)) return 'Multiple deadlines — see program';
+    return d;
+  }
+
+  /* ── Render card ─────────────────────────────────────────── */
+  function cardHTML(m, rank, delay) {
+    var s = toSlug(m.school_name);
+    var isOpen = !!expandedCards[m.school_name];
+    var sel = selectivity(m.acceptance_rate);
+    var rankStr = rank<10 ? '0'+rank : ''+rank;
+    var locationLine = m.location+'&nbsp;&nbsp;·&nbsp;&nbsp;'+m.campus_setting+'&nbsp;&nbsp;·&nbsp;&nbsp;'+m.region;
+    var rfLabel = qualLabel('research_fit', m.score_breakdown.research_fit);
+
+    var barsHTML = Object.keys(m.score_breakdown).map(function(k){
+      var v = m.score_breakdown[k], ql = qualLabel(k,v);
+      return [
+        '<div style="display:flex;align-items:center;gap:10px;margin-bottom:11px;">',
+          '<div style="width:118px;flex-shrink:0;font-size:12px;color:#3E455E;font-weight:500;">'+(SCORE_LABELS[k]||k)+'</div>',
+          '<div class="bar-track"><div class="bar-fill" data-target="'+v+'"></div></div>',
+          '<div style="width:136px;flex-shrink:0;font-size:12px;font-weight:600;text-align:right;color:'+ql.color+';">'+ql.text+'</div>',
+        '</div>'
+      ].join('');
+    }).join('');
+
+    var facultyBody = m.faculty_url
+      ? 'This program has '+m.faculty_count+' faculty members. <a class="info-link" href="'+m.faculty_url+'" target="_blank" rel="noopener">View the faculty directory</a> to identify advisors whose research aligns with your interests.'
+      : (m.faculty_count
+          ? 'This program has '+m.faculty_count+' faculty members. <a class="info-link" href="'+m.dept_url+'" target="_blank" rel="noopener">Visit the department website</a> for current faculty listings.'
+          : 'Faculty listings not yet available. <a class="info-link" href="'+m.dept_url+'" target="_blank" rel="noopener">View the department website</a> for current faculty.');
+
+    var fundingBody = m.funding_url
+      ? '<a class="info-link" href="'+m.funding_url+'" target="_blank" rel="noopener">View the program\'s funding and financial support page</a> for current stipend amounts, tuition waiver status, and fellowship opportunities.'
+      : 'Funding details not yet available. <a class="info-link" href="'+m.dept_url+'" target="_blank" rel="noopener">Contact the department directly</a> for current stipend and support information.';
+
+    var applyLabel = m.abbr ? 'Visit '+m.abbr+' Admissions' : 'Visit Graduate Admissions';
+
+    return [
+      '<div class="match-card'+(rank<=2?' top-card':'')+' rank-'+rank+' card-enter" data-school="'+s+'" style="animation-delay:'+delay+'ms;">',
+
+      /* Collapsed */
+      '<div style="padding:20px 20px 16px 24px;display:flex;gap:12px;align-items:flex-start;">',
+        '<div style="flex-shrink:0;width:28px;text-align:center;padding-top:2px;">',
+          '<span style="font-family:Rubik,sans-serif;font-weight:800;font-size:18px;color:#77C999;line-height:1;">'+rankStr+'</span>',
+        '</div>',
+        '<div style="flex:1;min-width:0;">',
+          '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:3px;flex-wrap:wrap;">',
+            '<span style="font-family:Rubik,sans-serif;font-size:16px;font-weight:700;color:#1B3A5F;line-height:1.3;">'+displayName(m)+'</span>',
+            '<span class="sel-badge '+sel.cls+'">'+sel.label+'</span>',
+          '</div>',
+          '<div style="font-size:12.5px;color:#6B7280;margin-bottom:14px;">'+locationLine+'</div>',
+          /* Stat pills */
+          '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">',
+            '<div class="stat-pill"><span class="plbl">Match Score</span><span class="pval">'+m.overall_score+'/100</span></div>',
+            '<div class="stat-pill"><span class="plbl">Research Fit</span><span class="pval" style="color:'+rfLabel.color+';">'+rfLabel.text+'</span></div>',
+            '<div class="stat-pill"><span class="plbl">Acceptance</span><span class="pval">'+m.acceptance_rate+'</span></div>',
+          '</div>',
+          /* Research strengths */
+          '<div style="margin-bottom:12px;">',
+            '<div style="font-size:10.5px;font-weight:600;color:#A1B3C9;letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px;">Research Strengths</div>',
+            '<div style="display:flex;flex-wrap:wrap;gap:6px;">'+specChipsHTML(m.matching_specialties)+'</div>',
+          '</div>',
+          /* Why teaser */
+          '<div style="margin-bottom:14px;">',
+            '<div style="font-size:10.5px;font-weight:600;color:#A1B3C9;letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px;">Why This Matches You</div>',
+            '<div class="why-teaser">'+m.why+'</div>',
+          '</div>',
+          /* Footer */
+          '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">',
+            '<div style="font-size:12px;color:#A1B3C9;">',
+              'Deadline:&nbsp;<span style="color:#3E455E;font-weight:500;">'+deadlineDisplay(m.application_deadline)+'</span>',
+              '&nbsp;&nbsp;·&nbsp;&nbsp;PhDs/yr:&nbsp;<span style="color:#3E455E;font-weight:500;">'+(m.phd_granted_2024||'—')+'</span>',
+            '</div>',
+            '<button class="vd-btn'+(isOpen?' open':'')+'" id="vd-'+s+'" onclick="toggleDetails(\''+s+'\')">',
+              '<span class="vd-text">'+(isOpen?'Hide Details':'View Full Details')+'</span>',
+              '<span class="chevron"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
+            '</button>',
+          '</div>',
+        '</div>',
+      '</div>',
+
+      /* Expandable */
+      '<div class="card-details'+(isOpen?' open':'')+'" id="details-'+s+'">',
+        '<div style="border-top:1px solid #EAEEF2;padding:20px 20px 20px 64px;">',
+
+          /* Why (full) */
+          '<div style="margin-bottom:20px;">',
+            '<div class="sec-lbl">Why This Matches You</div>',
+            '<p style="font-size:14px;color:#3E455E;line-height:1.72;margin:0;">'+m.why+'</p>',
+          '</div>',
+
+          /* Score breakdown */
+          '<div style="margin-bottom:20px;">',
+            '<div class="sec-lbl">Score Breakdown</div>',
+            barsHTML,
+          '</div>',
+
+          /* Faculty */
+          '<div style="margin-bottom:14px;">',
+            '<div class="sec-lbl">Faculty</div>',
+            '<p style="font-size:13px;color:#6B7280;line-height:1.65;margin:0;">'+facultyBody+'</p>',
+          '</div>',
+
+          /* Funding */
+          '<div style="margin-bottom:22px;">',
+            '<div class="sec-lbl">Funding &amp; Support</div>',
+            '<p style="font-size:13px;color:#6B7280;line-height:1.65;margin:0;">'+fundingBody+'</p>',
+          '</div>',
+
+          /* CTAs */
+          '<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">',
+            '<a href="'+m.grad_url+'" target="_blank" rel="noopener" class="cta-primary">',
+              applyLabel,
+              '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+            '</a>',
+            '<a href="'+m.gss_url+'" target="_blank" rel="noopener" class="cta-secondary">',
+              'View on GradSchoolShopper',
+              '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+            '</a>',
+          '</div>',
+
+        '</div>',
+      '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  /* ── Render cards ────────────────────────────────────────── */
+  function renderCards(results) {
+    var list = document.getElementById('cards-list');
+    list.innerHTML = results.map(function(m,i){ return cardHTML(m,i+1,i*65); }).join('');
+    results.forEach(function(m){
+      if (expandedCards[m.school_name]) {
+        var det = document.getElementById('details-'+toSlug(m.school_name));
+        if (det) setTimeout(function(){ animateBars(det); }, 50);
+      }
+    });
+  }
+
+  /* ── Toggle details ──────────────────────────────────────── */
+  window.toggleDetails = function(s) {
+    var schoolName = SLUG_MAP[s]; if (!schoolName) return;
+    var isNowOpen = !expandedCards[schoolName];
+    expandedCards[schoolName] = isNowOpen;
+    var det=document.getElementById('details-'+s), btn=document.getElementById('vd-'+s);
+    var span=btn&&btn.querySelector('.vd-text');
+    if (det) det.classList.toggle('open', isNowOpen);
+    if (btn) btn.classList.toggle('open', isNowOpen);
+    if (span) span.textContent = isNowOpen?'Hide Details':'View Full Details';
+    if (isNowOpen&&det) setTimeout(function(){ animateBars(det); }, 50);
+  };
+
+  /* ── Generate summary (GSS brand voice — neutral, structured) ─ */
+  function generateSummary(results, formData) {
+    var byResearch = results.slice().sort(function(a,b){ return b.score_breakdown.research_fit - a.score_breakdown.research_fit; });
+    var byScore    = results.slice().sort(function(a,b){ return b.overall_score - a.overall_score; });
+    var topMatch   = byScore[0];
+    var topResearch = byResearch[0];
+
+    /* Nearest deadline */
+    /* Academic-year sort: Oct–Dec come first, then Jan–Jun (same application cycle) */
+    var MONTH_ORDER = {Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12,Jan:13,Feb:14,Mar:15,Apr:16,May:17,Jun:18};
+    var withDates = results.filter(function(m){ return m.application_deadline && !/multiple|varies/i.test(m.application_deadline); });
+    withDates.sort(function(a,b){
+      var pa=a.application_deadline.split(' '), pb=b.application_deadline.split(' ');
+      return ((MONTH_ORDER[pa[0]]||13)*100+parseInt(pa[1]||0)) - ((MONTH_ORDER[pb[0]]||13)*100+parseInt(pb[1]||0));
+    });
+    var earliest = withDates[0];
+    var dec15Count = results.filter(function(m){ return m.application_deadline==='Dec 15'; }).length;
+
+    /* Acceptance range */
+    var rates = results.map(function(m){ return parseFloat(m.acceptance_rate); }).filter(Boolean).sort(function(a,b){return a-b;});
+    var mostSelectiveProg = results.find(function(m){ return parseFloat(m.acceptance_rate)===rates[0]; });
+    var mostAccessProg    = results.find(function(m){ return parseFloat(m.acceptance_rate)===rates[rates.length-1]; });
+
+    var interests = formData.research_interests.join(', ');
+    var dn = function(m){ return m.abbr || m.school_name; };
+
+    /* Intro paragraph */
+    var para = formData.first_name+"'s research interests in "+interests+" align with "+results.length+" matched programs. "
+      + "Across your matches, "+dn(topResearch)+" has the strongest research alignment. "
+      + "Admissions selectivity ranges from "+mostSelectiveProg.acceptance_rate+" ("+dn(mostSelectiveProg)+") to "+mostAccessProg.acceptance_rate+" ("+dn(mostAccessProg)+").";
+
+    /* Next steps */
+    var steps = [];
+    steps.push('<li style="margin-bottom:8px;"><strong>Start with '+dn(topMatch)+'</strong> — highest overall match score ('+topMatch.overall_score+'/100). Review the faculty directory and identify 1–2 advisors whose active research aligns with your interests before applying.</li>');
+
+    if (earliest && earliest !== topMatch) {
+      steps.push('<li style="margin-bottom:8px;">Your nearest application deadline is <strong>'+earliest.application_deadline+'</strong> ('+dn(earliest)+'). Prioritize materials for this program first.</li>');
+    } else if (earliest) {
+      steps.push('<li style="margin-bottom:8px;">Your top match at '+dn(topMatch)+' has a deadline of <strong>'+topMatch.application_deadline+'</strong>. Plan your application timeline around this date.</li>');
+    }
+
+    if (dec15Count >= 3) {
+      steps.push('<li style="margin-bottom:8px;"><strong>'+dec15Count+' of your '+results.length+' matched programs</strong> share a December 15 deadline. Use this as your primary application cycle target date.</li>');
+    }
+
+    steps.push('<li style="margin-bottom:8px;">Contact graduate admissions at your top 2–3 programs to confirm <strong>funding availability and open research positions</strong> for the upcoming academic year.</li>');
+
+    if (mostSelectiveProg && parseFloat(mostSelectiveProg.acceptance_rate) < 7) {
+      steps.push('<li style="margin-bottom:8px;"><strong>'+dn(mostSelectiveProg)+'</strong> is the most selective program in your list at '+mostSelectiveProg.acceptance_rate+' acceptance. Ensure your application portfolio includes programs across the full selectivity range shown above.</li>');
+    }
+
+    return { para: para, steps: steps };
+  }
+
+  /* ── Render hero ─────────────────────────────────────────── */
+  function renderHero() {
+    var name = FORM_DATA.first_name;
+    document.getElementById('page-heading').textContent =
+      name ? name+', here are your physics programs — handpicked just for you.' : 'Here are your physics programs — handpicked just for you.';
+    document.getElementById('page-subhead').textContent =
+      'We evaluated over 113 physics graduate programs against your research interests, career goals, and academic profile. These are your personalized matches.';
+
+    var interests = FORM_DATA.research_interests.join(' · ');
+    document.getElementById('profile-snapshot').innerHTML = [
+      '<svg width="15" height="15" viewBox="0 0 15 15" fill="none" style="flex-shrink:0;color:#4DAB7A;margin-top:1px;"><circle cx="7.5" cy="5" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 13c0-3.038 2.462-5.5 5.5-5.5S13 9.962 13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
+      '<span style="font-size:12.5px;color:#3E455E;line-height:1.5;">',
+        '<strong style="font-weight:600;color:#1B3A5F;">'+FORM_DATA.degree+'</strong>',
+        '<span style="color:#D1EDE2;margin:0 7px;">·</span>',
+        '<span style="color:#4DAB7A;">'+interests+'</span>',
+        '<span style="color:#D1EDE2;margin:0 7px;">·</span>',
+        '<span style="color:#6B7280;">'+FORM_DATA.career_goal+'</span>',
+      '</span>'
+    ].join('');
+  }
+
+  /* ── Render summary ──────────────────────────────────────── */
+  function renderSummary(results) {
+    var s = generateSummary(results, FORM_DATA);
+    document.getElementById('summary-section').innerHTML = [
+      '<div style="padding:22px 22px 22px 26px;">',
+        '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">',
+          '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;color:#77C999;"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+          '<span style="font-family:Rubik,sans-serif;font-size:10.5px;font-weight:700;color:#1B3A5F;letter-spacing:.07em;text-transform:uppercase;">Summary &amp; Next Steps</span>',
+        '</div>',
+        '<p style="font-size:13.5px;color:#3E455E;line-height:1.7;margin:0 0 16px;">'+s.para+'</p>',
+        '<div style="font-family:Rubik,sans-serif;font-size:10.5px;font-weight:700;color:#1B3A5F;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px;">Recommended Next Steps</div>',
+        '<ol style="font-size:13.5px;color:#3E455E;line-height:1.65;margin:0;padding-left:18px;">',
+          s.steps.join(''),
+        '</ol>',
+      '</div>'
+    ].join('');
+  }
+
+  /* ── Init ────────────────────────────────────────────────── */
+  /* ── Init ────────────────────────────────────────────────── */
+  /* In production: replace RESULTS with cassidyOutput.matches  */
+  /* e.g. var merged = cassidyOutput.matches.map(mergeWithDisplay); */
+  window.addEventListener('load', function() {
+    renderHero();
+    /* Item 4: run mock data through merge layer for consistency */
+    var merged = RESULTS.map(mergeWithDisplay);
+    /* Item 4: rebuild SLUG_MAP from merged results */
+    merged.forEach(function(m){ SLUG_MAP[toSlug(m.school_name)] = m.school_name; });
+    var sorted = merged.slice().sort(function(a,b){ return b.overall_score - a.overall_score; });
+    renderCards(sorted);
+    renderSummary(sorted);
+  });
+
+})();
+</script>
+</body>
+</html>

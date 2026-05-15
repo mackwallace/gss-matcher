@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finding Your Programs — GradSchoolShopper Personalized Match</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mint:  { DEFAULT: '#77C999', dark: '#4DAB7A', light: '#E8F7EF', deep: '#1A6641' },
+            slate: { brand: '#3E455E', muted: '#6B7280', steel: '#A1B3C9', navy: '#2C3347' },
+            ec:    { teal: '#2A9D8E', navy: '#1B3A5F' },
+            surface: '#F7F9FC',
+            border:  '#CFD1D7',
+          },
+          fontFamily: {
+            heading: ['Rubik', 'sans-serif'],
+            body:    ['Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; color: #3E455E; background: #F0FAF5; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* ── Page layout ──────────────────────────────────── */
+    .loader-page {
+      min-height: calc(100vh - 61px - 64px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 48px 20px;
+      background: linear-gradient(170deg, #E8F7EF 0%, #F7F9FC 300px);
+    }
+
+    /* ── Loader card ──────────────────────────────────── */
+    .loader-card {
+      background: #fff; border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(62,69,94,.10);
+      padding: 52px 44px; max-width: 560px; width: 100%;
+      text-align: center;
+    }
+
+    /* ── Pipeline ─────────────────────────────────────── */
+    .pipeline {
+      display: flex; align-items: center; justify-content: center;
+      margin: 32px 0 36px;
+    }
+    .pipeline-stage {
+      display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0;
+    }
+    .pipeline-stage-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #F7F9FC; color: #A1B3C9;
+      display: flex; align-items: center; justify-content: center;
+      border: 2.5px solid #CFD1D7;
+      transition: background .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease;
+    }
+    @keyframes stage-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(119,201,153,0); }
+      50%      { box-shadow: 0 0 0 9px rgba(119,201,153,.18); }
+    }
+    .pipeline-stage.active .pipeline-stage-icon {
+      background: #E8F7EF; color: #77C999; border-color: #77C999;
+      animation: stage-pulse 1.5s ease-in-out infinite;
+    }
+    .pipeline-stage.complete .pipeline-stage-icon {
+      background: #77C999; color: #fff; border-color: #77C999; animation: none;
+    }
+    .pipeline-stage-num {
+      font-family: 'Rubik', sans-serif; font-size: 10px; font-weight: 700;
+      color: #A1B3C9; letter-spacing: .06em; transition: color .4s ease;
+    }
+    .pipeline-stage.active .pipeline-stage-num,
+    .pipeline-stage.complete .pipeline-stage-num { color: #4DAB7A; }
+    .pipeline-stage-label {
+      font-family: 'Roboto', sans-serif; font-size: 12px; font-weight: 500;
+      color: #A1B3C9; text-align: center; line-height: 1.3; transition: color .4s ease;
+    }
+    .pipeline-stage.active .pipeline-stage-label,
+    .pipeline-stage.complete .pipeline-stage-label { color: #3E455E; }
+
+    .pipeline-connector-wrap {
+      display: flex; align-items: center; gap: 4px;
+      padding-bottom: 44px; flex: 1; max-width: 64px;
+    }
+    .pipeline-connector-track {
+      flex: 1; height: 2.5px; background: #CFD1D7; border-radius: 2px; overflow: hidden;
+    }
+    .pipeline-connector-fill {
+      height: 100%; width: 0%; background: #77C999; border-radius: 2px;
+      transition: width .7s ease;
+    }
+    .pipeline-connector-fill.filled { width: 100%; }
+    .pipeline-arrow { color: #CFD1D7; flex-shrink: 0; transition: color .4s ease; }
+    .pipeline-connector-wrap.complete .pipeline-arrow { color: #77C999; }
+
+    /* ── Fun fact strip ───────────────────────────────── */
+    .fun-fact-strip {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(119,201,153,.07); border: 1px solid rgba(119,201,153,.2);
+      border-radius: 10px; padding: 14px 18px;
+      text-align: left; margin-bottom: 28px;
+      transition: opacity .42s ease;
+    }
+    .fun-fact-strip.fade-out { opacity: 0; }
+    .fun-fact-icon { font-size: 18px; flex-shrink: 0; line-height: 1.6; margin-top: 1px; }
+    .fun-fact-label {
+      font-family: 'Rubik', sans-serif; font-size: 10px; font-weight: 600;
+      color: #4DAB7A; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 3px;
+    }
+    .fun-fact-text {
+      font-family: 'Roboto', sans-serif; font-size: 13px; color: #6B7280; line-height: 1.55;
+    }
+
+    /* ── Progress bar ─────────────────────────────────── */
+    .progress-bar {
+      width: 100%; height: 6px; background: #CFD1D7; border-radius: 3px;
+      overflow: hidden; margin-bottom: 10px;
+    }
+    .progress-fill {
+      height: 100%; background: linear-gradient(90deg, #77C999, #4DAB7A);
+      border-radius: 3px; width: 0%; transition: width .5s ease;
+    }
+    .progress-pct {
+      font-family: 'Roboto', sans-serif; font-size: 11px; color: #A1B3C9;
+      text-align: right; margin-bottom: 18px;
+    }
+
+    /* ── Status message ───────────────────────────────── */
+    .status-msg {
+      font-family: 'Roboto', sans-serif; font-size: 13.5px; font-weight: 500;
+      color: #4DAB7A; min-height: 20px; transition: opacity .4s ease;
+    }
+    .status-msg.fade { opacity: 0; }
+
+    /* ── Email notice ─────────────────────────────────── */
+    .email-notice {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(119,201,153,.07); border: 1px solid rgba(119,201,153,.2);
+      border-radius: 8px; padding: 10px 14px; margin-top: 20px;
+      text-align: left; font-family: 'Roboto', sans-serif;
+      font-size: 13px; color: #6B7280; line-height: 1.5;
+    }
+    .email-notice svg { flex-shrink: 0; color: #77C999; }
+
+    /* ── Loading content / ready content ─────────────── */
+    #loading-content { transition: opacity .5s ease; }
+    #loading-content.hidden { opacity: 0; pointer-events: none; }
+
+    #ready-content {
+      display: none; opacity: 0;
+      transition: opacity .6s ease;
+    }
+    #ready-content.show {
+      display: block; opacity: 1;
+    }
+
+    /* ── Animated checkmark ───────────────────────────── */
+    @keyframes checkScale {
+      0%   { transform: scale(0); opacity: 0; }
+      60%  { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes checkDraw {
+      to { stroke-dashoffset: 0; }
+    }
+    .check-circle {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: #E8F7EF; border: 3px solid #77C999;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      animation: checkScale .5s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    .check-path {
+      stroke-dasharray: 30;
+      stroke-dashoffset: 30;
+      animation: checkDraw .4s ease .4s forwards;
+    }
+
+    /* ── CTA button ───────────────────────────────────── */
+    .cta-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; background: #77C999; color: #fff;
+      font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 15px;
+      padding: 14px 24px; border-radius: 4px; border: none; cursor: pointer;
+      transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+      margin-top: 24px;
+    }
+    .cta-btn:hover {
+      background: #4DAB7A; transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(119,201,153,.35);
+    }
+    .cta-btn svg { transition: transform .15s ease; }
+    .cta-btn:hover svg { transform: translateX(3px); }
+
+    /* ── Footer ───────────────────────────────────────── */
+    .site-footer { padding: 0; }
+
+    /* ── Scrollbar ────────────────────────────────────── */
+    ::-webkit-scrollbar       { width: 5px; }
+    ::-webkit-scrollbar-track { background: #F7F9FC; }
+    ::-webkit-scrollbar-thumb { background: #CFD1D7; border-radius: 9999px; }
+  </style>
+</head>
+
+<body>
+
+<!-- ── Top mint rule ─────────────────────────────────────────────── -->
+<div style="height:3px;background:#77C999;position:fixed;top:0;left:0;right:0;z-index:50;"></div>
+
+<!-- ── Header ────────────────────────────────────────────────────── -->
+<header style="position:fixed;top:3px;left:0;right:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(5px);border-bottom:1px solid #CFD1D7;">
+  <div style="max-width:660px;margin:0 auto;padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <svg height="22" viewBox="0 0 180 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="17" font-family="Rubik, sans-serif" font-weight="700" font-size="16" fill="#3E455E">GradSchool</text>
+        <text x="99" y="17" font-family="Rubik, sans-serif" font-weight="700" font-size="16" fill="#77C999">Shopper</text>
+      </svg>
+      <div style="width:1px;height:20px;background:#CFD1D7;"></div>
+      <div style="line-height:1.2;">
+        <div style="font-family:Roboto,sans-serif;font-size:9.5px;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;">Presented by</div>
+        <div style="font-family:Rubik,sans-serif;font-weight:600;font-size:11.5px;color:#3E455E;">American Institute of Physics</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="text-align:right;line-height:1.2;">
+        <div style="font-family:Roboto,sans-serif;font-size:9.5px;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;">Powered by</div>
+        <div style="font-family:Rubik,sans-serif;font-weight:600;font-size:11.5px;color:#2A9D8E;">Enterprise Commons</div>
+      </div>
+      <img src="ec-logo.png" alt="Enterprise Commons" style="height:32px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.08));"
+           onerror="this.replaceWith(Object.assign(document.createElement('div'),{style:'width:32px;height:32px;border-radius:6px;background:#1B3A5F;display:flex;align-items:center;justify-content:center;',innerHTML:'<span style=\'font-family:Rubik,sans-serif;font-weight:700;color:white;font-size:10px;\'>EC</span>'}))" />
+    </div>
+  </div>
+</header>
+
+<!-- ── Loader page ────────────────────────────────────────────────── -->
+<div style="padding-top:61px;">
+  <div class="loader-page">
+    <div class="loader-card">
+
+      <!-- Logo -->
+      <div style="display:flex;justify-content:center;margin-bottom:22px;">
+        <svg height="22" viewBox="0 0 180 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="17" font-family="Rubik, sans-serif" font-weight="700" font-size="16" fill="#3E455E">GradSchool</text>
+          <text x="99" y="17" font-family="Rubik, sans-serif" font-weight="700" font-size="16" fill="#77C999">Shopper</text>
+        </svg>
+      </div>
+
+      <!-- ── Loading content ────────────────────────────── -->
+      <div id="loading-content">
+
+        <h2 style="font-family:Rubik,sans-serif;font-weight:700;font-size:24px;color:#3E455E;margin:0 0 10px;">
+          Finding programs where you'll thrive...
+        </h2>
+        <p style="font-family:Roboto,sans-serif;font-size:15px;color:#6B7280;line-height:1.65;margin:0;">
+          We're going through every physics graduate program in our database and matching it to your research interests, career goals, and preferences. This usually takes 2–3 minutes.
+        </p>
+
+        <!-- Email notice -->
+        <div class="email-notice">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <span>Your results will be emailed to you when they're ready, even if you navigate away.</span>
+        </div>
+
+        <!-- 3-stage pipeline -->
+        <div class="pipeline" id="pipeline">
+          <!-- Stage 1 -->
+          <div class="pipeline-stage" id="ps-1">
+            <div class="pipeline-stage-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
+              </svg>
+            </div>
+            <div class="pipeline-stage-num">01</div>
+            <div class="pipeline-stage-label">Understanding<br>your goals</div>
+          </div>
+
+          <!-- Connector 1 -->
+          <div class="pipeline-connector-wrap" id="pc-1">
+            <div class="pipeline-connector-track">
+              <div class="pipeline-connector-fill" id="pf-1"></div>
+            </div>
+            <svg class="pipeline-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <polyline points="2,2 8,5 2,8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="pipeline-stage" id="ps-2">
+            <div class="pipeline-stage-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+            </div>
+            <div class="pipeline-stage-num">02</div>
+            <div class="pipeline-stage-label">Evaluating<br>every program</div>
+          </div>
+
+          <!-- Connector 2 -->
+          <div class="pipeline-connector-wrap" id="pc-2">
+            <div class="pipeline-connector-track">
+              <div class="pipeline-connector-fill" id="pf-2"></div>
+            </div>
+            <svg class="pipeline-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <polyline points="2,2 8,5 2,8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="pipeline-stage" id="ps-3">
+            <div class="pipeline-stage-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+            <div class="pipeline-stage-num">03</div>
+            <div class="pipeline-stage-label">Writing your<br>recommendations</div>
+          </div>
+        </div>
+
+        <!-- Fun fact strip -->
+        <div class="fun-fact-strip" id="fun-fact-strip">
+          <div class="fun-fact-icon" id="fact-icon">⚛️</div>
+          <div style="flex:1;">
+            <div class="fun-fact-label">Physics Fact</div>
+            <div class="fun-fact-text" id="fact-text">Loading...</div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-pct" id="progress-pct">0%</div>
+
+        <!-- Status message -->
+        <div class="status-msg" id="status-msg">Reading your research interests and goals...</div>
+
+      </div><!-- /loading-content -->
+
+      <!-- ── Ready content (shown when matches arrive) ── -->
+      <div id="ready-content">
+        <!-- Animated checkmark -->
+        <div class="check-circle">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path class="check-path" d="M6 15l7 7 11-13"
+              stroke="#77C999" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h2 style="font-family:Rubik,sans-serif;font-weight:700;font-size:26px;color:#3E455E;margin:0 0 10px;">
+          Your matches are ready!
+        </h2>
+        <p style="font-family:Roboto,sans-serif;font-size:15px;color:#6B7280;line-height:1.65;margin:0 0 4px;">
+          We found programs that fit your research interests and goals.
+        </p>
+        <p style="font-family:Roboto,sans-serif;font-size:13px;color:#A1B3C9;margin:0;">
+          A copy has also been sent to your email.
+        </p>
+
+        <button class="cta-btn" onclick="goToResults()">
+          See My Matches
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3 9h12M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div><!-- /ready-content -->
+
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ────────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <!-- Logos strip -->
+  <div style="background:#fff;border-top:1px solid #E2E6EC;padding:18px 20px;">
+    <div style="max-width:660px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <a href="https://www.aip.org" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:.85;transition:opacity 200ms;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.85'">
+        <img src="https://aip.brightspotcdn.com/fe/cb/baa748ae4d868d49228857e2b2af/logo-aip-dark-blue.svg" alt="American Institute of Physics" style="height:24px;width:auto;" />
+      </a>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="height:50px;overflow:hidden;flex-shrink:0;">
+          <img src="ec-logo-full.png" alt="Enterprise Commons" style="display:block;height:112px;width:auto;transform:translateY(-14px);"
+               onerror="this.closest('div').outerHTML='<div style=\'width:40px;height:40px;border-radius:6px;background:#1B3A5F;display:flex;align-items:center;justify-content:center;\'><span style=\'font-family:Rubik,sans-serif;font-weight:700;color:white;font-size:10px;\'>EC</span></div>'" />
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-family:Rubik,sans-serif;font-weight:700;font-size:12px;color:#1B3A5F;line-height:1.25;">Enterprise Commons</div>
+          <div style="font-size:9.5px;color:#2A9D8E;line-height:1.25;">Knowledge Stewardship in Service of Science</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Legal strip -->
+  <div style="background:#1B3A5F;padding:11px 20px;">
+    <div style="max-width:660px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;">
+      <span style="font-family:Roboto,sans-serif;font-size:11px;color:#7B9BBF;">GradSchoolShopper Personalized Match</span>
+      <div style="display:flex;align-items:center;gap:14px;font-family:Roboto,sans-serif;font-size:11px;color:#5A7A9A;">
+        <a href="https://enterprisecommons.ai/privacy" target="_blank" style="color:#5A7A9A;text-decoration:none;" onmouseover="this.style.color='#A1B3C9'" onmouseout="this.style.color='#5A7A9A'">Privacy Notice</a>
+        <span>·</span>
+        <span>© 2026 Enterprise Commons</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── JavaScript ────────────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Physics fun facts ──────────────────────────────────────────── */
+  var facts = [
+    { icon: '⚛️', text: 'The Standard Model of particle physics describes all known fundamental particles and forces except gravity — 17 particles, 4 fields. It remains the most precisely tested theory in all of science.' },
+    { icon: '🔭', text: 'Gravitational waves — ripples in spacetime predicted by Einstein in 1916 — were first directly detected in 2015 by LIGO, 99 years later. The signal came from two black holes merging 1.3 billion light-years away and lasted just 0.2 seconds.' },
+    { icon: '🌌', text: 'A neutron star packs more mass than the Sun into a sphere roughly the size of a city. A teaspoon of neutron star material would weigh about 4 billion tons, and some neutron stars rotate over 700 times per second.' },
+    { icon: '💡', text: 'Einstein\'s Nobel Prize in 1921 wasn\'t for relativity — it was for explaining the photoelectric effect, which established that light travels in discrete quanta. This experiment helped launch quantum mechanics.' },
+    { icon: '🧲', text: 'MRI machines apply the same nuclear magnetic resonance principles discovered in physics labs in the 1940s. The physicists who developed NMR received the Nobel Prize in 1952 and never anticipated its medical applications.' },
+    { icon: '🔬', text: 'The Higgs boson, discovered at CERN in 2012, had been theorized for 48 years. Its discovery completed the Standard Model of particle physics and confirmed the mechanism by which particles acquire mass.' },
+    { icon: '🌊', text: 'Plasma makes up more than 99% of all visible matter in the universe. Stars, lightning, neon signs, and the northern lights are all plasma — the fourth state of matter.' },
+    { icon: '⚡', text: 'Superconductors carry electrical current with exactly zero resistance below a critical temperature. The high-temperature superconductors discovered in the 1980s work at −135°C — a vast improvement over materials requiring near absolute zero.' },
+    { icon: '🔭', text: 'The cosmic microwave background radiation — the afterglow of the Big Bang — was discovered by accident in 1965. The astronomers who found it initially thought the persistent radio signal was from pigeon droppings fouling their antenna.' },
+    { icon: '🌌', text: 'Dark energy makes up an estimated 68% of the total energy of the universe and is causing its expansion to accelerate. It was discovered in 1998 when astronomers expected supernovae to show the universe slowing down — and found the opposite.' },
+    { icon: '⚛️', text: 'Quantum entanglement allows two particles to share quantum states regardless of the distance between them. The correlation is instantaneous — but cannot be used to send information faster than light, preserving causality.' },
+    { icon: '💫', text: 'Photons generated in the Sun\'s core can take up to 100,000 years to reach its surface, bouncing through dense plasma layers. After reaching the surface, those same photons travel 93 million miles to Earth in just 8 minutes.' },
+    { icon: '🔬', text: 'LIGO can detect changes in distance smaller than 1/1,000th the diameter of a proton — equivalent to measuring the distance from Earth to the nearest star to within one atom\'s width. It\'s the most sensitive instrument ever built.' },
+    { icon: '🧊', text: 'Bose-Einstein condensates form when atoms are cooled to within billionths of a degree above absolute zero and begin behaving as a single quantum entity. First created in 1995, they\'re used to explore quantum phenomena at human-visible scales.' },
+    { icon: '🌀', text: 'The Large Hadron Collider at CERN is 27 km in circumference and accelerates protons to 99.9999991% the speed of light — completing roughly 11,000 laps per second. Its collisions recreate conditions from the first fractions of a second after the Big Bang.' },
+    { icon: '🌡️', text: 'No object has ever been cooled to exactly absolute zero — only within billionths of a degree above it. The third law of thermodynamics says reaching it would require infinite energy. But near absolute zero, matter exhibits extraordinary quantum behaviors.' },
+    { icon: '💡', text: 'The double-slit experiment is the central mystery of quantum mechanics: individual electrons behave as waves when unobserved, creating interference patterns. Adding a detector to observe which slit they pass through makes the pattern disappear entirely.' },
+    { icon: '🧲', text: 'Topological insulators conduct electricity on their surface but not their interior — theorized in 2005 and confirmed in 2007. They\'re now one of the leading research areas in condensed matter physics with applications in quantum computing.' },
+    { icon: '🌊', text: 'Nuclear fusion powers the sun by fusing hydrogen into helium. On Earth, scientists have pursued controlled fusion since the 1950s. Recent advances at the National Ignition Facility have finally achieved net energy gain — a milestone 70 years in the making.' },
+    { icon: '🔭', text: 'The first confirmed exoplanet orbiting a sun-like star was discovered in 1995. By 2024, over 5,500 have been confirmed. Astronomers estimate our galaxy alone contains at least one planet per star — roughly 100 billion planets in the Milky Way.' },
+    { icon: '⚛️', text: 'Physics has produced more Nobel Laureates than any other science. Of all Nobel Prizes in Physics, roughly 20% have recognized discoveries in condensed matter physics — more than any other subfield, reflecting its broad impact on technology.' },
+    { icon: '🌌', text: 'In 2016, astronomers revised the estimated galaxy count in the observable universe tenfold — to approximately 2 trillion galaxies. Most are too faint and distant to observe directly even with today\'s best telescopes.' },
+    { icon: '💫', text: 'Quantum computers use qubits, which can exist in superposition of 0 and 1 simultaneously. A 300-qubit quantum computer could theoretically hold more simultaneous states than there are atoms in the entire observable universe.' },
+    { icon: '🔬', text: 'Chirped pulse amplification — the technique enabling high-power ultrafast lasers — won the 2018 Nobel Prize. It\'s used in laser eye surgery, cancer treatment, and fundamental research into matter under extreme conditions.' },
+    { icon: '🌊', text: 'The Event Horizon Telescope captured the first image of a black hole\'s shadow in 2019 — the supermassive black hole at the center of M87, 55 million light-years away — using a network of radio telescopes spanning the entire Earth.' },
+    { icon: '🧊', text: 'Superfluids flow with absolutely zero viscosity and can climb up walls, pass through solid barriers, and form self-sustaining vortices. They\'re the macroscopic manifestation of Bose-Einstein condensation in liquid form.' },
+    { icon: '🌡️', text: 'Atmospheric CO₂ is now ~424 parts per million — the highest in at least 3 million years, rising roughly 100 times faster than any natural historical shift. Climate and atmospheric physics is one of the fastest-growing areas in the physical sciences.' },
+    { icon: '🔭', text: 'Pulsars — rapidly rotating neutron stars emitting beams of radiation — were initially so regular that their discoverers briefly considered they might be signals from alien civilizations. They were nicknamed LGM-1 ("Little Green Men") before their nature was understood.' },
+    { icon: '💡', text: 'Condensed matter physics gave us the transistor, the laser, MRI, GPS, and LED lighting — arguably more transformative technologies per decade than any other branch of physics, yet it remains less publicly prominent than particle physics or cosmology.' },
+    { icon: '⚡', text: 'String theory proposes that all fundamental particles are tiny vibrating strings of energy in 10 or 11 dimensions. Though mathematically elegant and internally consistent, it has yet to produce a testable experimental prediction after 50 years of development.' }
+  ];
+
+  /* ── Status messages — humanistic ───────────────────────────────── */
+  var messages = [
+    'Reading your research interests and goals...',
+    'Searching for programs in your areas of interest...',
+    'Measuring research fit across 113 departments...',
+    'Reviewing admissions data and program activity...',
+    'Checking location and degree preferences...',
+    'Connecting your career goals to program strengths...',
+    'Writing your personalized match explanations...',
+    'Ranking your top programs...'
+  ];
+
+  /* ── Config ────────────────────────────────────────────────────── */
+  var DEMO_DURATION = 10000;   // 10s for live demos
+  var PROD_DURATION = 180000;  // 3 min — matches stated 2–3 min window; bar eases to 90% then completes on API response
+
+  /* ── State ─────────────────────────────────────────────────────── */
+  var progressValue    = 0;
+  var progressInterval = null;
+  var msgTimer         = null;
+  var factTimer        = null;
+  var simTimer         = null;
+  var factIndex        = 0;
+  var msgIndex         = 0;
+  var responseReceived = false;
+  var sessionId        = null;
+
+  /* ── DOM refs ──────────────────────────────────────────────────── */
+  var fillEl    = document.getElementById('progress-fill');
+  var pctEl     = document.getElementById('progress-pct');
+  var msgEl     = document.getElementById('status-msg');
+  var iconEl    = document.getElementById('fact-icon');
+  var textEl    = document.getElementById('fact-text');
+  var stripEl   = document.getElementById('fun-fact-strip');
+  var loadingEl = document.getElementById('loading-content');
+  var readyEl   = document.getElementById('ready-content');
+
+  /* ── Navigate to results ────────────────────────────────────────── */
+  function goToResults() {
+    // In production: window.location.href = 'gss-matcher-results-v1.0.html?session=' + sessionId;
+    // For prototype demo: link to the results page directly
+    window.location.href = 'gss-matcher-results-v1.0.html';
+  }
+  window.goToResults = goToResults;
+
+  /* ── Show ready state ───────────────────────────────────────────── */
+  function showReadyState() {
+    // Clear rotating timers
+    if (msgTimer)  { clearInterval(msgTimer);  msgTimer  = null; }
+    if (factTimer) { clearInterval(factTimer); factTimer = null; }
+
+    // Fade out loading content
+    loadingEl.classList.add('hidden');
+
+    // Show ready content after fade
+    setTimeout(function () {
+      readyEl.style.display = 'block';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          readyEl.classList.add('show');
+        });
+      });
+    }, 520);
+  }
+
+  /* ── Complete progress bar, then reveal ready state ─────────────── */
+  function completeProgress() {
+    clearInterval(progressInterval);
+    progressInterval = null;
+
+    // Complete stage 3
+    var s3 = document.getElementById('ps-3');
+    if (s3) { s3.classList.remove('active'); s3.classList.add('complete'); }
+
+    // Animate bar to 100%
+    fillEl.style.transition = 'width .9s ease';
+    fillEl.style.width      = '100%';
+    pctEl.textContent       = '100%';
+
+    // Final status message
+    msgEl.classList.add('fade');
+    setTimeout(function () {
+      msgEl.textContent = 'Your matches are ready!';
+      msgEl.style.color = '#1A6641';
+      msgEl.classList.remove('fade');
+    }, 400);
+
+    // Transition to ready state after bar completes
+    setTimeout(showReadyState, 1200);
+  }
+
+  /* ── Start loader ───────────────────────────────────────────────── */
+  function startLoader(duration) {
+    var d = duration || DEMO_DURATION;
+
+    // Reset pipeline
+    [1,2,3].forEach(function (n) {
+      var s = document.getElementById('ps-' + n);
+      if (s) s.classList.remove('active', 'complete');
+    });
+    [1,2].forEach(function (n) {
+      var f = document.getElementById('pf-' + n);
+      var c = document.getElementById('pc-' + n);
+      if (f) f.classList.remove('filled');
+      if (c) c.classList.remove('complete');
+    });
+
+    // Reset progress
+    progressValue = 0; responseReceived = false;
+    fillEl.style.transition = 'width .5s ease';
+    fillEl.style.width      = '0%';
+    pctEl.textContent       = '0%';
+    msgEl.textContent       = messages[0];
+    msgEl.style.color       = '#4DAB7A';
+    msgEl.classList.remove('fade');
+    msgIndex = 0;
+
+    // Reset display states
+    loadingEl.classList.remove('hidden');
+    readyEl.classList.remove('show');
+    readyEl.style.display = 'none';
+
+    // Seed first fun fact (random)
+    factIndex = Math.floor(Math.random() * facts.length);
+    iconEl.textContent = facts[factIndex].icon;
+    textEl.textContent = facts[factIndex].text;
+    stripEl.classList.remove('fade-out');
+
+    // Activate stage 1
+    var s1 = document.getElementById('ps-1');
+    if (s1) s1.classList.add('active');
+
+    // Stage 2 at 35%
+    setTimeout(function () {
+      var s1 = document.getElementById('ps-1'), s2 = document.getElementById('ps-2');
+      var f1 = document.getElementById('pf-1'), c1 = document.getElementById('pc-1');
+      if (s1) { s1.classList.remove('active'); s1.classList.add('complete'); }
+      if (f1) f1.classList.add('filled');
+      if (c1) c1.classList.add('complete');
+      setTimeout(function () { if (s2) s2.classList.add('active'); }, 500);
+    }, d * 0.35);
+
+    // Stage 3 at 70%
+    setTimeout(function () {
+      var s2 = document.getElementById('ps-2'), s3 = document.getElementById('ps-3');
+      var f2 = document.getElementById('pf-2'), c2 = document.getElementById('pc-2');
+      if (s2) { s2.classList.remove('active'); s2.classList.add('complete'); }
+      if (f2) f2.classList.add('filled');
+      if (c2) c2.classList.add('complete');
+      setTimeout(function () { if (s3) s3.classList.add('active'); }, 500);
+    }, d * 0.70);
+
+    // Easing progress bar — decelerates near 90%
+    progressInterval = setInterval(function () {
+      if (progressValue >= 90) { clearInterval(progressInterval); return; }
+      var remaining = 90 - progressValue;
+      var increment = Math.max(0.08, remaining * 0.013);
+      progressValue = Math.min(90, progressValue + increment);
+      fillEl.style.width  = progressValue + '%';
+      pctEl.textContent   = Math.floor(progressValue) + '%';
+      if (responseReceived) {
+        clearInterval(progressInterval);
+        completeProgress();
+      }
+    }, 750);
+
+    // Rotate status messages
+    var msgStep = Math.round(d / messages.length);
+    msgTimer = setInterval(function () {
+      msgEl.classList.add('fade');
+      setTimeout(function () {
+        msgIndex = (msgIndex + 1) % messages.length;
+        msgEl.textContent = messages[msgIndex];
+        msgEl.classList.remove('fade');
+      }, 400);
+    }, msgStep);
+
+    // Rotate fun facts
+    var factDelay    = Math.min(4000, d * 0.4);
+    var factInterval = Math.max(3500, Math.min(18000, d * 0.5));
+    setTimeout(function () {
+      factTimer = setInterval(function () {
+        stripEl.classList.add('fade-out');
+        setTimeout(function () {
+          var next;
+          do { next = Math.floor(Math.random() * facts.length); } while (next === factIndex && facts.length > 1);
+          factIndex = next;
+          iconEl.textContent = facts[factIndex].icon;
+          textEl.textContent = facts[factIndex].text;
+          stripEl.classList.remove('fade-out');
+        }, 420);
+      }, factInterval);
+    }, factDelay);
+
+    // Demo mode: simulate API response near end of duration
+    simTimer = setTimeout(function () {
+      responseReceived = true;
+    }, d - 600);
+  }
+
+  /* ── Production: poll Worker until results ready ────────────────── */
+  function startLoaderLive(sid) {
+    sessionId = sid;
+    startLoader(PROD_DURATION);
+    if (simTimer) { clearTimeout(simTimer); simTimer = null; }
+    responseReceived = false;
+
+    var pollInterval = setInterval(function () {
+      fetch('/results/' + sid)
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.status === 'ready') {
+            clearInterval(pollInterval);
+            responseReceived = true;
+            completeProgress();
+          }
+        })
+        .catch(function () {});
+    }, 4000);
+  }
+
+  /* ── Auto-start for prototype demo ────────────────────────────── */
+  window.addEventListener('load', function () {
+    startLoader(DEMO_DURATION);
+  });
+
+  window.startLoader     = startLoader;
+  window.startLoaderLive = startLoaderLive;
+
+})();
+</script>
+</body>
+</html>
