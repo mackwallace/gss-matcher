@@ -1,0 +1,7218 @@
+[
+  {
+    "school_name": "Arizona State University",
+    "acceptance_rate_decimal": 0.33,
+    "phd_granted_2024": 11,
+    "first_year_enrollment_fall2024": 22,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Applied Physics",
+      "Energy Sources & Environment",
+      "Materials Science, Metallurgy",
+      "Astrophysics",
+      "Particles and Fields",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Tempe",
+    "state": "AZ",
+    "region": "Southwest"
+  },
+  {
+    "school_name": "Auburn University",
+    "acceptance_rate_decimal": 0.4,
+    "phd_granted_2024": 9,
+    "first_year_enrollment_fall2024": 12,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Plasma and Fusion",
+      "Atmosphere, Space Physics, Cosmic Rays"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Auburn",
+    "state": "AL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Boston University",
+    "acceptance_rate_decimal": 0.17,
+    "phd_granted_2024": 7,
+    "first_year_enrollment_fall2024": 11,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Particles and Fields",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Boston",
+    "state": "MA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Bowling Green State University",
+    "acceptance_rate_decimal": 0.5,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 7,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Solid State Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Bowling Green",
+    "state": "OH",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Brown University",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 18,
+    "first_year_enrollment_fall2024": 62,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Particles and Fields",
+      "Statistical & Thermal Physics",
+      "Low Temperature Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Providence",
+    "state": "RI",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Bryn Mawr College",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 1,
+    "first_year_enrollment_fall2024": 1,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Plasma and Fusion",
+      "Astrophysics",
+      "Cosmology & String Theory",
+      "Biophysics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Bryn Mawr",
+    "state": "PA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Case Western Reserve University",
+    "acceptance_rate_decimal": 0.125,
+    "phd_granted_2024": 8,
+    "first_year_enrollment_fall2024": 12,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Cosmology & String Theory",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Physics and other Science Education",
+      "Polymer Physics/Science",
+      "Solid State Physics",
+      "Surface Physics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Optics",
+      "Computational Physics",
+      "High Energy Physics",
+      "Quantum Optics and Quantum Information",
+      "Quantum Foundations",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Foundations",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Cleveland",
+    "state": "OH",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Central Michigan University",
+    "acceptance_rate_decimal": 0.27,
+    "phd_granted_2024": 2,
+    "first_year_enrollment_fall2024": 6,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Nuclear Physics",
+      "Polymer Physics/Science",
+      "Atomic, Molecular, & Optical Physics",
+      "Chemical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Mount Pleasant",
+    "state": "MI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Clark University",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 1,
+    "first_year_enrollment_fall2024": 4,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Condensed Matter Physics",
+      "Statistical & Thermal Physics",
+      "Computational Physics",
+      "Biophysics",
+      "Low Temperature Physics",
+      "Solid State Physics",
+      "Surface Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Worcester",
+    "state": "MA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Clemson University",
+    "acceptance_rate_decimal": 0.3,
+    "phd_granted_2024": 11,
+    "first_year_enrollment_fall2024": 13,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy & Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nano Science and Technology",
+      "Quantum Optics and Quantum Information"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Clemson",
+    "state": "SC",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Colorado State University",
+    "acceptance_rate_decimal": 0.3,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 19,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Photovoltaics",
+      "Solid State Physics",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Particles and Fields",
+      "Optics",
+      "High Energy Physics",
+      "Plasma and Fusion",
+      "Computational Physics",
+      "Statistical & Thermal Physics",
+      "Theoretical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Photovoltaics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Fort Collins",
+    "state": "CO",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "East Carolina University",
+    "acceptance_rate_decimal": 0.68,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 7,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Optics",
+      "Medical, Health Physics",
+      "Acoustics",
+      "Computational Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Acoustics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Greenville",
+    "state": "NC",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Eastern Michigan University",
+    "acceptance_rate_decimal": 0.75,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 4,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Acoustics",
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "Electromagnetism",
+      "Fluids, Rheology",
+      "Materials Science, Metallurgy",
+      "Mechanics",
+      "Nano Science and Technology",
+      "Optics",
+      "Physics and other Science Education",
+      "Plasma and Fusion"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Acoustics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Electromagnetism",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Mechanics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Ypsilanti",
+    "state": "MI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Emory University",
+    "acceptance_rate_decimal": 0.44,
+    "phd_granted_2024": 6,
+    "first_year_enrollment_fall2024": 9,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nonlinear Dynamics and Complex Systems",
+      "Fluids, Rheology",
+      "Polymer Physics/Science",
+      "Statistical & Thermal Physics",
+      "Geophysics",
+      "Optics",
+      "Computational Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Atlanta",
+    "state": "GA",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Florida Atlantic University",
+    "acceptance_rate_decimal": 0.2,
+    "phd_granted_2024": 8,
+    "first_year_enrollment_fall2024": 7,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Statistical & Thermal Physics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Mechanics",
+      "Relativity & Gravitation",
+      "Medical, Health Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Mechanics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Boca Raton",
+    "state": "FL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Florida International University",
+    "acceptance_rate_decimal": 0.18,
+    "phd_granted_2024": 8,
+    "first_year_enrollment_fall2024": 8,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Astronomy & Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Miami",
+    "state": "FL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "George Mason University",
+    "acceptance_rate_decimal": 0.56,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 32,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Astronomy & Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Climate/Atmospheric Science",
+      "Nonlinear Dynamics and Complex Systems",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "Engineering Physics/Science",
+      "Electrical Engineering",
+      "Energy Sources & Environment",
+      "Fluids, Rheology",
+      "Heliophysics and Space Weather",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Mechanics",
+      "Nano Science and Technology",
+      "Neuroscience/Neuro Physics",
+      "Nuclear Physics",
+      "Optics",
+      "Particles and Fields",
+      "Physics and other Science Education",
+      "Planetary Science",
+      "Relativity & Gravitation",
+      "Solar Physics",
+      "Solid State Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Climate/Atmospheric Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Electrical Engineering",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Heliophysics and Space Weather",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Mechanics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Neuroscience/Neuro Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Planetary Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solar Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Fairfax",
+    "state": "VA",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "Georgetown University",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 3,
+    "first_year_enrollment_fall2024": 6,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Washington",
+    "state": "Washington D.C.",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "Georgia Institute of Technology",
+    "acceptance_rate_decimal": 0.35,
+    "phd_granted_2024": 22,
+    "first_year_enrollment_fall2024": 27,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nonlinear Dynamics and Complex Systems"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Atlanta",
+    "state": "GA",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Georgia State University",
+    "acceptance_rate_decimal": 0.16,
+    "phd_granted_2024": 11,
+    "first_year_enrollment_fall2024": 9,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Condensed Matter Physics",
+      "Nano Science and Technology",
+      "Astronomy",
+      "Biophysics",
+      "Neuroscience/Neuro Physics",
+      "Nuclear Physics",
+      "Atomic, Molecular, & Optical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Neuroscience/Neuro Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Atlanta",
+    "state": "GA",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Indiana University - Purdue University Indianapolis",
+    "acceptance_rate_decimal": 0.21,
+    "phd_granted_2024": 2,
+    "first_year_enrollment_fall2024": 5,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Optics",
+      "Materials Science, Metallurgy",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Indianapolis",
+    "state": "IN",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Indiana University, Bloomington",
+    "acceptance_rate_decimal": 0.24,
+    "phd_granted_2024": 13,
+    "first_year_enrollment_fall2024": 8,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Nuclear Physics",
+      "Physics of Beams",
+      "Astronomy"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Bloomington",
+    "state": "IN",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Iowa State University",
+    "acceptance_rate_decimal": 0.61,
+    "phd_granted_2024": 12,
+    "first_year_enrollment_fall2024": 11,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Nuclear Physics",
+      "Biophysics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Ames",
+    "state": "IA",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Kent State University",
+    "acceptance_rate_decimal": 0.17,
+    "phd_granted_2024": 10,
+    "first_year_enrollment_fall2024": 9,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "High Energy Physics",
+      "Condensed Matter Physics",
+      "Solid State Physics",
+      "Theoretical Physics",
+      "Computational Physics",
+      "Low Temperature Physics",
+      "Surface Physics",
+      "Chemical Physics",
+      "Biophysics",
+      "Nuclear Physics",
+      "Astrophysics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Kent",
+    "state": "OH",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Lehigh University",
+    "acceptance_rate_decimal": 0.28,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 8,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Quantum Optics and Quantum Information",
+      "Nuclear Physics",
+      "Cosmology & String Theory",
+      "Astrophysics",
+      "Accelerator",
+      "Atomic, Molecular, & Optical Physics",
+      "High Energy Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Accelerator",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Bethlehem",
+    "state": "PA",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "Louisiana State University",
+    "acceptance_rate_decimal": 0.27,
+    "phd_granted_2024": 16,
+    "first_year_enrollment_fall2024": 25,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Relativity & Gravitation",
+      "Medical, Health Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Baton Rouge",
+    "state": "LA",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Marshall University",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": null,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Huntington",
+    "state": "WV",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Miami University",
+    "acceptance_rate_decimal": 0.3,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 9,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "Nano Science and Technology",
+      "Acoustics",
+      "Physics and other Science Education",
+      "Quantum Optics and Quantum Information"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Acoustics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Oxford",
+    "state": "OH",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Michigan Technological University",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 13,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astronomy",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "Cosmology & String Theory",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Optics",
+      "Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Physics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Houghton",
+    "state": "MI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "New Mexico State University",
+    "acceptance_rate_decimal": 0.5,
+    "phd_granted_2024": 6,
+    "first_year_enrollment_fall2024": 16,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Condensed Matter Physics",
+      "Energy Sources & Environment",
+      "Geophysics",
+      "Materials Science, Metallurgy",
+      "Particles and Fields",
+      "Atomic, Molecular, & Optical Physics",
+      "Nuclear Physics",
+      "High Energy Physics",
+      "Optics",
+      "Atmosphere, Space Physics, Cosmic Rays"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Las Cruces",
+    "state": "NM",
+    "region": "Southwest"
+  },
+  {
+    "school_name": "North Carolina State University, Raleigh",
+    "acceptance_rate_decimal": 0.3,
+    "phd_granted_2024": 23,
+    "first_year_enrollment_fall2024": 19,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Fluids, Rheology",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Nonlinear Dynamics and Complex Systems",
+      "Nuclear Physics",
+      "Optics",
+      "Particles and Fields",
+      "Polymer Physics/Science",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Raleigh",
+    "state": "NC",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "North Dakota State University",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 3,
+    "first_year_enrollment_fall2024": 1,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nano Science and Technology",
+      "Physics and other Science Education",
+      "Polymer Physics/Science",
+      "Solid State Physics",
+      "Optics",
+      "Chemical Physics",
+      "Computational Physics",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Fargo",
+    "state": "ND",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Northeastern University",
+    "acceptance_rate_decimal": 0.248,
+    "phd_granted_2024": 9,
+    "first_year_enrollment_fall2024": 27,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Medical, Health Physics",
+      "Cosmology & String Theory",
+      "Particles and Fields",
+      "Astrophysics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Mechanics",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics",
+      "Applied Physics",
+      "Optics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Mechanics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Boston",
+    "state": "MA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Oakland University",
+    "acceptance_rate_decimal": 0.16,
+    "phd_granted_2024": 3,
+    "first_year_enrollment_fall2024": 6,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Medical, Health Physics",
+      "Applied Physics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Rochester",
+    "state": "MI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Ohio University",
+    "acceptance_rate_decimal": 0.4,
+    "phd_granted_2024": 8,
+    "first_year_enrollment_fall2024": 21,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Neuroscience/Neuro Physics",
+      "Nonlinear Dynamics and Complex Systems",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Relativity & Gravitation",
+      "Solid State Physics",
+      "Surface Physics",
+      "Optics",
+      "Plasma and Fusion",
+      "Computational Physics",
+      "Cosmology & String Theory",
+      "Statistical & Thermal Physics",
+      "Theoretical Physics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Neuroscience/Neuro Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Athens",
+    "state": "OH",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Oklahoma State University",
+    "acceptance_rate_decimal": 0.35,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 4,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Optics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Quantum Optics and Quantum Information"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Stillwater",
+    "state": "OK",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Old Dominion University",
+    "acceptance_rate_decimal": 0.96,
+    "phd_granted_2024": 6,
+    "first_year_enrollment_fall2024": 5,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Accelerator",
+      "Atomic, Molecular, & Optical Physics",
+      "Climate/Atmospheric Science",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Plasma and Fusion",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Optics",
+      "Computational Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Accelerator",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Climate/Atmospheric Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Norfolk",
+    "state": "VA",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "Purdue University",
+    "acceptance_rate_decimal": 0.3,
+    "phd_granted_2024": 25,
+    "first_year_enrollment_fall2024": 36,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Geophysics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Physics and other Science Education",
+      "Quantum Foundations",
+      "Accelerator",
+      "Planetary Science"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Foundations",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Accelerator",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Planetary Science",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "West Lafayette",
+    "state": "IN",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Rensselaer Polytechnic Institute",
+    "acceptance_rate_decimal": 0.22,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 9,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Statistical & Thermal Physics",
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Biophysics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "Electrical Engineering",
+      "Energy Sources & Environment",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Particles and Fields",
+      "Nuclear Physics",
+      "Optics",
+      "Nonlinear Dynamics and Complex Systems"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Electrical Engineering",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Troy",
+    "state": "NY",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Rice University",
+    "acceptance_rate_decimal": 0.11,
+    "phd_granted_2024": 15,
+    "first_year_enrollment_fall2024": 20,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Space Plasma Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Space Plasma Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Houston",
+    "state": "TX",
+    "region": "South"
+  },
+  {
+    "school_name": "Rutgers University \u2014 New Brunswick",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": null,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Quantum Foundations"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Quantum Foundations",
+        "phd_type": "None"
+      }
+    ],
+    "city": "New Brunswick",
+    "state": "NJ",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "San Francisco State University",
+    "acceptance_rate_decimal": 0.76,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 17,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Nano Science and Technology",
+      "Optics",
+      "Particles and Fields",
+      "Physics and other Science Education",
+      "Solid State Physics",
+      "Theoretical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "San Francisco",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "Seton Hall University",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 2,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "South Orange",
+    "state": "NJ",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "South Dakota School of Mines & Technology",
+    "acceptance_rate_decimal": 0.25,
+    "phd_granted_2024": 0,
+    "first_year_enrollment_fall2024": 3,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "High Energy Physics",
+      "Nuclear Physics",
+      "Condensed Matter Physics",
+      "Particles and Fields"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Rapid City",
+    "state": "SD",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Southern Connecticut State University",
+    "acceptance_rate_decimal": 0.5,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 4,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Optics",
+      "Nano Science and Technology",
+      "Materials Science, Metallurgy"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "New Haven",
+    "state": "CT",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Stanford University",
+    "acceptance_rate_decimal": 0.08,
+    "phd_granted_2024": 33,
+    "first_year_enrollment_fall2024": 39,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Accelerator",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Astrophysics",
+      "Particles and Fields",
+      "Atomic, Molecular, & Optical Physics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Accelerator",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Stanford",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "Stevens Institute of Technology",
+    "acceptance_rate_decimal": 0.53,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 2,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Quantum Optics and Quantum Information",
+      "Nano Science and Technology",
+      "Optics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Hoboken",
+    "state": "NJ",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "Temple University",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 9,
+    "first_year_enrollment_fall2024": 11,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Nuclear Physics",
+      "Condensed Matter Physics",
+      "Atomic, Molecular, & Optical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Philadelphia",
+    "state": "PA",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "Texas A&M University",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 20,
+    "first_year_enrollment_fall2024": 34,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Nuclear Physics",
+      "Particles and Fields"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "College Station",
+    "state": "TX",
+    "region": "South"
+  },
+  {
+    "school_name": "Texas Christian University",
+    "acceptance_rate_decimal": 0.25,
+    "phd_granted_2024": 2,
+    "first_year_enrollment_fall2024": 3,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Optics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Fort Worth",
+    "state": "TX",
+    "region": "South"
+  },
+  {
+    "school_name": "Texas Tech University",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 9,
+    "first_year_enrollment_fall2024": 12,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy & Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Physics and other Science Education",
+      "Materials Science, Metallurgy",
+      "Relativity & Gravitation",
+      "Chemical Physics",
+      "Nano Science and Technology",
+      "Particles and Fields"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Lubbock",
+    "state": "TX",
+    "region": "South"
+  },
+  {
+    "school_name": "The Ohio State University",
+    "acceptance_rate_decimal": 0.31,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": null,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Statistical & Thermal Physics",
+      "Fluids, Rheology",
+      "Optics",
+      "Plasma and Fusion",
+      "Polymer Physics/Science",
+      "Physics and other Science Education",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Columbus",
+    "state": "OH",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Tufts University",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 8,
+    "first_year_enrollment_fall2024": 11,
+    "offers_phd": true,
+    "offers_masters": false,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Quantum Optics and Quantum Information",
+      "High Energy Physics",
+      "Cosmology & String Theory",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Medford",
+    "state": "MA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "University of Alabama at Birmingham",
+    "acceptance_rate_decimal": 0.48,
+    "phd_granted_2024": 7,
+    "first_year_enrollment_fall2024": 9,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Materials Science, Metallurgy",
+      "Extreme Conditions Physics",
+      "Optics",
+      "Quantum Optics and Quantum Information",
+      "Condensed Matter Physics",
+      "Applied Physics",
+      "Nano Science and Technology",
+      "Computational Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Extreme Conditions Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Birmingham",
+    "state": "AL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Alabama, Huntsville",
+    "acceptance_rate_decimal": 1.0,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 12,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Engineering Physics/Science",
+      "Relativity & Gravitation",
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Optics",
+      "Applied Physics",
+      "Plasma and Fusion"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Huntsville",
+    "state": "AL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Alabama, Tuscaloosa",
+    "acceptance_rate_decimal": 0.32,
+    "phd_granted_2024": 12,
+    "first_year_enrollment_fall2024": 13,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Materials Science, Metallurgy",
+      "Particles and Fields",
+      "Precision Timing",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Precision Timing",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Tuscaloosa",
+    "state": "AL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Alaska Fairbanks",
+    "acceptance_rate_decimal": 0.29,
+    "phd_granted_2024": 2,
+    "first_year_enrollment_fall2024": 3,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Computational Physics",
+      "Ice physics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Condensed Matter Physics",
+      "Nonlinear Dynamics and Complex Systems",
+      "Plasma and Fusion"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Ice physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Fairbanks",
+    "state": "AK",
+    "region": "Pacific Northwest"
+  },
+  {
+    "school_name": "University of Arizona",
+    "acceptance_rate_decimal": 0.35,
+    "phd_granted_2024": 30,
+    "first_year_enrollment_fall2024": 104,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Optics",
+      "Quantum Optics and Quantum Information",
+      "Geophysics",
+      "Solar Physics",
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Energy Sources & Environment",
+      "Engineering Physics/Science",
+      "Fluids, Rheology",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Mechanics",
+      "Medical, Health Physics",
+      "Nuclear Engineering",
+      "Particles and Fields",
+      "Physics and other Science Education",
+      "Physics of Beams",
+      "Plasma and Fusion",
+      "Polymer Physics/Science",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solar Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Mechanics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Engineering",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Tucson",
+    "state": "AZ",
+    "region": "Southwest"
+  },
+  {
+    "school_name": "University of California, Irvine",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 24,
+    "first_year_enrollment_fall2024": 33,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Particles and Fields",
+      "Plasma and Fusion",
+      "Relativity & Gravitation",
+      "Medical, Health Physics",
+      "Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Physics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Irvine",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "University of California, Los Angeles",
+    "acceptance_rate_decimal": 0.13,
+    "phd_granted_2024": 27,
+    "first_year_enrollment_fall2024": 26,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Physics",
+      "Astronomy & Astrophysics",
+      "Quantum Optics and Quantum Information"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Los Angeles",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "University of California, Merced",
+    "acceptance_rate_decimal": 0.3,
+    "phd_granted_2024": 12,
+    "first_year_enrollment_fall2024": 9,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "High Energy Density Science",
+      "Nano Science and Technology",
+      "Nonlinear Dynamics and Complex Systems",
+      "Solid State Physics",
+      "Statistical & Thermal Physics",
+      "Quantum Optics and Quantum Information",
+      "Photovoltaics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Density Science",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Photovoltaics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Merced",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "University of California, Riverside",
+    "acceptance_rate_decimal": 0.28,
+    "phd_granted_2024": 16,
+    "first_year_enrollment_fall2024": 31,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Nano Science and Technology",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Solid State Physics",
+      "Statistical & Thermal Physics",
+      "Surface Physics",
+      "Theoretical Physics",
+      "Astronomy",
+      "Atomic, Molecular, & Optical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Riverside",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "University of California, San Diego",
+    "acceptance_rate_decimal": 0.21,
+    "phd_granted_2024": 21,
+    "first_year_enrollment_fall2024": 41,
+    "offers_phd": true,
+    "offers_masters": false,
+    "specialties": [
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Particles and Fields",
+      "Plasma and Fusion",
+      "Polymer Physics/Science",
+      "Atomic, Molecular, & Optical Physics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Optics",
+      "Statistical & Thermal Physics",
+      "Acoustics",
+      "Applied Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Acoustics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "San Diego",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "University of California, Santa Cruz",
+    "acceptance_rate_decimal": 0.05,
+    "phd_granted_2024": 11,
+    "first_year_enrollment_fall2024": 8,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Physics and other Science Education",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Polymer Physics/Science",
+      "Statistical & Thermal Physics",
+      "Chemical Physics",
+      "Energy Sources & Environment",
+      "Physics of Beams",
+      "Relativity & Gravitation",
+      "Condensed Matter Physics",
+      "Particles and Fields",
+      "Biophysics",
+      "Acoustics",
+      "Astronomy"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Acoustics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Santa Cruz",
+    "state": "CA",
+    "region": "West Coast"
+  },
+  {
+    "school_name": "University of Central Florida",
+    "acceptance_rate_decimal": 0.33,
+    "phd_granted_2024": 14,
+    "first_year_enrollment_fall2024": 27,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Optics",
+      "Surface Physics",
+      "Planetary Science",
+      "Computational Physics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Planetary Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Orlando",
+    "state": "FL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Chicago",
+    "acceptance_rate_decimal": 0.14,
+    "phd_granted_2024": 27,
+    "first_year_enrollment_fall2024": 25,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Accelerator",
+      "Astrophysics",
+      "Astronomy",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Cosmology & String Theory",
+      "High Energy Physics",
+      "Planetary Science",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Particles and Fields",
+      "Nuclear Physics",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Accelerator",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Planetary Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Chicago",
+    "state": "IL",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Colorado, Boulder",
+    "acceptance_rate_decimal": 0.2,
+    "phd_granted_2024": 39,
+    "first_year_enrollment_fall2024": 48,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Geophysics",
+      "High Energy Physics",
+      "Nuclear Physics",
+      "Physics and other Science Education",
+      "Quantum Optics and Quantum Information",
+      "Plasma and Fusion"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Boulder",
+    "state": "CO",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "University of Colorado, Colorado Springs",
+    "acceptance_rate_decimal": 0.79,
+    "phd_granted_2024": 3,
+    "first_year_enrollment_fall2024": 6,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nano Science and Technology"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Colorado Springs",
+    "state": "CO",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "University of Connecticut",
+    "acceptance_rate_decimal": 0.37,
+    "phd_granted_2024": 11,
+    "first_year_enrollment_fall2024": 17,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Nuclear Physics",
+      "Polymer Physics/Science",
+      "Applied Physics",
+      "Astronomy",
+      "Engineering Physics/Science",
+      "Low Temperature Physics",
+      "Optics",
+      "Geophysics",
+      "Particles and Fields"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Storrs",
+    "state": "CT",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "University of Delaware",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 26,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Particles and Fields",
+      "Acoustics",
+      "Applied Physics",
+      "Energy Sources & Environment",
+      "Low Temperature Physics",
+      "Optics",
+      "Statistical & Thermal Physics",
+      "Biophysics",
+      "Nuclear Physics",
+      "Plasma and Fusion",
+      "Physics",
+      "Electrical Engineering",
+      "Computer Science",
+      "Engineering Physics/Science",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Acoustics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Electrical Engineering",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computer Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Newark",
+    "state": "DE",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "University of Denver",
+    "acceptance_rate_decimal": 0.13,
+    "phd_granted_2024": 3,
+    "first_year_enrollment_fall2024": 3,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Engineering Physics/Science",
+      "Materials Science, Metallurgy",
+      "Applied Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Denver",
+    "state": "CO",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "University of Florida",
+    "acceptance_rate_decimal": 0.39,
+    "phd_granted_2024": 23,
+    "first_year_enrollment_fall2024": 26,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Relativity & Gravitation",
+      "Optics",
+      "Quantum Optics and Quantum Information"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Gainesville",
+    "state": "FL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Houston",
+    "acceptance_rate_decimal": 0.26,
+    "phd_granted_2024": 14,
+    "first_year_enrollment_fall2024": 21,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Materials Science, Metallurgy",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Particles and Fields",
+      "Physics and other Science Education",
+      "Quantum Foundations",
+      "Geophysics",
+      "Nonlinear Dynamics and Complex Systems",
+      "Atmosphere, Space Physics, Cosmic Rays"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Foundations",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Houston",
+    "state": "TX",
+    "region": "South"
+  },
+  {
+    "school_name": "University of Idaho",
+    "acceptance_rate_decimal": 0.2,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 3,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "Engineering Physics/Science",
+      "High Energy Physics",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Nuclear Physics",
+      "Planetary Science",
+      "Solid State Physics",
+      "Computational Physics",
+      "Particles and Fields",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics",
+      "Theoretical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Planetary Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Moscow",
+    "state": "ID",
+    "region": "Pacific Northwest"
+  },
+  {
+    "school_name": "University of Illinois, Urbana-Champaign",
+    "acceptance_rate_decimal": 0.0607,
+    "phd_granted_2024": 34,
+    "first_year_enrollment_fall2024": 43,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Cosmology & String Theory",
+      "High Energy Physics",
+      "Physics and other Science Education",
+      "Quantum Optics and Quantum Information",
+      "Computational Physics",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Urbana",
+    "state": "IL",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Iowa",
+    "acceptance_rate_decimal": 0.28,
+    "phd_granted_2024": 12,
+    "first_year_enrollment_fall2024": 14,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Electromagnetism",
+      "Engineering Physics/Science",
+      "Nuclear Physics",
+      "Optics",
+      "Particles and Fields",
+      "Plasma and Fusion",
+      "Chemical Physics",
+      "Medical, Health Physics",
+      "Polymer Physics/Science",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Electromagnetism",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Iowa City",
+    "state": "IA",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Kansas",
+    "acceptance_rate_decimal": 0.222,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 12,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Condensed Matter Physics",
+      "Particles and Fields",
+      "Applied Physics",
+      "Cosmology & String Theory",
+      "High Energy Physics",
+      "Biophysics",
+      "Nonlinear Dynamics and Complex Systems",
+      "Nuclear Physics",
+      "Physics and other Science Education",
+      "Space Plasma Physics",
+      "Astronomy",
+      "Energy Sources & Environment",
+      "Low Temperature Physics",
+      "Physics of Beams",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Space Plasma Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Lawrence",
+    "state": "KS",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Massachusetts, Amherst",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 7,
+    "first_year_enrollment_fall2024": 12,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Fluids, Rheology",
+      "Low Temperature Physics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Polymer Physics/Science",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics",
+      "Energy Sources & Environment",
+      "Quantum Optics and Quantum Information",
+      "High Energy Physics",
+      "Nano Science and Technology",
+      "Materials Science, Metallurgy",
+      "Optics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Amherst",
+    "state": "MA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "University of Massachusetts, Boston",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 1,
+    "first_year_enrollment_fall2024": 8,
+    "offers_phd": false,
+    "offers_masters": false,
+    "specialties": [],
+    "specialty_details": [],
+    "city": "Boston",
+    "state": "MA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "University of Massachusetts, Lowell",
+    "acceptance_rate_decimal": 0.34,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 22,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astronomy",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Medical, Health Physics",
+      "Optics",
+      "Polymer Physics/Science",
+      "Astrophysics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Quantum Optics and Quantum Information",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Lowell",
+    "state": "MA",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "University of Michigan, Ann Arbor",
+    "acceptance_rate_decimal": 0.28,
+    "phd_granted_2024": 23,
+    "first_year_enrollment_fall2024": 23,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Plasma and Fusion",
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Engineering Physics/Science",
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Chemical Physics",
+      "Climate/Atmospheric Science",
+      "Computational Physics",
+      "Computer Science",
+      "Electrical Engineering",
+      "Energy Sources & Environment",
+      "Fluids, Rheology",
+      "Geology/Geochemistry",
+      "Geophysics",
+      "High Energy Physics",
+      "Marine Science/Oceanography",
+      "Acoustics",
+      "Applied Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Climate/Atmospheric Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computer Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Electrical Engineering",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geology/Geochemistry",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Geophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Marine Science/Oceanography",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Acoustics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Ann Arbor",
+    "state": "MI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Minnesota",
+    "acceptance_rate_decimal": 0.33,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 6,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Cosmology & String Theory",
+      "High Energy Physics",
+      "Particles and Fields",
+      "Physics and other Science Education",
+      "Nuclear Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Minneapolis",
+    "state": "MN",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Minnesota, Duluth",
+    "acceptance_rate_decimal": 0.75,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 6,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "High Energy Physics",
+      "Astrophysics",
+      "Marine Science/Oceanography",
+      "Theoretical Physics",
+      "Biophysics",
+      "Astronomy",
+      "Materials Science, Metallurgy",
+      "Cosmology & String Theory"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Marine Science/Oceanography",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Duluth",
+    "state": "MN",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Missouri, Columbia",
+    "acceptance_rate_decimal": 0.2,
+    "phd_granted_2024": 7,
+    "first_year_enrollment_fall2024": 14,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Energy Sources & Environment",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Medical, Health Physics",
+      "Optics",
+      "Polymer Physics/Science",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Columbia",
+    "state": "MO",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Nevada Las Vegas",
+    "acceptance_rate_decimal": 0.4,
+    "phd_granted_2024": 9,
+    "first_year_enrollment_fall2024": 10,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Extreme Conditions Physics",
+      "Astronomy",
+      "Astrophysics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Extreme Conditions Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Las Vegas",
+    "state": "NV",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "University of Nevada, Reno",
+    "acceptance_rate_decimal": 0.5,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": null,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Climate/Atmospheric Science",
+      "Plasma and Fusion",
+      "Astrophysics",
+      "Condensed Matter Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Climate/Atmospheric Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Reno",
+    "state": "NV",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "University of North Carolina, Chapel Hill",
+    "acceptance_rate_decimal": 0.2,
+    "phd_granted_2024": 8,
+    "first_year_enrollment_fall2024": 19,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Materials Science, Metallurgy",
+      "Applied Physics",
+      "Biophysics",
+      "Particles and Fields",
+      "Astronomy & Astrophysics",
+      "Computational Physics",
+      "Relativity & Gravitation",
+      "Cosmology & String Theory",
+      "High Energy Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Chapel Hill",
+    "state": "NC",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Notre Dame",
+    "acceptance_rate_decimal": 0.25,
+    "phd_granted_2024": 12,
+    "first_year_enrollment_fall2024": 24,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Nuclear Physics",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Notre Dame",
+    "state": "IN",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Oklahoma",
+    "acceptance_rate_decimal": 0.1,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 19,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Cosmology & String Theory",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Nano Science and Technology",
+      "Particles and Fields",
+      "Solid State Physics",
+      "Surface Physics",
+      "Applied Physics",
+      "Materials Science, Metallurgy",
+      "Optics",
+      "Computational Physics",
+      "Relativity & Gravitation",
+      "Solar Physics",
+      "Engineering Physics/Science"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Solar Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Norman",
+    "state": "OK",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Oregon - Knight Campus",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": null,
+    "offers_phd": false,
+    "offers_masters": true,
+    "specialties": [
+      "Optics",
+      "Condensed Matter Physics",
+      "Applied Physics",
+      "Materials Science, Metallurgy",
+      "Atomic, Molecular, & Optical Physics",
+      "Electromagnetism",
+      "Engineering Physics/Science",
+      "Nano Science and Technology",
+      "Nonlinear Dynamics and Complex Systems",
+      "Physics of Beams",
+      "Quantum Foundations",
+      "Quantum Optics and Quantum Information",
+      "Solid State Physics",
+      "Statistical & Thermal Physics",
+      "Photovoltaics",
+      "Solar Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Optics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Electromagnetism",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Quantum Foundations",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Photovoltaics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Solar Physics",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Eugene",
+    "state": "OR",
+    "region": "Pacific Northwest"
+  },
+  {
+    "school_name": "University of Rochester",
+    "acceptance_rate_decimal": 0.24,
+    "phd_granted_2024": 9,
+    "first_year_enrollment_fall2024": 13,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Medical, Health Physics",
+      "Nuclear Physics",
+      "Plasma and Fusion",
+      "Particles and Fields",
+      "Chemical Physics",
+      "Engineering Physics/Science"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Rochester",
+    "state": "NY",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "University of South Carolina",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": null,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Nano Science and Technology",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Computational Physics",
+      "Other",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Other",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Columbia",
+    "state": "SC",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of South Dakota",
+    "acceptance_rate_decimal": 0.26,
+    "phd_granted_2024": 1,
+    "first_year_enrollment_fall2024": 4,
+    "offers_phd": false,
+    "offers_masters": false,
+    "specialties": [],
+    "specialty_details": [],
+    "city": "Vermillion",
+    "state": "SD",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of South Florida",
+    "acceptance_rate_decimal": 0.3,
+    "phd_granted_2024": 10,
+    "first_year_enrollment_fall2024": 13,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Optics",
+      "Physics and other Science Education",
+      "Computational Physics",
+      "Engineering Physics/Science",
+      "Medical, Health Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Tampa",
+    "state": "FL",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Tennessee, Knoxville",
+    "acceptance_rate_decimal": 0.54,
+    "phd_granted_2024": 20,
+    "first_year_enrollment_fall2024": 26,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Accelerator",
+      "Chemical Physics",
+      "Astrophysics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Accelerator",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Knoxville",
+    "state": "TN",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "University of Texas at Austin",
+    "acceptance_rate_decimal": 0.26,
+    "phd_granted_2024": 36,
+    "first_year_enrollment_fall2024": 42,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Condensed Matter Physics",
+      "Plasma and Fusion",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "High Energy Density Science",
+      "High Energy Physics",
+      "Nuclear Physics",
+      "Cosmology & String Theory",
+      "Nonlinear Dynamics and Complex Systems",
+      "Relativity & Gravitation",
+      "Statistical & Thermal Physics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "High Energy Density Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Austin",
+    "state": "TX",
+    "region": "South"
+  },
+  {
+    "school_name": "University of Texas, Arlington",
+    "acceptance_rate_decimal": 0.29,
+    "phd_granted_2024": 6,
+    "first_year_enrollment_fall2024": 14,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Astronomy",
+      "Astrophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Medical, Health Physics",
+      "Optics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Arlington",
+    "state": "TX",
+    "region": "South"
+  },
+  {
+    "school_name": "University of Toledo",
+    "acceptance_rate_decimal": 0.2,
+    "phd_granted_2024": 10,
+    "first_year_enrollment_fall2024": 10,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy & Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Optics",
+      "Atomic, Molecular, & Optical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Toledo",
+    "state": "OH",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Utah",
+    "acceptance_rate_decimal": 0.15,
+    "phd_granted_2024": 14,
+    "first_year_enrollment_fall2024": 25,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Experimental"
+      }
+    ],
+    "city": "Salt Lake City",
+    "state": "UT",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "University of Virginia",
+    "acceptance_rate_decimal": 0.4,
+    "phd_granted_2024": 19,
+    "first_year_enrollment_fall2024": 28,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Computational Physics",
+      "Condensed Matter Physics",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Quantum Optics and Quantum Information",
+      "Solid State Physics",
+      "Medical, Health Physics",
+      "Cosmology & String Theory",
+      "Nonlinear Dynamics and Complex Systems",
+      "Relativity & Gravitation",
+      "Theoretical Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Charlottesville",
+    "state": "VA",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "University of Wisconsin",
+    "acceptance_rate_decimal": 0.32,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": null,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Medical, Health Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Madison",
+    "state": "WI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Wisconsin, Madison",
+    "acceptance_rate_decimal": 0.2,
+    "phd_granted_2024": 23,
+    "first_year_enrollment_fall2024": 67,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Optics",
+      "Quantum Optics and Quantum Information",
+      "Plasma and Fusion",
+      "High Energy Physics",
+      "Computational Physics",
+      "Nuclear Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Madison",
+    "state": "WI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Wisconsin, Milwaukee",
+    "acceptance_rate_decimal": 0.19,
+    "phd_granted_2024": null,
+    "first_year_enrollment_fall2024": 7,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astronomy",
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Medical, Health Physics",
+      "Relativity & Gravitation",
+      "Solid State Physics",
+      "Surface Physics",
+      "Optics",
+      "Particles and Fields"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astronomy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Medical, Health Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Solid State Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Surface Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Milwaukee",
+    "state": "WI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "University of Wyoming",
+    "acceptance_rate_decimal": 0.1,
+    "phd_granted_2024": 5,
+    "first_year_enrollment_fall2024": 12,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Astronomy & Astrophysics",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Astronomy & Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Laramie",
+    "state": "WY",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "Utah State University",
+    "acceptance_rate_decimal": 0.23,
+    "phd_granted_2024": 14,
+    "first_year_enrollment_fall2024": 17,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Biophysics",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Condensed Matter Physics",
+      "Materials Science, Metallurgy",
+      "Nano Science and Technology",
+      "Computational Physics",
+      "Particles and Fields",
+      "Plasma and Fusion",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Biophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Logan",
+    "state": "UT",
+    "region": "Mountain West"
+  },
+  {
+    "school_name": "Vanderbilt Univeristy",
+    "acceptance_rate_decimal": 0.33,
+    "phd_granted_2024": 13,
+    "first_year_enrollment_fall2024": 6,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Computational Physics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Quantum Optics and Quantum Information",
+      "Materials Science, Metallurgy"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Nashville",
+    "state": "TN",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Virginia Tech",
+    "acceptance_rate_decimal": 0.51,
+    "phd_granted_2024": 6,
+    "first_year_enrollment_fall2024": 28,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Low Temperature Physics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Polymer Physics/Science",
+      "Statistical & Thermal Physics",
+      "Astrophysics",
+      "Atomic, Molecular, & Optical Physics",
+      "Materials Science, Metallurgy",
+      "Optics",
+      "Physics of Beams",
+      "Fluids, Rheology",
+      "Mechanics",
+      "Physics and other Science Education",
+      "Relativity & Gravitation",
+      "Engineering Physics/Science",
+      "Astronomy",
+      "Atmosphere, Space Physics, Cosmic Rays",
+      "Electromagnetism",
+      "Energy Sources & Environment",
+      "Plasma and Fusion"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Polymer Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Mechanics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Astronomy",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Atmosphere, Space Physics, Cosmic Rays",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Electromagnetism",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Blacksburg",
+    "state": "VA",
+    "region": "Mid-Atlantic"
+  },
+  {
+    "school_name": "Wake Forest University",
+    "acceptance_rate_decimal": 0.16,
+    "phd_granted_2024": 4,
+    "first_year_enrollment_fall2024": 5,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Applied Physics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Engineering Physics/Science",
+      "Materials Science, Metallurgy",
+      "Optics",
+      "Relativity & Gravitation",
+      "Computer Science",
+      "Quantum Optics and Quantum Information",
+      "Theoretical Physics",
+      "Computational Physics",
+      "Astrophysics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Applied Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Computer Science",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Winston-Salem",
+    "state": "NC",
+    "region": "Southeast"
+  },
+  {
+    "school_name": "Washington University in St. Louis",
+    "acceptance_rate_decimal": null,
+    "phd_granted_2024": 7,
+    "first_year_enrollment_fall2024": 17,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Biophysics",
+      "Condensed Matter Physics",
+      "Quantum Optics and Quantum Information",
+      "Nuclear Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "St. Louis",
+    "state": "MO",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Wayne State University",
+    "acceptance_rate_decimal": 0.13,
+    "phd_granted_2024": 10,
+    "first_year_enrollment_fall2024": 8,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Astrophysics",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Biophysics",
+      "Low Temperature Physics",
+      "Materials Science, Metallurgy",
+      "Physics of Beams",
+      "Atomic, Molecular, & Optical Physics",
+      "Computational Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Materials Science, Metallurgy",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "Experimental"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Theoretical"
+      }
+    ],
+    "city": "Detroit",
+    "state": "MI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Wesleyan University",
+    "acceptance_rate_decimal": 0.09,
+    "phd_granted_2024": 3,
+    "first_year_enrollment_fall2024": 2,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Acoustics",
+      "Atomic, Molecular, & Optical Physics",
+      "Biophysics",
+      "Chemical Physics",
+      "Condensed Matter Physics",
+      "Energy Sources & Environment",
+      "Fluids, Rheology",
+      "Low Temperature Physics",
+      "Mechanics",
+      "Nonlinear Dynamics and Complex Systems",
+      "Optics",
+      "Physics of Beams",
+      "Plasma and Fusion",
+      "Statistical & Thermal Physics"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Acoustics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Biophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Chemical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Energy Sources & Environment",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Fluids, Rheology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Mechanics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Optics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Physics of Beams",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Plasma and Fusion",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "Middletown",
+    "state": "CT",
+    "region": "Northeast"
+  },
+  {
+    "school_name": "Western Michigan University",
+    "acceptance_rate_decimal": 0.23,
+    "phd_granted_2024": 3,
+    "first_year_enrollment_fall2024": 3,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Atomic, Molecular, & Optical Physics",
+      "Condensed Matter Physics",
+      "Nuclear Physics",
+      "Astrophysics",
+      "Physics and other Science Education"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Atomic, Molecular, & Optical Physics",
+        "phd_type": "Theoretical"
+      },
+      {
+        "specialty": "Condensed Matter Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "None"
+      },
+      {
+        "specialty": "Physics and other Science Education",
+        "phd_type": "None"
+      }
+    ],
+    "city": "Kalamazoo",
+    "state": "MI",
+    "region": "Midwest"
+  },
+  {
+    "school_name": "Yale University",
+    "acceptance_rate_decimal": 0.17,
+    "phd_granted_2024": 21,
+    "first_year_enrollment_fall2024": 29,
+    "offers_phd": true,
+    "offers_masters": true,
+    "specialties": [
+      "Engineering Physics/Science",
+      "Astrophysics",
+      "Computational Physics",
+      "High Energy Physics",
+      "Low Temperature Physics",
+      "Nano Science and Technology",
+      "Neuroscience/Neuro Physics",
+      "Nonlinear Dynamics and Complex Systems",
+      "Nuclear Physics",
+      "Particles and Fields",
+      "Quantum Optics and Quantum Information",
+      "Cosmology & String Theory",
+      "Theoretical Physics",
+      "Statistical & Thermal Physics",
+      "Relativity & Gravitation"
+    ],
+    "specialty_details": [
+      {
+        "specialty": "Engineering Physics/Science",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Astrophysics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Computational Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "High Energy Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Low Temperature Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nano Science and Technology",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Neuroscience/Neuro Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nonlinear Dynamics and Complex Systems",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Nuclear Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Particles and Fields",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Quantum Optics and Quantum Information",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Cosmology & String Theory",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Theoretical Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Statistical & Thermal Physics",
+        "phd_type": "Both"
+      },
+      {
+        "specialty": "Relativity & Gravitation",
+        "phd_type": "Both"
+      }
+    ],
+    "city": "New Haven",
+    "state": "CT",
+    "region": "Northeast"
+  }
+]
