@@ -368,8 +368,16 @@
   /* ── Items 2–3: merge Cassidy output with display lookup ───── */
   /* In production call: results.matches.map(mergeWithDisplay)    */
   /* Also normalises match_explanation → why (field rename).      */
+  /* Name normalization: gss_scoring_v2.json has 2 names that differ from
+     gss_display_v2.json keys — one typo, one ambiguous campus name.       */
+  var DISPLAY_NAME_OVERRIDE = {
+    'Vanderbilt Univeristy':   'Vanderbilt University',
+    'University of Wisconsin': 'University of Wisconsin–Madison',
+  };
+
   function mergeWithDisplay(match) {
-    var d = GSS_DISPLAY[match.school_name] || {};
+    var lookupName = DISPLAY_NAME_OVERRIDE[match.school_name] || match.school_name;
+    var d = GSS_DISPLAY[lookupName] || {};
     return {
       /* Identity */
       school_name:          d.school_name          || match.school_name,
