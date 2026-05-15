@@ -1,0 +1,7 @@
+name = "gss-matcher-proxy"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "RESULTS_KV"
+id = "56780ada6c1a4fbda92c901f0dfea771"

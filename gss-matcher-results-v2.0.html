@@ -697,17 +697,53 @@
 
   /* ── Init ────────────────────────────────────────────────── */
   /* ── Init ────────────────────────────────────────────────── */
-  /* In production: replace RESULTS with cassidyOutput.matches  */
-  /* e.g. var merged = cassidyOutput.matches.map(mergeWithDisplay); */
-  window.addEventListener('load', function() {
+  var WORKER_URL = 'https://gss-matcher-proxy.s-mackenzie-wallace.workers.dev';
+
+  function renderDemoMode() {
     renderHero();
-    /* Item 4: run mock data through merge layer for consistency */
     var merged = RESULTS.map(mergeWithDisplay);
-    /* Item 4: rebuild SLUG_MAP from merged results */
     merged.forEach(function(m){ SLUG_MAP[toSlug(m.school_name)] = m.school_name; });
     var sorted = merged.slice().sort(function(a,b){ return b.overall_score - a.overall_score; });
     renderCards(sorted);
     renderSummary(sorted);
+  }
+
+  window.addEventListener('load', function() {
+    var params    = new URLSearchParams(window.location.search);
+    var sessionId = params.get('session');
+
+    if (!sessionId) {
+      renderDemoMode(); // no session — show mock results
+      return;
+    }
+
+    // Production: fetch real results from Worker
+    fetch(WORKER_URL + '/results/' + sessionId)
+      .then(function(r) { return r.json(); })
+      .then(function(response) {
+        if (response.status !== 'ready') { renderDemoMode(); return; }
+
+        // Personalise hero with real student data if Worker preserved it
+        var fd = response.form_data;
+        if (fd && fd.first_name) {
+          FORM_DATA.first_name          = fd.first_name;
+          FORM_DATA.research_interests  = fd.research_interests  || FORM_DATA.research_interests;
+          FORM_DATA.degree              = fd.degree              || FORM_DATA.degree;
+          FORM_DATA.career_goal         = fd.career_goal         || FORM_DATA.career_goal;
+        }
+
+        renderHero();
+        var matches = (response.data && response.data.matches) ? response.data.matches : [];
+        var merged  = matches.map(mergeWithDisplay);
+        merged.forEach(function(m){ SLUG_MAP[toSlug(m.school_name)] = m.school_name; });
+        var sorted  = merged.slice().sort(function(a,b){ return b.overall_score - a.overall_score; });
+        renderCards(sorted);
+        renderSummary(sorted);
+      })
+      .catch(function(err) {
+        console.error('Results fetch error:', err);
+        renderDemoMode();
+      });
   });
 
 })();

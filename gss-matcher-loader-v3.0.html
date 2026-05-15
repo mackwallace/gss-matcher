@@ -492,9 +492,9 @@
 
   /* ── Navigate to results ────────────────────────────────────────── */
   function goToResults() {
-    // In production: window.location.href = 'gss-matcher-results-v1.0.html?session=' + sessionId;
-    // For prototype demo: link to the results page directly
-    window.location.href = 'gss-matcher-results-v1.0.html';
+    var dest = 'gss-matcher-results-v2.0.html';
+    if (sessionId) dest += '?session=' + sessionId;
+    window.location.href = dest;
   }
   window.goToResults = goToResults;
 
@@ -674,9 +674,15 @@
     }, 4000);
   }
 
-  /* ── Auto-start for prototype demo ────────────────────────────── */
+  /* ── Auto-start: real session or demo mode ─────────────────────── */
   window.addEventListener('load', function () {
-    startLoader(DEMO_DURATION);
+    var params = new URLSearchParams(window.location.search);
+    var sid = params.get('session');
+    if (sid) {
+      startLoaderLive(sid);  // real: poll Worker for results
+    } else {
+      startLoader(DEMO_DURATION);  // demo: no session param
+    }
   });
 
   window.startLoader     = startLoader;

@@ -939,13 +939,30 @@
       },
     };
 
-    console.log('[GSS Matcher v3] Payload:', JSON.stringify(payload, null, 2));
+    console.log('[GSS Matcher] Payload:', JSON.stringify(payload, null, 2));
     showLoading();
 
-    // ── Production: POST to Cloudflare Worker, poll for results ──────
-    // fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) })
-    //   .then(r => r.json())
-    //   .then(({ sessionId }) => startPolling(sessionId));
+    const WORKER_URL = 'https://gss-matcher-proxy.s-mackenzie-wallace.workers.dev';
+    fetch(WORKER_URL, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload),
+    })
+    .then(r => {
+      if (!r.ok) throw new Error('Worker ' + r.status);
+      return r.json();
+    })
+    .then(({ sessionId }) => {
+      window.location.href = 'gss-matcher-loader-v3.0.html?session=' + sessionId;
+    })
+    .catch(err => {
+      console.error('Submission error:', err);
+      document.getElementById('loading-overlay').classList.remove('show');
+      document.getElementById('err-list').innerHTML = '<li>Something went wrong — please try again.</li>';
+      const banner = document.getElementById('err-banner');
+      banner.classList.remove('hidden');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
   });
 
 })();
