@@ -1,14 +1,19 @@
 # GSS AI Engine — Output Schema & Results Population Guide
-**Version:** 1.0  
+**Version:** 1.2  
 **Owner:** Mack Wallace / Enterprise Commons  
-**For:** Cassidy AI engine builder  
-**Last updated:** 2026-05-14
+**For:** Cassidy AI engine builder + Claude Code frontend  
+**Last updated:** 2026-05-15
+
+### Changelog
+| Version | Date | Change |
+|---------|------|--------|
+| 1.0 | 2026-05-14 | Initial document |
+| 1.1 | 2026-05-14 | Added merge layer, frontend wiring |
+| 1.2 | 2026-05-15 | Location match now dynamic (Agent 1 v1.2); added two-JSON-file section; added form_data source; added coverage numbers; updated scoring weights |
 
 ---
 
-## Purpose
-
-This document defines what information the Cassidy AI matching engine must return per matched program, and specifies **where each field should come from**. The governing principle:
+## Governing Principle
 
 > **Factual data must come directly from the university KB markdown files whenever available. AI-generated content is reserved for scored outputs and narrative explanations only.**
 
@@ -16,183 +21,193 @@ Fabricating factual data (acceptance rates, faculty, stipends, deadlines) is not
 
 ---
 
-## Output Structure
+## The Two JSON Files
 
-The engine returns a JSON object with a `matches` array. Each element represents one matched program, ranked by `overall_score` descending.
+Two separate JSON files power the results screen. They serve different purposes and are read by different systems.
+
+| File | Read by | Purpose |
+|------|---------|---------|
+| `gss_scoring_v2.json` | **Cassidy Agent 1** (inside workflow) | Scoring input — contains all fields Agent 1 needs to compute scores: `acceptance_rate_decimal`, `offers_phd`, `offers_masters`, `specialties`, `specialty_details`, `phd_granted_2024`, `first_year_enrollment_fall2024`, `region`, `city`, `state` |
+| `gss_display_v2.json` | **Results screen frontend** (embedded inline as `GSS_DISPLAY`) | Display lookup — contains all fields the results screen needs to render cards: `department`, `location`, `region`, `campus_setting`, `acceptance_rate` (string), `application_deadline`, `faculty_count`, all URL fields |
+
+**These files do not overlap in the frontend.** `gss_scoring_v2.json` never touches the browser. `gss_display_v2.json` is embedded directly in `gss-matcher-results-v2.0.html` and never sent to Cassidy.
+
+**`gss_display_v2.json` field coverage (113 schools total):**
+
+| Field | Coverage |
+|-------|----------|
+| `department`, `location`, `region`, `campus_setting`, `faculty_count` | 113/113 |
+| `faculty_url` | 99/113 |
+| `grad_url` | 86/113 |
+| `gss_url` | 83/113 |
+| `dept_url` | 60/113 |
+| `funding_url` | 20/113 |
+
+---
+
+## Full Data Flow
+
+```
+[Intake Form]
+    │ POST payload (student profile only — no school data)
+    ▼
+[Cloudflare Worker — gss-matcher-proxy]
+    │ generates sessionId, stores form_data in KV, fires Cassidy webhook
+    ▼
+[Cassidy Workflow]
+    │
+    ├─ Agent 1 (GSS Match Scorer v1.2)
+    │    reads: student_profile + gss_scoring_v2.json
+    │    outputs: ranked_schools (scores + matching_specialties per school)
+    │
+    ├─ Agent 2 (Match Explainer)
+    │    reads: student_profile + Agent 1 output + KB markdown files
+    │    outputs: why field per school
+    │
+    └─ Response Assembler
+         outputs: matches array + metadata
+         POSTs to Worker /receive with session_id
+              │
+              ▼
+[Cloudflare Worker — /receive]
+    │ stores {status:'ready', data, form_data} in KV
+    ▼
+[Results Screen — polling GET /results/:sessionId]
+    │
+    ├─ response.form_data → hero section (Jordan's name, interests, degree, career goal)
+    │
+    └─ response.data.matches → mergeWithDisplay()
+         ├─ AI fields from Cassidy: overall_score, score_breakdown, matching_specialties, why
+         └─ Display fields from GSS_DISPLAY (gss_display_v2.json): all factual/link fields
+              │
+              ▼
+         renderCards() + renderSummary()
+              │
+              ▼
+         Frontend derives: selectivity badge, qualitative labels, Summary & Next Steps
+```
+
+---
+
+## Source Map — Every Field on the Results Screen
+
+### Source 1 — Cassidy AI output (`response.data.matches`)
+
+| Field | Agent | Notes |
+|-------|-------|-------|
+| `overall_score` | Agent 1 | Weighted composite 0–100, rounded to nearest integer |
+| `matching_specialties` | Agent 1 | Intersection of student interests + school specialties array |
+| `score_breakdown.research_fit` | Agent 1 | Specialty overlap + approach bonus (max +10) |
+| `score_breakdown.admissions_feasibility` | Agent 1 | Derived from `acceptance_rate_decimal` in `gss_scoring_v2.json` |
+| `score_breakdown.program_activity` | Agent 1 | Derived from `phd_granted_2024` + `first_year_enrollment_fall2024` |
+| `score_breakdown.location_match` | Agent 1 | **Dynamic as of v1.2** — scores against `region`/`city`/`state` in `gss_scoring_v2.json` vs student's `intake-location-flexibility` |
+| `score_breakdown.degree_structure_fit` | Agent 1 | `offers_phd` / `offers_masters` vs student's `intake-degree-goal` |
+| `why` | Agent 2 | 2–3 sentence explanation. Also sent as `match_explanation` — frontend normalises via `mergeWithDisplay()` |
+
+### Source 2 — `gss_display_v2.json` (embedded as `GSS_DISPLAY`, looked up by `school_name`)
+
+Display lookup takes priority over any Cassidy-supplied value for these fields in `mergeWithDisplay()`.
+
+| Field | KB Source | Coverage |
+|-------|-----------|----------|
+| `school_name` | KB frontmatter: `school_name` | 113/113 |
+| `abbr` | Known abbreviations map (build script) | Partial |
+| `department` | KB body: `**Department:**` | 113/113 |
+| `location` | KB frontmatter: `city` + `state` → `"City, ST"` | 113/113 |
+| `region` | KB frontmatter: `region` | 113/113 |
+| `campus_setting` | KB frontmatter: `campus_setting` | 113/113 |
+| `acceptance_rate` | KB frontmatter: `acceptance_rate_decimal` → `"N%"` string | 113/113 |
+| `application_deadline` | KB frontmatter: `application_deadline` | 113/113 |
+| `phd_granted_2024` | KB frontmatter: `phd_granted_2024` | 113/113 |
+| `ms_granted_2024` | KB frontmatter: `ms_granted_2024` | 113/113 |
+| `faculty_count` | KB frontmatter: `faculty_count_research` (prefer) or `faculty_count_total` | 113/113 |
+| `gss_url` | KB Key Links: `[GSS Profile]` | 83/113 |
+| `grad_url` | KB Key Links: `[Graduate Studies Overview]` / `[Application Process]` | 86/113 |
+| `dept_url` | KB Key Links: `[Department Website]` | 60/113 |
+| `faculty_url` | KB Key Links: `[Faculty Directory]` | 99/113 |
+| `funding_url` | KB Key Links: `[Financial Assistance]` | 20/113 |
+
+### Source 3 — Worker session `form_data` (`response.form_data`)
+
+Stored at form submission time, returned alongside match results. Used only to personalise the hero section of the results screen.
+
+| Field | Used for |
+|-------|----------|
+| `first_name` | Hero heading: "Jordan's Top Matches" |
+| `research_interests` | Context chips row |
+| `degree` | Context chips row |
+| `career_goal` | Context chips row |
+
+### Derived by frontend (no external source)
+
+| Field | How |
+|-------|-----|
+| Selectivity badge | `selectivity(acceptance_rate)` — JS thresholds (< 8% → Highly Selective, etc.) |
+| Score qualitative labels | `qualLabel(key, value)` — e.g. 92 → "Exceptional" |
+| Summary & Next Steps | `generateSummary()` — synthesises full merged results array using GSS brand voice |
+
+---
+
+## Cassidy Output Structure (what arrives at Worker `/receive`)
 
 ```json
 {
-  "matches": [
-    { ...match object... },
-    { ...match object... }
-  ]
+  "event_type": "match_results_generated",
+  "session_id": "UUID",
+  "generated_at": "ISO timestamp",
+  "workflow_run_id": "string",
+  "matches": [ ...array of match objects... ],
+  "metadata": { ... }
 }
 ```
 
-**Number of results:** 5–10 programs (variable; engine decides based on scoring threshold). The frontend renders whatever count is returned.
+The Worker stores `response.data = full body` in KV. The frontend reads `response.data.matches`.
+
+**Note on field name:** Cassidy may return the explanation as `match_explanation`. `mergeWithDisplay()` normalises this: `record.why = match.why || match.match_explanation || ''`
 
 ---
 
-## Match Object — Full Schema
+## Agent 1 Output Schema (per school in `ranked_schools`)
 
-```json
-{
-  "school_name": "string",
-  "abbr": "string | null",
-  "department": "string",
-  "location": "string",
-  "region": "string",
-  "campus_setting": "string",
+Agent 1 returns `ranked_schools`. The Response Assembler renames this to `matches` and enriches with Agent 2 output. Each school object from Agent 1 contains:
 
-  "overall_score": "integer (0–100)",
-  "matching_specialties": ["string"],
-  "score_breakdown": {
-    "research_fit": "integer (0–100)",
-    "admissions_feasibility": "integer (0–100)",
-    "program_activity": "integer (0–100)",
-    "location_match": "integer (0–100)",
-    "degree_structure_fit": "integer (0–100)"
-  },
+| Field | Type | Notes |
+|-------|------|-------|
+| `school_name` | string | |
+| `acceptance_rate_decimal` | float or null | Raw decimal from `gss_scoring_v2.json` |
+| `phd_granted_2024` | integer or null | |
+| `first_year_enrollment_fall2024` | integer or null | |
+| `offers_phd` | boolean | |
+| `offers_masters` | boolean | |
+| `specialties` | string[] | All specialties for the school |
+| `overall_score` | integer 0–100 | |
+| `matching_specialties` | string[] | Subset that matched student interests |
+| `score_breakdown` | object | 5 dimension scores |
+| `data_flags.missing_acceptance_rate` | boolean | |
+| `data_flags.missing_enrollment_data` | boolean | |
 
-  "why": "string",
-
-  "acceptance_rate": "string",
-  "phd_granted_2024": "integer | null",
-  "application_deadline": "string",
-  "faculty_count": "integer | null",
-
-  "gss_url": "string",
-  "grad_url": "string",
-  "dept_url": "string | null",
-  "faculty_url": "string | null",
-  "funding_url": "string | null"
-}
-```
+Display fields (`department`, `campus_setting`, `acceptance_rate` string, `application_deadline`, URLs) are **not** in Agent 1 output — they come from `gss_display_v2.json` via the frontend merge layer.
 
 ---
 
-## Field-by-Field Guide
+## Scoring Weights (Agent 1 v1.2 — fixed)
 
-### Identification
+| Dimension | Weight | Scoring Input (`gss_scoring_v2.json`) | Status |
+|-----------|--------|---------------------------------------|--------|
+| Research Fit | 35% | `specialties`, `specialty_details` | ✅ Dynamic |
+| Admissions Feasibility | 20% | `acceptance_rate_decimal` | ✅ Dynamic |
+| Program Activity | 15% | `phd_granted_2024`, `first_year_enrollment_fall2024` | ✅ Dynamic |
+| Location Match | 15% | `region`, `city`, `state` vs `intake-location-flexibility` | ✅ Dynamic as of v1.2 |
+| Degree Structure Fit | 15% | `offers_phd`, `offers_masters` | ✅ Dynamic |
 
-| Field | Source | Notes |
-|-------|--------|-------|
-| `school_name` | KB frontmatter: `school_name` | Full legal name. e.g. `"University of Illinois Urbana-Champaign"` |
-| `abbr` | KB frontmatter or known convention | Common abbreviation if one exists. `"UIUC"`, `"MIT"`, `"UCSB"`. `null` if none. |
-| `department` | KB header block: `Department:` | Typically `"Physics"` for this dataset |
-| `location` | KB frontmatter: `city` + `state` | Format: `"Cambridge, MA"` |
-| `region` | KB frontmatter: `region` | One of: `Northeast`, `Mid-Atlantic`, `Southeast`, `Midwest`, `Southwest`, `Mountain West`, `West Coast`, `Pacific Northwest` |
-| `campus_setting` | KB frontmatter: `campus_setting` | One of: `Urban`, `Suburban`, `College Town`, `Rural` |
-
----
-
-### Scores (AI-Generated)
-
-| Field | Source | Notes |
-|-------|--------|-------|
-| `overall_score` | Agent 1 computed | Weighted composite: Research Fit 35%, Admissions 20%, Program Activity 15%, Location 15%, Degree Fit 15% |
-| `matching_specialties` | Agent 1 computed | Intersection of student's `intake-research-interests` and KB `specialties` array. Return only matched values. |
-| `score_breakdown.research_fit` | Agent 1 computed | 0–100. Based on specialty overlap + approach bonus |
-| `score_breakdown.admissions_feasibility` | Agent 1 computed | 0–100. Higher = more accessible. Derived from `acceptance_rate` in KB |
-| `score_breakdown.program_activity` | Agent 1 computed | 0–100. Based on `phd_granted_2024`, `faculty_count_research`, `total_enrollment_2024` |
-| `score_breakdown.location_match` | Agent 1 computed | 0–100. Prototype v0.1: flat 85 for all. Future: driven by `intake-location-flexibility` |
-| `score_breakdown.degree_structure_fit` | Agent 1 computed | 0–100. Based on `offers_phd` / `offers_masters` vs student's `intake-degree-goal` |
-
----
-
-### AI Explanation
-
-| Field | Source | Notes |
-|-------|--------|-------|
-| `why` | Agent 2 generated | 2–3 sentence explanation of why this program matches this specific student. Must reference student's research interests and career goal by name. Must be grounded in KB data — do not invent department descriptions. For directory-only schools (no About text in KB), rely on structured fields only. |
-
-**Agent 2 tone:** Follow GSS brand voice — neutral, authoritative, data-grounded. No hype, no superlatives without data, no exclamation points. See `BRAND VOICE SNIPPET — GradSchoolShopper.md`.
-
----
-
-### Program Facts (KB Source — Do Not Fabricate)
-
-| Field | KB Source | If Missing |
-|-------|-----------|------------|
-| `acceptance_rate` | KB frontmatter: `acceptance_rate` (stored as decimal e.g. `0.4`). Convert to `"40%"` string for display. | `"Not listed"` |
-| `phd_granted_2024` | KB frontmatter: `phd_granted_2024` | `null` |
-| `application_deadline` | KB frontmatter: `application_deadline` | `"See program website"` |
-| `faculty_count` | KB frontmatter: `faculty_count_research` (prefer) or `faculty_count_total` | `null` |
-
----
-
-### Links (KB Source — Verify Before Including)
-
-| Field | KB Source | Fallback |
-|-------|-----------|---------|
-| `gss_url` | KB **Key Links** section: `[GSS Profile](url)` | Construct from slug pattern: `https://gradschoolshopper.com/browse/[school-slug].html`. Verify the URL does not 404 before including. |
-| `grad_url` | KB **Key Links** section: `[Graduate Studies Overview](url)` or `[Application Process](url)` | Use department website as fallback. Never omit — the results UI uses this as a primary CTA ("Visit Admissions"). |
-| `dept_url` | KB header block: `Department Website:` | `null` if not in KB |
-| `faculty_url` | KB **Key Links** section: `[Faculty Directory](url)` | `null` if not in KB |
-| `funding_url` | KB **Key Links** section: `[Financial Assistance](url)` | `null` if not in KB |
-
----
-
-## How the Results Screen Uses Each Field
-
-| Field | Used In |
-|-------|---------|
-| `school_name` + `abbr` | Card heading: `"University of Illinois Urbana-Champaign (UIUC)"` |
-| `location` + `campus_setting` + `region` | Card subtitle: `"Urbana, IL · College Town · Midwest"` |
-| `overall_score` | Stat pill: `"Match Score 88/100"` |
-| `score_breakdown.research_fit` | Stat pill: qualitative label (Exceptional / Very Strong / Strong...) |
-| `acceptance_rate` | Stat pill: `"Acceptance 10%"` |
-| `matching_specialties` | Research Strengths chips on card |
-| `why` | "Why This Matches You" — collapsed teaser (2 lines) and full text on expand |
-| `score_breakdown` (all 5) | Expanded card: horizontal score breakdown bars with qualitative labels |
-| `faculty_count` + `faculty_url` | Expanded: "This program has N faculty members. View the faculty directory." |
-| `funding_url` | Expanded: "View the program's funding and financial support page." |
-| `application_deadline` | Card footer: `"Deadline: Dec 15"` |
-| `phd_granted_2024` | Card footer: `"PhDs/yr: 24"` |
-| `grad_url` | Expanded card primary CTA: `"Visit [School] Admissions →"` |
-| `gss_url` | Expanded card secondary CTA: `"View on GradSchoolShopper →"` |
-| `why` + all fields | Summary & Next Steps section (bottom of results page) — generated by front-end JS from full results JSON |
-
----
-
-## Handling Missing KB Data
-
-The KB has two tiers of coverage (see `University KB/_KB_METADATA.md`):
-
-| KB Coverage Tier | Schools | What's Available |
-|------------------|---------|------------------|
-| **Full profile** | 41 schools | All factual fields + About text + Program Requirements |
-| **Directory-only** | 67 schools | Frontmatter fields only (specialties, deadline, acceptance rate, enrollment) |
-| **No URL** | 5 schools | Frontmatter only; no GSS URL |
-
-**For directory-only schools:**
-- `why` must be grounded in frontmatter fields only. Do not invent About text.
-- `faculty_url`, `funding_url`, `dept_url` will typically be `null`
-- `grad_url` may not be in KB — construct from known institutional patterns or omit if uncertain
-
-**Placeholder text for missing links (shown in results UI):**
-- Faculty: *"Faculty listings not yet available. View the department website for current faculty."*
-- Funding: *"Funding information not yet available. See the program page for stipend and fellowship details."*
-
----
-
-## Scoring Weights Reference (Agent 1 v0.1)
-
-| Dimension | Weight | Key KB Fields Used |
-|-----------|--------|-------------------|
-| Research Fit | 35% | `specialties`, student's `intake-research-interests` + `intake-research-approach` |
-| Admissions Feasibility | 20% | `acceptance_rate` |
-| Program Activity | 15% | `phd_granted_2024`, `faculty_count_research`, `total_enrollment_2024` |
-| Location Match | 15% | Prototype: flat 85. Future: `city`, `state`, `region` vs `intake-location-flexibility` |
-| Degree Structure Fit | 15% | `offers_phd`, `offers_masters` vs `intake-degree-goal` |
+**Note:** `preferences-weights` from the intake form are passed through in the payload but **explicitly ignored by Agent 1 v1.2**. Fixed weights apply to all students.
 
 ---
 
 ## Qualitative Label Mapping (Frontend Display)
 
-The frontend converts raw scores to qualitative labels. The engine returns raw integers (0–100) and the frontend displays these labels:
+### Research Fit, Program Activity, Location Match, Degree Fit
 
-**Research Fit, Program Activity, Location Match, Degree Fit:**
 | Score | Label |
 |-------|-------|
 | 90–100 | Exceptional |
@@ -201,7 +216,8 @@ The frontend converts raw scores to qualitative labels. The engine returns raw i
 | 60–69 | Good |
 | < 60 | Developing |
 
-**Admissions Feasibility (higher = more accessible):**
+### Admissions Feasibility (higher = more accessible)
+
 | Score | Label |
 |-------|-------|
 | 80+ | Accessible |
@@ -213,7 +229,7 @@ The frontend converts raw scores to qualitative labels. The engine returns raw i
 
 ## Selectivity Badge (Frontend Display)
 
-The frontend derives a selectivity badge from `acceptance_rate` (not from a separate field):
+Derived from `acceptance_rate` string at render time. Not a field from Cassidy.
 
 | Acceptance Rate | Badge |
 |-----------------|-------|
@@ -221,18 +237,26 @@ The frontend derives a selectivity badge from `acceptance_rate` (not from a sepa
 | 8–14% | Selective |
 | 15–21% | Moderately Selective |
 | 22%+ | Accessible |
+| null / not listed | Not Listed |
+
+---
+
+## KB Coverage Tiers
+
+| Tier | Count | What's Available |
+|------|-------|-----------------|
+| Full profile | 41 schools | All frontmatter + About text + Program Requirements + Faculty table + Funding + International Students + Key Links |
+| Directory-only | 67 schools | Frontmatter fields only — no About text, no GRE data |
+| No URL | 5 schools | Frontmatter only; no GSS URL |
+
+For directory-only schools: `why` must rely on structured frontmatter fields only — do not invent department descriptions. `faculty_url`, `funding_url`, `dept_url` will typically be `null`.
+
+**Placeholder text in results UI:**
+- Faculty (null): *"Faculty listings not yet available. View the department website for current faculty."*
+- Funding (null): *"Funding information not yet available. See the program page for stipend and fellowship details."*
 
 ---
 
 ## Summary & Next Steps (Frontend-Generated)
 
-The "Summary & Next Steps" section at the bottom of the results page is generated entirely by front-end JavaScript from the full `matches` array. The engine does not need to return a separate summary. The JS function:
-
-1. Identifies the top match by `overall_score`
-2. Identifies the match with highest `score_breakdown.research_fit`
-3. Finds the earliest `application_deadline` (accounting for academic year cycle: Dec before Jan)
-4. Counts programs with shared deadlines
-5. Identifies the most and least selective programs by `acceptance_rate`
-6. Generates a structured paragraph + bulleted next steps in the GSS brand voice (neutral, direct, data-grounded)
-
-No AI generation required for this section.
+The "Summary & Next Steps" section is generated entirely by `generateSummary()` in the results screen JS. The engine does not return this — it is synthesised from the full merged `matches` array using the GSS brand voice (neutral, direct, data-grounded, no hype). No AI generation required.
