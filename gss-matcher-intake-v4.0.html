@@ -444,6 +444,7 @@
             </div>
           </div>
         </div>
+        <p id="loc-helper" class="hidden font-body text-[11.5px] text-slate-muted mt-2.5">Your location preference boosts programs in that region, but results are ranked nationally so you don't miss a strong fit elsewhere.</p>
         <input type="hidden" id="h-loc" />
       </div>
 
@@ -767,11 +768,14 @@
     if (val === 'Specific region') {
       document.getElementById('region-picker').classList.remove('hidden');
       document.getElementById('h-loc').value = 'Specific region';
+      document.getElementById('loc-helper').classList.remove('hidden');
     } else if (val === 'Must stay local') {
       document.getElementById('local-fields').classList.remove('hidden');
       document.getElementById('h-loc').value = 'Must stay local';
+      document.getElementById('loc-helper').classList.remove('hidden');
     } else {
       document.getElementById('h-loc').value = val;
+      document.getElementById('loc-helper').classList.add('hidden');
     }
     clearErr('h-loc');
   }
