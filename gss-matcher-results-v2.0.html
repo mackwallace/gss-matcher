@@ -368,11 +368,17 @@
   /* ── Items 2–3: merge Cassidy output with display lookup ───── */
   /* In production call: results.matches.map(mergeWithDisplay)    */
   /* Also normalises match_explanation → why (field rename).      */
-  /* Name normalization: gss_scoring_v2.json has 2 names that differ from
-     gss_display_v2.json keys — one typo, one ambiguous campus name.       */
+  /* Name normalization: AI/demo output sometimes uses natural-language school
+     names that don't match gss_display_v2.json's exact punctuation/campus-suffix
+     convention. Every unmapped mismatch silently drops ALL display-sourced fields
+     for that school (location, acceptance rate, links) — see the pass-through
+     fields added to normalizeMatch() below for the fallback-of-last-resort.     */
   var DISPLAY_NAME_OVERRIDE = {
-    'Vanderbilt Univeristy':   'Vanderbilt University',
-    'University of Wisconsin': 'University of Wisconsin–Madison',
+    'Vanderbilt Univeristy':                   'Vanderbilt University',
+    'University of Wisconsin':                 'University of Wisconsin–Madison',
+    'University of Illinois Urbana-Champaign': 'University of Illinois, Urbana-Champaign',
+    'University of Michigan':                  'University of Michigan, Ann Arbor',
+    'University of Colorado Boulder':          'University of Colorado, Boulder',
   };
 
   /* Normalise Title Case field names from Response Assembler → snake_case */
@@ -389,6 +395,23 @@
       acceptance_rate_decimal:        m['Acceptance Rate Decimal']         || m.acceptance_rate_decimal         || null,
       first_year_enrollment_fall2024: m['First Year Enrollment Fall 2024'] || m.first_year_enrollment_fall2024 || null,
       matching_specialties:           m['Matching Specialties']            || m.matching_specialties            || [],
+      /* Fallback-of-last-resort: if this school's name doesn't match a
+         gss_display_v2.json key (typo, missing comma, or genuinely not
+         in the tracked 113), these let mergeWithDisplay() fall back to
+         whatever the match itself carries instead of going straight to
+         null. Previously dropped here entirely — see bug report 2026-09-18. */
+      location:                       m['Location']                        || m.location             || null,
+      region:                         m['Region']                          || m.region               || null,
+      campus_setting:                 m['Campus Setting']                  || m.campus_setting       || null,
+      abbr:                           m['Abbreviation']                    || m.abbr                 || null,
+      acceptance_rate:                m['Acceptance Rate']                 || m.acceptance_rate      || null,
+      application_deadline:           m['Application Deadline']            || m.application_deadline || null,
+      faculty_count:                  m['Faculty Count']                   || m.faculty_count        || null,
+      gss_url:                        m['GSS URL']                         || m.gss_url              || null,
+      grad_url:                       m['Grad URL']                        || m.grad_url             || null,
+      dept_url:                       m['Dept URL']                        || m.dept_url             || null,
+      faculty_url:                    m['Faculty URL']                     || m.faculty_url          || null,
+      funding_url:                    m['Funding URL']                     || m.funding_url          || null,
       score_breakdown: {
         research_fit:           (sb['Research Fit']            || sb.research_fit            || 0),
         admissions_feasibility: (sb['Admissions Feasibility']  || sb.admissions_feasibility  || 0),
